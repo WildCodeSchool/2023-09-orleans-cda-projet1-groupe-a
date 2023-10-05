@@ -7,7 +7,7 @@ function Loader() {
   useEffect(() => {
     setTimeout(() => {
       setIsVisible(false);
-    }, 3000 * 2);
+    }, 1000 * 5);
   }, []);
 
   return (
