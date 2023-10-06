@@ -74,7 +74,7 @@ export default function Gallery() {
                 {artwork.image_id ? (
                   <div className="mb-8">
                     <img
-                      className={`${imgStyle} shadow-xl object-cover mx-auto `}
+                      className={`${imgStyle} grayscale hover:grayscale-0 hover:scale-110 transition duration-500 cursor-pointer shadow-xl object-cover mx-auto `}
                       src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                       alt={artwork.title}
                     />
