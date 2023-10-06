@@ -11,6 +11,12 @@ export default {
         light: 'var(--light)',
         dark: 'var(--dark)',
       },
+      boxShadow: {
+        md: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      fontFamily: {
+        julius: ['Julius Sans One', 'sans'],
+      },
       keyframes: {
         lines: {
           '100%': {
