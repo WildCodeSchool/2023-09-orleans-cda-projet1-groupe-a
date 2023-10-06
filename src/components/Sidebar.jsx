@@ -18,7 +18,7 @@ const Sidebar = () => {
     >
       <div className="relative ">
         <div class="absolute right-3 top-3">
-          <button onClick={toggleSidebar} className="text-light">
+          <button onClick={toggleSidebar} className="text-[--light]">
             <X />
           </button>
         </div>
