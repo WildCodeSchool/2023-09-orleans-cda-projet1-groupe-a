@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <>
-      <Loader />
+      {/*   <Loader /> */}
 
       {homeVisible && (
         <div className="bg-[url('/BG.avif')] h-screen transform-3d backface-visibility animate-back">

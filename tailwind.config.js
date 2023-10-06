@@ -7,6 +7,10 @@ export default {
         lines: 'lines 4s infinite 0s',
         back: 'back 100s linear infinite',
       },
+      colors: {
+        light: 'var(--light)',
+        dark: 'var(--dark)',
+      },
       keyframes: {
         lines: {
           '100%': {
