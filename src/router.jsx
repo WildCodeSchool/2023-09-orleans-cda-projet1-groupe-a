@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
-import Galerie from './pages/Galerie';
+import Gallery from './pages/Gallery';
 const router = createBrowserRouter([
   {
     path: '',
     element: <Home />,
   },
   {
-    path: '/galerie',
-    element: <Galerie />,
+    path: '/gallery',
+    element: <Gallery />,
   },
 ]);
 

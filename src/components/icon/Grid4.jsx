@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Grid4() {
   return (
     <svg

@@ -1,13 +1,13 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
-export default function Galerie() {
+const page = 1;
+const limit = 20;
+
+export default function Gallery() {
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('Picasso');
-  const page = 1;
-  const limit = 20;
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
   const [imgStyle, setImgStyle] = useState('w-80 h-80');
   const handleGridChange = (newStyle) => {
@@ -83,9 +83,7 @@ export default function Galerie() {
                     </h2>
                     <h2 className="text-center mt-2">{artwork.title}</h2>
                   </div>
-                ) : (
-                  't es null'
-                )}
+                ) : null}
               </li>
             ))}
           </div>
