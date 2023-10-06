@@ -5,9 +5,10 @@ function Loader() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setIsVisible(false);
     }, 1000 * 5);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (

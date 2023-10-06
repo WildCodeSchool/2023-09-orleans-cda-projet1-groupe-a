@@ -5,9 +5,10 @@ function Home() {
   const [homeVisible, setHomeVisible] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setHomeVisible(true);
     }, 1000 * 5);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
