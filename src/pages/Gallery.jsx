@@ -9,7 +9,7 @@ export default function Gallery() {
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('Picasso');
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
-  const [imgStyle, setImgStyle] = useState('w-80 h-80');
+  const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
   };
@@ -22,13 +22,16 @@ export default function Gallery() {
     const go = async () => {
       const res = await fetch(
         `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,title,artist_display,date_display,main_reference_number,image_id&page=${page}&limit=${limit}`,
+        {
+          signal: controller.signal,
+        },
       );
       const data = await res.json();
       setArt(data.data);
     };
     go();
     return () => {
-      controller.abord;
+      controller.abort();
     };
   }, [search]);
 
@@ -43,7 +46,7 @@ export default function Gallery() {
             className="ms-3"
             onClick={() => {
               handleGridChange('grid-cols-2');
-              handleImgChange('w-4/5 h-[30rem]');
+              handleImgChange('w-4/5 h-[40rem]');
             }}
           >
             <Grid2 />
@@ -52,6 +55,7 @@ export default function Gallery() {
             className="ms-3"
             onClick={() => {
               handleGridChange('grid-cols-3');
+              handleImgChange('w-80 h-[28rem]');
             }}
           >
             <Grid3 />
@@ -60,7 +64,7 @@ export default function Gallery() {
             className="ms-3"
             onClick={() => {
               handleGridChange('grid-cols-4');
-              handleImgChange('w-40 h-36');
+              handleImgChange('w-80 h-[25rem]');
             }}
           >
             <Grid4 />
