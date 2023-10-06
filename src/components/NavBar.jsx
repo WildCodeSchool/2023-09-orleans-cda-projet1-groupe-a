@@ -4,7 +4,7 @@ import Logo from './icon/Logo';
 
 export default function NavBar() {
   return (
-    <nav className="bg-gradient-to-b from-[--dark] via-slate-800 to-slate-500 flex items-center px-8 py-12 justify-between h-44 ">
+    <nav className="bg-gradient-to-b from-slate-900 opacity-95 via-slate-800-opacity-80 to-slate-500-opacity-30 flex items-center px-8 py-12 justify-between h-44 ">
       {/*  menu burger */}
       <div className="text-[--light] w-1/3">
         <Menu className="cursor-pointer hover:scale-125 transition-all duration-500 ease-in-out" />
