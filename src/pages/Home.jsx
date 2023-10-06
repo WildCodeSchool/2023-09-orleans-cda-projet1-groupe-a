@@ -1,10 +1,11 @@
 import Loader from '../components/Loader';
+import Sidebar from '../components/Sidebar';
 
 function Home() {
   return (
     <>
       <Loader />
-      <p>Hello</p>
+      <Sidebar />
     </>
   );
 }
