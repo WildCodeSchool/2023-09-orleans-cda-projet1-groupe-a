@@ -35,23 +35,29 @@ export default function Galerie() {
   return (
     <>
       <div className="container mx-auto p-4">
-        
-        <h1 className='text-center text-4xl mb-9 drop-shadow-md font-normal '>Gallery</h1>
-            <div className="mb-4 text-end">
+        <h1 className="text-center text-4xl mb-9 drop-shadow-md font-normal ">
+          Gallery
+        </h1>
+        <div className="mb-4 text-end">
           <button
-            className='ms-3'
-            onClick={() => {handleGridChange('grid-cols-2'); ; handleImgChange("w-4/5 h-[30rem]")}}
+            className="ms-3"
+            onClick={() => {
+              handleGridChange('grid-cols-2');
+              handleImgChange('w-4/5 h-[30rem]');
+            }}
           >
-                <Grid2 />
-        </button>
+            <Grid2 />
+          </button>
           <button
-            className='ms-3'
-            onClick={() => {handleGridChange('grid-cols-3')}}
+            className="ms-3"
+            onClick={() => {
+              handleGridChange('grid-cols-3');
+            }}
           >
-           <Grid3 />
-        </button>
+            <Grid3 />
+          </button>
           <button
-            className='ms-3'
+            className="ms-3"
             onClick={() => {
               handleGridChange('grid-cols-4');
               handleImgChange('w-40 h-36');
@@ -64,16 +70,18 @@ export default function Galerie() {
         <ul>
           <div className={`grid ${gridStyle} gap-10`}>
             {art.map((artwork) => (
-              <li key={artwork.id}> 
+              <li key={artwork.id}>
                 {artwork.image_id ? (
-                  <div className='mb-8'>
+                  <div className="mb-8">
                     <img
                       className={`${imgStyle} shadow-xl object-cover mx-auto `}
                       src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                       alt={artwork.title}
                     />
-                    <h2 className='text-center mt-8'>{artwork.artist_display}</h2>
-                    <h2 className='text-center mt-2'>{artwork.title}</h2>
+                    <h2 className="text-center mt-8">
+                      {artwork.artist_display}
+                    </h2>
+                    <h2 className="text-center mt-2">{artwork.title}</h2>
                   </div>
                 ) : (
                   't es null'

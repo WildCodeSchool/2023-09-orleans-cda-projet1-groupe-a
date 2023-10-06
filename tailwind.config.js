@@ -7,10 +7,10 @@ export default {
         lines: 'lines 4s infinite 0s',
       },
       boxShadow: {
-        'md': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        md: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       },
       fontFamily: {
-        'julius': ['Julius Sans One', 'sans'],
+        julius: ['Julius Sans One', 'sans'],
       },
       keyframes: {
         lines: {
