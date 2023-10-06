@@ -18,13 +18,13 @@ const Sidebar = () => {
     >
       <div className="relative ">
         <div class="absolute right-3 top-3">
-          <button onClick={toggleSidebar} className="text-[--light]">
+          <button onClick={toggleSidebar} className="text-light">
             <X />
           </button>
         </div>
       </div>
 
-      <div className="flex flex-col pt-28 text-[--light]">
+      <div className="flex flex-col pt-28 text-light]">
         <NavLink to="#" className="p-3 text-lg hover:opacity-75">
           HOME
         </NavLink>
