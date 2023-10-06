@@ -5,9 +5,10 @@ function Loader() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setIsVisible(false);
     }, 1000 * 5);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
@@ -18,6 +19,7 @@ function Loader() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 3, ease: 'easeInOut' }}
           >
             <div className="bg-[#f4f4f0]">
               <svg
