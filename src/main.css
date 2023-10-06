@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light: #f4f4f0;
+    --dark: #0d0c0c;
+  }
+}
