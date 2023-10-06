@@ -7,10 +7,12 @@
   :root {
     --light: #f4f4f0;
     --dark: #0d0c0c;
+    font-family: 'Ysabeau Infant', sans-serif;
   }
 }
 
 @layer utilities {
+  /* Logo */
   .stroke-miterlimit {
     stroke-miterlimit: 10;
   }
@@ -21,5 +23,14 @@
 
   .stroke-dasharray {
     stroke-dasharray: 1500;
+  }
+
+  /* Background-image home page*/
+  .transform-3d {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .backface-visibility {
+    backface-visibility: hidden;
   }
 }
