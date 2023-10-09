@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
+import NotFound from './pages/NotFound';
+
 const router = createBrowserRouter([
   {
     path: '',
@@ -9,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: '/gallery',
     element: <Gallery />,
+  },
+  {
+    path: '/404',
+    element: <NotFound />,
   },
 ]);
 
