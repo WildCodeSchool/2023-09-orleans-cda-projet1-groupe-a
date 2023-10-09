@@ -7,6 +7,16 @@ export default {
         lines: 'lines 4s infinite 0s',
         back: 'back 100s linear infinite',
       },
+      colors: {
+        light: 'var(--light)',
+        dark: 'var(--dark)',
+      },
+      boxShadow: {
+        md: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      fontFamily: {
+        julius: ['Julius Sans One', 'sans'],
+      },
       keyframes: {
         lines: {
           '100%': {
