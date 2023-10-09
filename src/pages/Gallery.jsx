@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
+import NavBar from '../components/NavBar';
 const page = 1;
 const limit = 20;
 
@@ -38,7 +39,7 @@ export default function Gallery() {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-center text-4xl mb-9 drop-shadow-md font-normal ">
+        <h1 className="text-center text-4xl mb-9 drop-shadow-md font-normal mt-48">
           Gallery
         </h1>
         <div className="mb-4 text-end">
