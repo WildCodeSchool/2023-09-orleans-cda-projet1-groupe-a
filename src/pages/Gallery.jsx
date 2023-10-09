@@ -14,6 +14,9 @@ export default function Gallery() {
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
   };
+  const handleFilterChange = (filterValue) => {
+    setSearch(filterValue);
+  };
 
   const handleImgChange = (img) => {
     setImgStyle(img);
@@ -39,7 +42,7 @@ export default function Gallery() {
   return (
     <>
       <div className="flex">
-        <FilterBar />
+        <FilterBar onFilterChange={handleFilterChange} />
         <div className="container mx-auto p-4">
           <h1 className="text-center text-4xl mb-9 drop-shadow-md font-normal ">
             Gallery
