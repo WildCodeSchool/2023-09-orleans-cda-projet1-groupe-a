@@ -11,7 +11,7 @@ const Path = (props) => (
 );
 
 const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle}>
+  <button onClick={toggle} className="transition duration-200 hover:scale-110">
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{

@@ -29,11 +29,11 @@ const sidebar = {
 
 export default function NavBar() {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [navVisible, setNavisible] = useState(false);
+  const [navVisible, setNavVisible] = useState(false);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setNavisible(true);
+      setNavVisible(true);
     }, 1000 * 5);
     return () => clearTimeout(timeoutId);
   }, []);
@@ -48,18 +48,17 @@ export default function NavBar() {
       {navVisible && (
         <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-10 flex w-full items-center justify-between bg-gradient-to-b from-dark  px-7 py-12  opacity-95">
           {/*  menu burger */}
-          <div className="w-1/3 ">
-            <motion.nav
-              initial={false}
-              animate={isOpen ? 'open' : 'closed'}
-              custom="100%"
-            >
-              <motion.div className={`${effect}`} variants={sidebar} />
-              <SideBar />
-              <MenuToggle toggle={() => toggleOpen()} />
-            </motion.nav>
-          </div>
-          <div className="group  relative flex cursor-pointer justify-center">
+          <motion.div
+            initial={false}
+            animate={isOpen ? 'open' : 'closed'}
+            custom="100%"
+            className="w-1/3"
+          >
+            <motion.div className={effect} variants={sidebar} />
+            <SideBar />
+            <MenuToggle toggle={() => toggleOpen()} />
+          </motion.div>
+          <div className="group relative flex cursor-pointer justify-center">
             {/*  logo */}
             <Link to={'/'}>
               <Logo />
@@ -69,7 +68,7 @@ export default function NavBar() {
           <div className="group relative flex w-1/3 justify-end">
             <input
               type="text"
-              className=" h-10 w-10 rounded-full p-4 opacity-0 shadow outline-none transition-all duration-500 ease-in-out  group-hover:w-28  group-hover:opacity-100  group-hover:sm:w-52"
+              className="h-10 w-10 rounded-full p-4 opacity-0 shadow outline-none transition-all duration-500 ease-in-out group-hover:w-28 group-hover:opacity-100 group-hover:sm:w-52"
             />
             <button
               type="submit"
