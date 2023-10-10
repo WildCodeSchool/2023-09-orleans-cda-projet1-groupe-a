@@ -23,10 +23,10 @@ const MenuItem = ({ text }) => {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="flex items-center cursor-pointer mb-5"
+      className="mb-5 flex cursor-pointer items-center"
     >
       <div>
-        <span className="text-light p-7 text-lg">{text}</span>
+        <span className="p-7 text-lg text-light">{text}</span>
       </div>
     </motion.li>
   );

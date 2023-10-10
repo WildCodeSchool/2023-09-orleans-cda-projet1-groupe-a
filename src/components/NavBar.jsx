@@ -46,7 +46,7 @@ export default function NavBar() {
     <>
       <Loader />
       {navVisible && (
-        <nav className="bg-gradient-to-b from-dark opacity-95 via-slate-800-opacity-80 to-slate-500-opacity-30 flex items-center px-7 py-12 justify-between  absolute z-10  w-full">
+        <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-10 flex w-full items-center justify-between bg-gradient-to-b from-dark  px-7 py-12  opacity-95">
           {/*  menu burger */}
           <div className="w-1/3 ">
             <motion.nav
@@ -59,21 +59,21 @@ export default function NavBar() {
               <MenuToggle toggle={() => toggleOpen()} />
             </motion.nav>
           </div>
-          <div className="cursor-pointer  flex justify-center group relative">
+          <div className="group  relative flex cursor-pointer justify-center">
             {/*  logo */}
             <Link to={'/'}>
               <Logo />
             </Link>
           </div>
           {/*  input */}
-          <div className="relative w-1/3 flex justify-end group">
+          <div className="group relative flex w-1/3 justify-end">
             <input
               type="text"
-              className=" w-10 h-10 opacity-0 shadow p-4 rounded-full outline-none transition-all duration-500 ease-in-out  group-hover:w-28  group-hover:sm:w-52  group-hover:opacity-100"
+              className=" h-10 w-10 rounded-full p-4 opacity-0 shadow outline-none transition-all duration-500 ease-in-out  group-hover:w-28  group-hover:opacity-100  group-hover:sm:w-52"
             />
             <button
               type="submit"
-              className="w-10 absolute h-full flex justify-center items-center"
+              className="absolute flex h-full w-10 items-center justify-center"
             >
               <Search className="text-light" />
             </button>
