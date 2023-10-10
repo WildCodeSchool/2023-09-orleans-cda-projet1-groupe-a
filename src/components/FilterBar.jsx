@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
 
 const FilterBar = ({ onFilterChange }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedValues, setSelectedValues] = useState('Picasso');
+  const [openMenus, setOpenMenus] = useState([]);
+  const [selectedValues, setSelectedValues] = useState([]);
 
   const handleCheckboxChange = (event) => {
     const { value } = event.target;
-    setSelectedValues(value);
-    onFilterChange(value);
+    setSelectedValues((prevSelectedValues) => {
+      if (prevSelectedValues.includes(value)) {
+        return prevSelectedValues.filter((item) => item !== value);
+      } else {
+        return [...prevSelectedValues, value];
+      }
+    });
+    onFilterChange(selectedValues);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleToggleMenu = (menu) => {
+    setOpenMenus((prevOpenMenus) => {
+      if (prevOpenMenus.includes(menu)) {
+        return prevOpenMenus.filter((item) => item !== menu);
+      } else {
+        return [...prevOpenMenus, menu];
+      }
+    });
   };
+
+  const isMenuOpen = (menu) => openMenus.includes(menu);
 
   const artistOptions = [
     'Pablo Picasso',
@@ -54,10 +68,13 @@ const FilterBar = ({ onFilterChange }) => {
       <h2 className="text-xl mb-4">FILTERS</h2>
 
       <div className="mb-4">
-        <label onClick={toggleMenu} className="block mb-1 font-bold mt-8">
+        <label
+          onClick={() => handleToggleMenu('artists')}
+          className="block mb-1 font-bold mt-8"
+        >
           ARTISTS
         </label>
-        {isMenuOpen && (
+        {isMenuOpen('artists') && (
           <div className="menu">
             {artistOptions.map((option) => (
               <div
@@ -79,10 +96,13 @@ const FilterBar = ({ onFilterChange }) => {
       </div>
 
       <div className="mb-4">
-        <label onClick={toggleMenu} className="block mb-1 font-bold mt-8">
+        <label
+          onClick={() => handleToggleMenu('period')}
+          className="block mb-1 font-bold mt-8"
+        >
           PERIOD
         </label>
-        {isMenuOpen && (
+        {isMenuOpen('period') && (
           <div className="menu">
             {periodOptions.map((option) => (
               <div
@@ -104,10 +124,13 @@ const FilterBar = ({ onFilterChange }) => {
       </div>
 
       <div className="mb-4">
-        <label onClick={toggleMenu} className="block mb-1 font-bold mt-8">
+        <label
+          onClick={() => handleToggleMenu('style')}
+          className="block mb-1 font-bold mt-8"
+        >
           STYLE
         </label>
-        {isMenuOpen && (
+        {isMenuOpen('style') && (
           <div className="menu">
             {styleOptions.map((option) => (
               <div
@@ -129,10 +152,13 @@ const FilterBar = ({ onFilterChange }) => {
       </div>
 
       <div className="mb-4">
-        <label onClick={toggleMenu} className="block mb-1 font-bold mt-8">
+        <label
+          onClick={() => handleToggleMenu('artworkType')}
+          className="block mb-1 font-bold mt-8"
+        >
           ARTWORK TYPE
         </label>
-        {isMenuOpen && (
+        {isMenuOpen('artworkType') && (
           <div className="menu">
             {artworkOptions.map((option) => (
               <div
