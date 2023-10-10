@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
+import { fetchArtworks } from '../api';
+import NavBar from '../components/NavBar';
 
 function Artist() {
+  const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const cards = [
-    { id: '1', image: '/public/1.jpeg', title: 'Titre 1' },
-    { id: '2', image: '/public/2.jpeg', title: 'Titre 2' },
-    { id: '3', image: '/public/3.jpeg', title: 'Titre 3' },
-    { id: '4', image: '/public/4.jpeg', title: 'Titre 4' },
-    { id: '5', image: '/public/5.jpeg', title: 'Titre 5' },
-    { id: '6', image: '/public/6.jpeg', title: 'Titre 6' },
-    { id: '7', image: '/public/7.jpeg', title: 'Titre 7' },
-  ];
+  const [search, setSearch] = useState('Karl Wirsum');
 
-  const title = cards[index].title;
+  useEffect(() => {
+    fetchArtworks(search, 20)
+      .then((data) => {
+        setArtworks(data);
+      })
+      .catch((error) => {
+        console.error(
+          "Une erreur s'est produite lors de la récupération des données :",
+          error,
+        );
+      });
+  }, [search]);
+
+  const artistName = artworks.length > 0 ? artworks[0].artist_display : '';
 
   const mod = (n, m) => {
     let result = n % m;
@@ -21,25 +29,31 @@ function Artist() {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setIndex((index + 1) % cards.length);
+      console.log(index);
+      setIndex((index + 1) % artworks.length);
     }, 3000);
     return () => clearTimeout(timeoutId);
-  }, [index]);
+  }, [index, artworks]);
+  console.log(artworks);
 
   return (
     <div>
-      <h1 className="text-center my-20 text-5xl font-medim drop-shadow-md">
-        {title}
-      </h1>
+      <NavBar />
+      <div>
+        <h1 className="text-center mt-5 text-5xl font-medim drop-shadow-md">
+          {artistName}
+        </h1>
+      </div>
+
       <div className="container w-full h-full">
         <div className="carousel flex items-center w-full h-full">
-          {cards.map((item, i) => {
-            const indexLeft = mod(index - 1, cards.length);
-            const indexRight = mod(index + 1, cards.length);
-            const indexLeft2 = mod(index + 1, cards.length);
-            const indexRight2 = mod(index - 1, cards.length);
-            const indexLeft3 = mod(index - 2, cards.length);
-            const indexRight3 = mod(index + 2, cards.length);
+          {artworks.map((artwork, i) => {
+            const indexLeft = mod(index - 1, artworks.length);
+            const indexRight = mod(index + 1, artworks.length);
+            const indexLeft2 = mod(index + 1, artworks.length);
+            const indexRight2 = mod(index - 1, artworks.length);
+            const indexLeft3 = mod(index - 2, artworks.length);
+            const indexRight3 = mod(index + 2, artworks.length);
 
             let className = '';
 
@@ -68,11 +82,11 @@ function Artist() {
             }
 
             return (
-              <div key={item.id} className="carousel-item">
+              <div key={artwork.id} className="carousel-item">
                 <img
-                  src={item.image}
-                  alt=""
-                  className={`${className} absolute top-0 bottom-0 right-0 left-0 m-auto w-[350px] h-[525px] object-cover opacity-0 duration-500 grayscale hover:grayscale-0`}
+                  src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                  alt={`${artwork.title}`}
+                  className={`${className} absolute top-1/4 bottom-0 right-0 left-0 m-auto w-[350px] h-[500px] object-cover opacity-0 duration-500`}
                 />
               </div>
             );
