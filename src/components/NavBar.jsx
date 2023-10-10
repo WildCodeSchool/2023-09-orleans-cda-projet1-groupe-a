@@ -29,7 +29,6 @@ const sidebar = {
 
 export default function NavBar() {
   const [isOpen, toggleOpen] = useCycle(false, true);
-
   const [navVisible, setNavisible] = useState(false);
 
   useEffect(() => {
@@ -56,7 +55,6 @@ export default function NavBar() {
               custom="100%"
             >
               <motion.div className={`${effect}`} variants={sidebar} />
-
               <SideBar />
               <MenuToggle toggle={() => toggleOpen()} />
             </motion.nav>

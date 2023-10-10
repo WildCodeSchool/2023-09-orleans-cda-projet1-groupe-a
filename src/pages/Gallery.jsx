@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
-import NavBar from '../components/NavBar';
+
 const page = 1;
 const limit = 20;
 
