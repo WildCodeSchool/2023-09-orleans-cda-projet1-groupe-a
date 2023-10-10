@@ -86,7 +86,7 @@ function Artist() {
                 <img
                   src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                   alt={`${artwork.title}`}
-                  className={`${className} absolute top-1/4 bottom-0 right-0 left-0 m-auto w-[350px] h-[500px] object-cover opacity-0 duration-500`}
+                  className={`${className} absolute top-1/4 bottom-0 right-0 left-0 m-auto w-[350px] h-[500px] object-cover opacity-0 duration-500 grayscale hover:grayscale-0`}
                 />
               </div>
             );
