@@ -40,7 +40,7 @@ function Artist() {
     <div>
       <NavBar />
       <div>
-        <h1 className="text-center mt-5 text-5xl font-medim drop-shadow-md">
+        <h1 className="text-center mt-8 text-4xl font-medim drop-shadow-md">
           {artistName}
         </h1>
       </div>
