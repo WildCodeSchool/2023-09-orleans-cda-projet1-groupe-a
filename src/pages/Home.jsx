@@ -1,4 +1,5 @@
 import Loader from '../components/Loader';
+import Sidebar from '../components/Sidebar';
 import { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 
@@ -15,6 +16,7 @@ function Home() {
   return (
     <>
       <Loader />
+      <Sidebar />
       {homeVisible && (
         <div className="bg-[url('/BG.avif')] h-screen transform-3d backface-visibility animate-back">
           <NavBar />
