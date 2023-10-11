@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
-
+import { motion, AnimatePresence } from 'framer-motion';
 const page = 1;
 const limit = 20;
 
@@ -73,25 +73,34 @@ export default function Gallery() {
         </div>
 
         <ul>
-          <div className={`grid ${gridStyle} gap-10`}>
-            {art.map((artwork) => (
-              <li key={artwork.id}>
-                {artwork.image_id ? (
-                  <div className="mb-8">
-                    <img
-                      className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
-                      src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                      alt={artwork.title}
-                    />
-                    <h2 className="mt-8 text-center">
-                      {artwork.artist_display}
-                    </h2>
-                    <h2 className="mt-2 text-center">{artwork.title}</h2>
-                  </div>
-                ) : null}
-              </li>
-            ))}
-          </div>
+          <motion.div layout className={`grid ${gridStyle} gap-10`}>
+            <AnimatePresence>
+              {art.map((artwork) => (
+                <li key={artwork.id}>
+                  {artwork.image_id ? (
+                    <motion.div
+                      animate={{ opacity: 1 }}
+                      initial={{ opacity: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      layout
+                      className="mb-8"
+                    >
+                      <img
+                        className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                        src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                        alt={artwork.title}
+                      />
+                      <h2 className="mt-8 text-center">
+                        {artwork.artist_display}
+                      </h2>
+                      <h2 className="mt-2 text-center">{artwork.title}</h2>
+                    </motion.div>
+                  ) : null}
+                </li>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </ul>
       </div>
     </>
