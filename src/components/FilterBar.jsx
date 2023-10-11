@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { X } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const FilterBar = ({ onFilterChange }) => {
   const [openMenus, setOpenMenus] = useState([]);
@@ -8,12 +11,17 @@ const FilterBar = ({ onFilterChange }) => {
     const { value } = event.target;
     setSelectedValues((prevSelectedValues) => {
       if (prevSelectedValues.includes(value)) {
-        return prevSelectedValues.filter((item) => item !== value);
+        const updatedValues = prevSelectedValues.filter(
+          (item) => item !== value,
+        );
+        onFilterChange(updatedValues);
+        return updatedValues;
       } else {
-        return [...prevSelectedValues, value];
+        const updatedValues = [...prevSelectedValues, value];
+        onFilterChange(updatedValues);
+        return updatedValues;
       }
     });
-    onFilterChange(selectedValues);
   };
 
   const handleToggleMenu = (menu) => {
@@ -29,59 +37,70 @@ const FilterBar = ({ onFilterChange }) => {
   const isMenuOpen = (menu) => openMenus.includes(menu);
 
   const artistOptions = [
-    'Pablo Picasso',
-    'Andy Warhol',
-    'Frida Kahlo',
-    'Utagawa Hiroshige',
-    'James McNeil Whistler',
-    'Paul Gauguin',
-    'Kerry James Marshall',
+    'PABLO PICASSO',
+    'ANDY WARHOL',
+    'FRIDA KAHLO',
+    'UTAGAWA HIROSHIGE',
+    'JAMES MCNEIL WHISTLER',
+    'PAUL GAUGUIN',
+    'KERRY JAMES MARSHALL',
   ];
+
   const periodOptions = [
-    'Ya pas longtemps',
-    'Ca commence à dater',
-    "A l'ancienne",
+    'YA PAS LONGTEMPS',
+    'CA COMMENCE À DATER',
+    "À L'ANCIENNE",
   ];
+
   const styleOptions = [
-    'Japanese',
-    '21st Century',
-    '19th century',
-    '20th Century',
-    'Chinese',
-    'Modernism',
-    'Arts of the Americas',
-    'Americas',
+    'JAPANESE',
+    '21ST CENTURY',
+    '19TH CENTURY',
+    '20TH CENTURY',
+    'CHINESE',
+    'MODERNISM',
+    'ARTS OF THE AMERICAS',
+    'AMERICAS',
   ];
+
   const artworkOptions = [
-    'Print',
-    'Photograph',
-    'Drawing and Watercolor',
-    'Textile',
-    'Painting',
-    'Architectural Drawing',
-    'Book',
-    'Vessel',
+    'PRINT',
+    'PHOTOGRAPH',
+    'DRAWING AND WATERCOLOR',
+    'TEXTILE',
+    'PAINTING',
+    'ARCHITECTURAL DRAWING',
+    'BOOK',
+    'VESSEL',
   ];
 
   return (
-    <div className="flex flex-col w-1/4 p-4 bg-light text-center">
-      <h2 className="text-xl mb-4">FILTERS</h2>
+    <div className="mr-12 flex w-1/4 flex-col p-4">
+      <h2 className="mb-4 text-2xl">FILTERS</h2>
 
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('artists')}
-          className="block mb-1 font-bold mt-8"
+          className="mb-3 mt-8 flex text-xl font-bold"
         >
           ARTISTS
+          {isMenuOpen('artists') ? (
+            <ChevronDown className="ml-4 self-end" />
+          ) : (
+            <ChevronRight className="ml-4 self-end" />
+          )}
         </label>
+
         {isMenuOpen('artists') && (
           <div className="menu">
             {artistOptions.map((option) => (
               <div
                 key={option}
-                className="flex items-center mb-2 justify-between px-12"
+                className="mb-2 flex items-center justify-between"
               >
-                <label htmlFor={option}>{option}</label>
+                <label htmlFor={option} className="whitespace-nowrap">
+                  {option}
+                </label>
                 <input
                   type="checkbox"
                   value={option}
@@ -98,18 +117,25 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('period')}
-          className="block mb-1 font-bold mt-8"
+          className="mb-3 mt-8 flex text-xl font-bold"
         >
           PERIOD
+          {isMenuOpen('period') ? (
+            <ChevronDown className="ml-4 self-end" />
+          ) : (
+            <ChevronRight className="ml-4 self-end" />
+          )}
         </label>
         {isMenuOpen('period') && (
           <div className="menu">
             {periodOptions.map((option) => (
               <div
                 key={option}
-                className="flex items-center mb-2 justify-between px-12"
+                className="mb-2 flex items-center justify-between"
               >
-                <label htmlFor={option}>{option}</label>
+                <label htmlFor={option} className="whitespace-nowrap">
+                  {option}
+                </label>
                 <input
                   type="checkbox"
                   value={option}
@@ -126,18 +152,25 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('style')}
-          className="block mb-1 font-bold mt-8"
+          className="mb-3 mt-8 flex text-xl font-bold"
         >
           STYLE
+          {isMenuOpen('style') ? (
+            <ChevronDown className="ml-4 self-end" />
+          ) : (
+            <ChevronRight className="ml-4 self-end" />
+          )}
         </label>
         {isMenuOpen('style') && (
           <div className="menu">
             {styleOptions.map((option) => (
               <div
                 key={option}
-                className="flex items-center mb-2 justify-between px-12"
+                className="mb-2 flex items-center justify-between"
               >
-                <label htmlFor={option}>{option}</label>
+                <label htmlFor={option} className="whitespace-nowrap">
+                  {option}
+                </label>
                 <input
                   type="checkbox"
                   value={option}
@@ -154,18 +187,25 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('artworkType')}
-          className="block mb-1 font-bold mt-8"
+          className="mb-3 mt-8 flex whitespace-nowrap text-xl font-bold"
         >
           ARTWORK TYPE
+          {isMenuOpen('artworkType') ? (
+            <ChevronDown className="ml-4 self-end" />
+          ) : (
+            <ChevronRight className="ml-4 self-end" />
+          )}
         </label>
         {isMenuOpen('artworkType') && (
           <div className="menu">
             {artworkOptions.map((option) => (
               <div
                 key={option}
-                className="flex items-center mb-2 justify-between px-12"
+                className="mb-2 flex items-center justify-between"
               >
-                <label htmlFor={option}>{option}</label>
+                <label htmlFor={option} className="whitespace-nowrap">
+                  {option}
+                </label>
                 <input
                   type="checkbox"
                   value={option}
