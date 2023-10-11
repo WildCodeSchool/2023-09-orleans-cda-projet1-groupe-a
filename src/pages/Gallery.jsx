@@ -38,7 +38,7 @@ export default function Gallery() {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-center text-4xl mb-9 drop-shadow-md font-normal ">
+        <h1 className="mb-9 text-center text-4xl font-normal drop-shadow-md ">
           Gallery
         </h1>
         <div className="mb-4 text-end">
@@ -78,14 +78,14 @@ export default function Gallery() {
                 {artwork.image_id ? (
                   <div className="mb-8">
                     <img
-                      className={`${imgStyle} grayscale hover:grayscale-0 hover:scale-110 transition duration-500 cursor-pointer shadow-xl object-cover mx-auto `}
+                      className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
                       src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                       alt={artwork.title}
                     />
-                    <h2 className="text-center mt-8">
+                    <h2 className="mt-8 text-center">
                       {artwork.artist_display}
                     </h2>
-                    <h2 className="text-center mt-2">{artwork.title}</h2>
+                    <h2 className="mt-2 text-center">{artwork.title}</h2>
                   </div>
                 ) : null}
               </li>

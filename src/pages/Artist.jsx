@@ -75,13 +75,13 @@ function Artist() {
     <div>
       <NavBar />
       <div>
-        <h1 className="text-center mt-8 text-4xl font-medim drop-shadow-md">
+        <h1 className="font-medim mt-8 text-center text-4xl drop-shadow-md">
           {artistName}
         </h1>
       </div>
 
-      <div className="w-full h-full">
-        <div className="flex items-center w-full h-full">
+      <div className="h-full w-full">
+        <div className="flex h-full w-full items-center">
           {artworks.map((artwork, i) => {
             return (
               <div key={artwork.id}>
@@ -90,7 +90,7 @@ function Artist() {
                   alt={`${artwork.title}`}
                   className={`${getClassName(
                     i,
-                  )} absolute top-1/4 bottom-0 right-0 left-0 m-auto w-[350px] h-[500px] object-cover opacity-0 duration-500 grayscale`}
+                  )} absolute bottom-0 left-0 right-0 top-1/4 m-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
                 />
               </div>
             );
