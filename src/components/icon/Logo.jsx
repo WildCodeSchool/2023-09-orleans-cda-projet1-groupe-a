@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
     <svg
-      className="transform transition-transform ease-in-out duration-500 group-hover:-translate-x-16 group-hover:-rotate-45"
+      className="transform transition-transform duration-500 ease-in-out group-hover:-translate-x-16 group-hover:-rotate-45"
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       width="100.000000pt"
