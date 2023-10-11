@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <div
       id="sidebar"
-      className={`flex flex-col w-64 bg-gradient-to-r from-dark opacity-95 via-slate-800-opacity-80 to-slate-500-opacity-30 h-screen pl-8 shadow-2xl transition-all transform ${
+      className={`via-slate-800-opacity-80 to-slate-500-opacity-30 flex h-screen w-64 transform flex-col bg-gradient-to-r from-dark pl-8 opacity-95 shadow-2xl transition-all ${
         isSidebarVisible ? 'translate-x-0' : '-translate-x-full duration-500'
       }`}
     >
