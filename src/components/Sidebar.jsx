@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import MenuItem from './Item';
+import MenuItem from './MenuItem';
 
 const items = [
-  { id: '0', text: 'Home', path: '/' },
-  { id: '1', text: 'Gallery', path: '/gallery' },
-  { id: '2', text: 'Artist' },
+  { text: 'Home', path: '/' },
+  { text: 'Gallery', path: '/gallery' },
+  { text: 'Artist' },
 ];
 
 const SideBar = () => (
