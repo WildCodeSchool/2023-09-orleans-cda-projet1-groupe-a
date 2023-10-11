@@ -20,6 +20,7 @@ function Loader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 3, ease: 'easeInOut' }}
+            className="absolute z-[999]"
           >
             <div className="bg-[#f4f4f0]">
               <svg

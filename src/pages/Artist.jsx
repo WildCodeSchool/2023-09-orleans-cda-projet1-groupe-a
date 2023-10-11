@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { fetchArtworks } from '../api';
-import NavBar from '../components/NavBar';
 
 function Artist() {
   const [artworks, setArtworks] = useState([]);
@@ -32,7 +31,6 @@ function Artist() {
     }, 3000);
     return () => clearTimeout(timeoutId);
   }, [index, artworks]);
-  console.log(artworks);
 
   const artistName = artworks[0]?.artist_display || '';
 
@@ -72,32 +70,33 @@ function Artist() {
   }
 
   return (
-    <div>
-      <NavBar />
+    <>
       <div>
-        <h1 className="font-medim mt-8 text-center text-4xl drop-shadow-md">
-          {artistName}
-        </h1>
-      </div>
+        <div>
+          <h1 className="font-medim mt-48 text-center text-4xl drop-shadow-md">
+            {artistName}
+          </h1>
+        </div>
 
-      <div className="h-full w-full">
-        <div className="flex h-full w-full items-center">
-          {artworks.map((artwork, i) => {
-            return (
-              <div key={artwork.id}>
-                <img
-                  src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                  alt={`${artwork.title}`}
-                  className={`${getClassName(
-                    i,
-                  )} absolute bottom-0 left-0 right-0 top-1/4 m-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
-                />
-              </div>
-            );
-          })}
+        <div className="h-full w-full">
+          <div className="flex h-full w-full items-center">
+            {artworks.map((artwork, i) => {
+              return (
+                <div key={artwork.id}>
+                  <img
+                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                    alt={`${artwork.title}`}
+                    className={`${getClassName(
+                      i,
+                    )} absolute bottom-0 left-0 right-0 top-1/3 mx-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
