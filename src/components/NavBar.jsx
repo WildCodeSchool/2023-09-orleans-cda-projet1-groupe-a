@@ -1,11 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Search } from 'lucide-react';
 import { motion, useCycle } from 'framer-motion';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import Loader from '../components/Loader';
 import SideBar from './Sidebar';
+
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -30,7 +31,7 @@ const sidebar = {
 export default function NavBar() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [navVisible, setNavVisible] = useState(false);
-
+  const ref = useRef(null);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setNavVisible(true);
@@ -79,8 +80,8 @@ export default function NavBar() {
           </div>
         </nav>
       )}
-      <div className="max-h-screen overflow-auto">
-        <Outlet />
+      <div ref={ref} className="max-h-screen overflow-auto">
+        <Outlet context={{ref}}/>
       </div>
     </>
   );

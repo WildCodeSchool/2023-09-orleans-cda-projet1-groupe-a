@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence} from 'framer-motion';
+import { useOutletContext } from 'react-router-dom';
 const page = 1;
 const limit = 20;
 
@@ -11,6 +12,7 @@ export default function Gallery() {
   const [search, setSearch] = useState('Picasso');
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
   const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
+  const {ref} = useOutletContext();
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
   };
@@ -79,9 +81,14 @@ export default function Gallery() {
                 <li key={artwork.id}>
                   {artwork.image_id ? (
                     <motion.div
+                      onViewportEnter={() => {
+                        console.log(artwork.title);
+                      }
+                      }
+
                       initial="offscreen"
                       whileInView="onscreen"
-                      viewport={{ once: true, amount: 0.8 }}
+                      viewport={{ once: true, amount: 0.1, root: ref }}
                     >
                       <motion.div
                         variants={{
