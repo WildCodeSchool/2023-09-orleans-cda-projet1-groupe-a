@@ -79,7 +79,9 @@ export default function NavBar() {
           </div>
         </nav>
       )}
-      <Outlet />
+      <div className="max-h-screen overflow-auto">
+        <Outlet />
+      </div>
     </>
   );
 }

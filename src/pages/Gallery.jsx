@@ -79,22 +79,37 @@ export default function Gallery() {
                 <li key={artwork.id}>
                   {artwork.image_id ? (
                     <motion.div
-                      animate={{ opacity: 1 }}
-                      initial={{ opacity: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      layout
-                      className="mb-8"
+                      initial="offscreen"
+                      whileInView="onscreen"
+                      viewport={{ once: true, amount: 0.8 }}
                     >
-                      <img
-                        className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
-                        src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                        alt={artwork.title}
-                      />
-                      <h2 className="mt-8 text-center">
-                        {artwork.artist_display}
-                      </h2>
-                      <h2 className="mt-2 text-center">{artwork.title}</h2>
+                      <motion.div
+                        variants={{
+                          offscreen: {
+                            y: 300,
+                          },
+                          onscreen: {
+                            y: 50,
+                            transition: {
+                              type: 'spring',
+                              bounce: 0.1,
+                              duration: 0.6,
+                            },
+                          },
+                        }}
+                        layout
+                        className="mb-8"
+                      >
+                        <img
+                          className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                          alt={artwork.title}
+                        />
+                        <h2 className="mt-8 text-center">
+                          {artwork.artist_display}
+                        </h2>
+                        <h2 className="mt-2 text-center">{artwork.title}</h2>
+                      </motion.div>
                     </motion.div>
                   ) : null}
                 </li>
