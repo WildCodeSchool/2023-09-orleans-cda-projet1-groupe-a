@@ -9,7 +9,7 @@ const items = [
 ];
 
 const SideBar = () => (
-  <motion.ul className="absolute top-44">
+  <motion.ul className={`absolute top-44 `}>
     {items.map((item, index) => (
       <Link to={item.path} key={index}>
         <MenuItem text={item.text} />
