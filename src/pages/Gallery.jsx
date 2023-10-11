@@ -52,7 +52,7 @@ export default function Gallery() {
       <div className="flex">
         <div className="container mx-auto p-4">
           <h1 className="mb-9 text-center text-4xl font-normal drop-shadow-md ">
-            Gallery
+            GALLERY
           </h1>
           <div className="mx-2 mb-16 flex h-10 items-center justify-between rounded-lg border p-4 text-end shadow-2xl">
             <div className="flex" onClick={toggleFilterBarVisibility}>
@@ -62,7 +62,9 @@ export default function Gallery() {
             </div>
             <div>
               <button
-                className="ms-3"
+                className={`ms-3 ${
+                  gridStyle === 'grid-cols-2' ? 'opacity-100' : 'opacity-25'
+                }`}
                 onClick={() => {
                   handleGridChange('grid-cols-2');
                   handleImgChange('w-4/5 h-[40rem]');
@@ -71,7 +73,9 @@ export default function Gallery() {
                 <Grid2 />
               </button>
               <button
-                className="ms-3"
+                className={`ms-3 ${
+                  gridStyle === 'grid-cols-3' ? 'opacity-100' : 'opacity-25'
+                }`}
                 onClick={() => {
                   handleGridChange('grid-cols-3');
                   handleImgChange('w-80 h-[28rem]');
@@ -80,7 +84,9 @@ export default function Gallery() {
                 <Grid3 />
               </button>
               <button
-                className="ms-3"
+                className={`ms-3 ${
+                  gridStyle === 'grid-cols-4' ? 'opacity-100' : 'opacity-25'
+                }`}
                 onClick={() => {
                   handleGridChange('grid-cols-4');
                   handleImgChange('w-80 h-[25rem]');

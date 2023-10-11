@@ -37,51 +37,83 @@ const FilterBar = ({ onFilterChange }) => {
   const isMenuOpen = (menu) => openMenus.includes(menu);
 
   const artistOptions = [
+    'LEONARDO DA VINCI',
+    'VINCENT VAN GOGH',
     'PABLO PICASSO',
-    'ANDY WARHOL',
+    'MICHELANGELO',
+    'REMBRANDT',
+    'CLAUDE MONET',
+    'SALVADOR DALÍ',
     'FRIDA KAHLO',
-    'UTAGAWA HIROSHIGE',
-    'JAMES MCNEIL WHISTLER',
-    'PAUL GAUGUIN',
-    'KERRY JAMES MARSHALL',
+    'EDVARD MUNCH',
+    'RAPHAEL',
+    "GEORGIA O'KEEFFE",
+    'JACKSON POLLOCK',
+    'ANDY WARHOL',
+    'HENRI MATISSE',
+    'PAUL CÉZANNE',
+    'EDGAR DEGAS',
+    'GUSTAV KLIMT',
+    'JOAN MIRÓ',
+    'EUGÈNE DELACROIX',
+    'MARC CHAGALL',
+    'LE CORBUSIER',
+    'JACKSON POLLOCK',
+    'PABLO PICASSO',
+    'CARAVAGGIO',
+    'PIET MONDRIAN',
   ];
 
   const periodOptions = [
-    'YA PAS LONGTEMPS',
-    'CA COMMENCE À DATER',
-    "À L'ANCIENNE",
+    '21ST CENTURY',
+    '20TH CENTURY',
+    '19TH CENTURY',
+    '18TH CENTURY',
+    '17TH CENTURY',
+    '16TH CENTURY',
+    '15TH CENTURY',
+    '14TH CENTURY',
+    '13TH CENTURY',
+    '12TH CENTURY',
+    '11TH CENTURY',
+    '10TH CENTURY',
+    '9TH CENTURY',
+    '8TH CENTURY',
+    '7TH CENTURY',
+    '6TH CENTURY',
+    '5TH CENTURY',
+    '4TH CENTURY',
+    '3RD CENTURY',
+    '2ND CENTURY',
+    '1ST CENTURY',
   ];
 
   const styleOptions = [
-    'JAPANESE',
-    '21ST CENTURY',
-    '19TH CENTURY',
-    '20TH CENTURY',
     'CHINESE',
-    'MODERNISM',
-    'ARTS OF THE AMERICAS',
+    'JAPANESE',
     'AMERICAS',
+    'EUROPEAN',
+    'MODERNISM',
   ];
 
   const artworkOptions = [
-    'PRINT',
-    'PHOTOGRAPH',
-    'DRAWING AND WATERCOLOR',
-    'TEXTILE',
-    'PAINTING',
-    'ARCHITECTURAL DRAWING',
     'BOOK',
+    'PRINT',
     'VESSEL',
+    'TEXTILE',
+    'DRAWING',
+    'PAINTING',
+    'PHOTOGRAPHY',
   ];
 
   return (
-    <div className="mr-12 flex w-1/4 flex-col p-4">
+    <div className="mr-12 flex w-1/4 flex-col">
       <h2 className="mb-4 text-2xl">FILTERS</h2>
 
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('artists')}
-          className="mb-3 mt-8 flex text-xl font-bold"
+          className="mb-3 mt-8 flex text-xl"
         >
           ARTISTS
           {isMenuOpen('artists') ? (
@@ -98,10 +130,11 @@ const FilterBar = ({ onFilterChange }) => {
                 key={option}
                 className="mb-2 flex items-center justify-between"
               >
-                <label htmlFor={option} className="whitespace-nowrap">
+                <label htmlFor={option} className="whitespace-nowrap ">
                   {option}
                 </label>
                 <input
+                  className="accent-dark"
                   type="checkbox"
                   value={option}
                   checked={selectedValues.includes(option)}
@@ -117,7 +150,7 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('period')}
-          className="mb-3 mt-8 flex text-xl font-bold"
+          className="mb-3 mt-8 flex text-xl"
         >
           PERIOD
           {isMenuOpen('period') ? (
@@ -152,7 +185,7 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('style')}
-          className="mb-3 mt-8 flex text-xl font-bold"
+          className="mb-3 mt-8 flex text-xl"
         >
           STYLE
           {isMenuOpen('style') ? (
@@ -187,7 +220,7 @@ const FilterBar = ({ onFilterChange }) => {
       <div className="mb-4">
         <label
           onClick={() => handleToggleMenu('artworkType')}
-          className="mb-3 mt-8 flex whitespace-nowrap text-xl font-bold"
+          className="mb-3 mt-8 flex whitespace-nowrap text-xl"
         >
           ARTWORK TYPE
           {isMenuOpen('artworkType') ? (
