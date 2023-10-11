@@ -39,7 +39,7 @@ export default function Gallery() {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="mb-9 text-center text-4xl font-normal drop-shadow-md ">
+        <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
           Gallery
         </h1>
         <div className="mb-4 text-end">
