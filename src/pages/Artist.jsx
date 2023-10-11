@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 function Artist() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search, setSearch] = useState('Karl Wirsum');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetchArtworks(search, 20)
@@ -20,33 +20,40 @@ function Artist() {
       });
   }, [search]);
 
-  const artistName = artworks.length > 0 ? artworks[0].artist_display : '';
+  const artistName = artworks.length > 0 && artworks[0].artist_display;
 
   const mod = (n, m) => {
-    let result = n % m;
+    const result = n % m;
     return result >= 0 ? result : result + m;
   };
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      console.log(index);
+      // console.log(index);
       setIndex((index + 1) % artworks.length);
     }, 3000);
     return () => clearTimeout(timeoutId);
   }, [index, artworks]);
-  console.log(artworks);
+  // console.log(artworks);
+
+  const indexLeft = mod(index - 1, artworks.length);
+  // console.log(indexLeft);
+
+  const roundEffect = (artwork) => {
+    for (let i = 0; i < artwork.length; i++) {}
+  };
 
   return (
     <div>
       <NavBar />
       <div>
-        <h1 className="text-center mt-8 text-4xl font-medim drop-shadow-md">
+        <h1 className="font-medim mt-8 text-center text-4xl drop-shadow-md">
           {artistName}
         </h1>
       </div>
 
-      <div className="container w-full h-full">
-        <div className="carousel flex items-center w-full h-full">
+      <div className="container h-full w-full">
+        <div className="carousel flex h-full w-full items-center">
           {artworks.map((artwork, i) => {
             const indexLeft = mod(index - 1, artworks.length);
             const indexRight = mod(index + 1, artworks.length);
@@ -86,7 +93,7 @@ function Artist() {
                 <img
                   src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                   alt={`${artwork.title}`}
-                  className={`${className} absolute top-1/4 bottom-0 right-0 left-0 m-auto w-[350px] h-[500px] object-cover opacity-0 duration-500 grayscale hover:grayscale-0`}
+                  className={`${className} absolute bottom-0 left-0 right-0 top-1/4 m-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500 hover:grayscale-0`}
                 />
               </div>
             );
