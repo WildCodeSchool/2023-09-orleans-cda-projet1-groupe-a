@@ -19,14 +19,16 @@ const variants = {
 
 const MenuItem = ({ text }) => {
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className="mb-5 mt-4 flex cursor-pointer items-center"
-    >
-      <span className="p-2 text-lg text-light">{text}</span>
-    </motion.li>
+    <>
+      <motion.li
+        variants={variants}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="mb-5 mt-4 flex cursor-pointer items-center"
+      >
+        <span className="p-2 text-lg text-light">{text}</span>
+      </motion.li>
+    </>
   );
 };
 
