@@ -5,7 +5,7 @@ import MenuItem from './MenuItem';
 const items = [
   { text: 'Home', path: '/' },
   { text: 'Gallery', path: '/gallery' },
-  { text: 'Artist' },
+  { text: 'Artist', path: '/artist' },
 ];
 
 const SideBar = () => (
