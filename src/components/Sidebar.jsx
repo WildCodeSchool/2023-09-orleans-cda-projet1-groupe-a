@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 
 const items = [
-  { text: 'Home', path: '/' },
-  { text: 'Gallery', path: '/gallery' },
-  { text: 'Artist' },
+  { text: 'HOME', path: '/' },
+  { text: 'GALLERY', path: '/gallery' },
+  { text: 'ARTIST' },
 ];
 
 const variants = {
   open: {
-    y: 0,
+    y: 1,
     opacity: 1,
+    display: 'block',
     transition: {
       y: { stiffness: 1000, velocity: -100 },
       staggerChildren: 0.2,
@@ -23,11 +24,15 @@ const variants = {
     transition: {
       y: { stiffness: 1000 },
     },
+    transitionEnd: {
+      display: 'none',
+    },
   },
 };
+
 const SideBar = ({ isOpen }) => (
   <motion.ul
-    className={`absolute top-44 `}
+    className={`absolute top-44`}
     initial={'closed'}
     animate={isOpen ? 'open' : 'closed'}
     variants={variants}
