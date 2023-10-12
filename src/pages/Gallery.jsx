@@ -5,6 +5,7 @@ import Grid4 from '../components/icon/Grid4';
 import FilterBar from '../components/FilterBar';
 import { ListFilter } from 'lucide-react';
 import { Tally1 } from 'lucide-react';
+
 const page = 1;
 const limit = 20;
 
@@ -98,7 +99,12 @@ export default function Gallery() {
           </div>
           <div className="flex">
             {filterBarVisible && (
-              <FilterBar onFilterChange={handleFilterChange} />
+              <FilterBar
+                className={`opacity-${
+                  filterBarVisible ? '100' : '0'
+                } transition-opacity duration-500`}
+                onFilterChange={handleFilterChange}
+              />
             )}
             <ul>
               <div className={`grid ${gridStyle} gap-10`}>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const FilterBar = ({ onFilterChange }) => {
   const [openMenus, setOpenMenus] = useState([]);
@@ -125,23 +124,27 @@ const FilterBar = ({ onFilterChange }) => {
 
         {isMenuOpen('artists') && (
           <div className="menu">
-            {artistOptions.map((option) => (
-              <div
+            {artistOptions.map((option, index) => (
+              <motion.div
                 key={option}
-                className="mb-2 flex items-center justify-between"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: index * 0.05 }}
               >
-                <label htmlFor={option} className="whitespace-nowrap ">
-                  {option}
-                </label>
-                <input
-                  className="accent-dark"
-                  type="checkbox"
-                  value={option}
-                  checked={selectedValues.includes(option)}
-                  onChange={handleCheckboxChange}
-                  id={option}
-                />
-              </div>
+                <div className="mb-2 flex items-center justify-between">
+                  <label htmlFor={option} className="whitespace-nowrap ">
+                    {option}
+                  </label>
+                  <input
+                    className="accent-dark"
+                    type="checkbox"
+                    value={option}
+                    checked={selectedValues.includes(option)}
+                    onChange={handleCheckboxChange}
+                    id={option}
+                  />
+                </div>
+              </motion.div>
             ))}
           </div>
         )}
@@ -161,22 +164,26 @@ const FilterBar = ({ onFilterChange }) => {
         </label>
         {isMenuOpen('period') && (
           <div className="menu">
-            {periodOptions.map((option) => (
-              <div
+            {periodOptions.map((option, index) => (
+              <motion.div
                 key={option}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: index * 0.05 }}
                 className="mb-2 flex items-center justify-between"
               >
                 <label htmlFor={option} className="whitespace-nowrap">
                   {option}
                 </label>
                 <input
+                  className="accent-dark"
                   type="checkbox"
                   value={option}
                   checked={selectedValues.includes(option)}
                   onChange={handleCheckboxChange}
                   id={option}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
@@ -196,22 +203,26 @@ const FilterBar = ({ onFilterChange }) => {
         </label>
         {isMenuOpen('style') && (
           <div className="menu">
-            {styleOptions.map((option) => (
-              <div
+            {styleOptions.map((option, index) => (
+              <motion.div
                 key={option}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: index * 0.05 }}
                 className="mb-2 flex items-center justify-between"
               >
                 <label htmlFor={option} className="whitespace-nowrap">
                   {option}
                 </label>
                 <input
+                  className="accent-dark"
                   type="checkbox"
                   value={option}
                   checked={selectedValues.includes(option)}
                   onChange={handleCheckboxChange}
                   id={option}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
@@ -231,22 +242,26 @@ const FilterBar = ({ onFilterChange }) => {
         </label>
         {isMenuOpen('artworkType') && (
           <div className="menu">
-            {artworkOptions.map((option) => (
-              <div
+            {artworkOptions.map((option, index) => (
+              <motion.div
                 key={option}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: index * 0.05 }}
                 className="mb-2 flex items-center justify-between"
               >
                 <label htmlFor={option} className="whitespace-nowrap">
                   {option}
                 </label>
                 <input
+                  className="accent-dark"
                   type="checkbox"
                   value={option}
                   checked={selectedValues.includes(option)}
                   onChange={handleCheckboxChange}
                   id={option}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         )}
