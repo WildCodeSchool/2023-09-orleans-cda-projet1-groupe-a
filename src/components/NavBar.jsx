@@ -7,7 +7,6 @@ import MenuToggle from './MenuToggle';
 import Loader from '../components/Loader';
 import SideBar from './Sidebar';
 
-
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -81,7 +80,7 @@ export default function NavBar() {
         </nav>
       )}
       <div ref={ref} className="max-h-screen overflow-auto">
-        <Outlet context={{ref}}/>
+        <Outlet context={{ ref }} />
       </div>
     </>
   );
