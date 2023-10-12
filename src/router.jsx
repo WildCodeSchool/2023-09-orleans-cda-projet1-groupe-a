@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import NavBar from './components/NavBar';
+import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
   {
     element: <NavBar />,
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
         element: <Gallery />,
       },
     ],
+  },
+  {
+    path: '/404',
+    element: <NotFound />,
   },
 ]);
 
