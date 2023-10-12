@@ -8,11 +8,33 @@ const items = [
   { text: 'Artist' },
 ];
 
-const SideBar = () => (
-  <motion.ul className={`absolute top-44 `}>
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+      staggerChildren: 0.2,
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
+const SideBar = ({ isOpen }) => (
+  <motion.ul
+    className={`absolute top-44 `}
+    initial={'closed'}
+    animate={isOpen ? 'open' : 'closed'}
+    variants={variants}
+  >
     {items.map((item, index) => (
       <Link to={item.path} key={index}>
-        <MenuItem text={item.text} />
+        <MenuItem text={item.text} variants={variants} />
       </Link>
     ))}
   </motion.ul>
