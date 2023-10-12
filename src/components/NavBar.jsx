@@ -63,7 +63,9 @@ export default function NavBar() {
           <SideBar isOpen={isOpen} />
         </nav>
       )}
-      <Outlet />
+      <div className="max-h-screen overflow-auto">
+        <Outlet />
+      </div>
     </>
   );
 }

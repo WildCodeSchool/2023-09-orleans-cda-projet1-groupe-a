@@ -5,7 +5,7 @@ import MenuItem from './MenuItem';
 const items = [
   { text: 'HOME', path: '/' },
   { text: 'GALLERY', path: '/gallery' },
-  { text: 'ARTIST' },
+  { text: 'ARTIST', path: '/artist' },
 ];
 
 const variants = {
