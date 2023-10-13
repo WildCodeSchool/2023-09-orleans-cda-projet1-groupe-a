@@ -30,7 +30,6 @@ const sidebar = {
 export default function NavBar() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [navVisible, setNavVisible] = useState(false);
-
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setNavVisible(true);
