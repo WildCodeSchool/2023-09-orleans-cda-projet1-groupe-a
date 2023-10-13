@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify';
 function Artist() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search, setSearch] = useState('Karl Wirsum');
+  const [search, setSearch] = useState('');
 
   const [isOpen, setIsOpen] = useState(false);
 
