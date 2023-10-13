@@ -42,9 +42,9 @@ function Artist() {
   const artistName = artworks[0]?.artist_display || '';
   const artworkTitle = artworks[index]?.title || '';
   const artworkDisplay = artworks[index]?.date_display || '';
-  const artworkImage = artworks[index]
-    ? `https://www.artic.edu/iiif/2/${artworks[index].image_id}/full/400,/0/default.jpg`
-    : '';
+  const artworkImage =
+    `https://www.artic.edu/iiif/2/${artworks[index]?.image_id}/full/400,/0/default.jpg` ||
+    '';
   const artworkDescription = DOMPurify.sanitize(artworks[0]?.description || '');
 
   const mod = (number) => {
@@ -96,7 +96,7 @@ function Artist() {
               <div key={artwork.id}>
                 <img
                   src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                  alt={`${artwork.title}`}
+                  alt={artwork.title}
                   className={`${getClassName(
                     i,
                   )} absolute bottom-0 left-0 right-0 top-1/3 mx-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
