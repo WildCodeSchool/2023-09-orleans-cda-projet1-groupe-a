@@ -3,7 +3,6 @@ import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useOutletContext } from 'react-router-dom';
 const page = 1;
 const limit = 20;
 
@@ -12,7 +11,6 @@ export default function Gallery() {
   const [search, setSearch] = useState('Picasso');
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
   const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
-  const { ref } = useOutletContext();
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
   };
@@ -81,40 +79,34 @@ export default function Gallery() {
                 <li key={artwork.id}>
                   {artwork.image_id ? (
                     <motion.div
-                      onViewportEnter={() => {
-                        console.log(artwork.title);
+                      variants={{
+                        offscreen: {
+                          y: 300,
+                        },
+                        onscreen: {
+                          y: 50,
+                          transition: {
+                            type: 'spring',
+                            bounce: 0.1,
+                            duration: 0.6,
+                          },
+                        },
                       }}
                       initial="offscreen"
                       whileInView="onscreen"
-                      viewport={{ once: true, amount: 0.1, root: ref }}
+                      viewport={{ once: true, amount: 0.1 }}
+                      layout
+                      className="mb-8"
                     >
-                      <motion.div
-                        variants={{
-                          offscreen: {
-                            y: 300,
-                          },
-                          onscreen: {
-                            y: 50,
-                            transition: {
-                              type: 'spring',
-                              bounce: 0.1,
-                              duration: 0.6,
-                            },
-                          },
-                        }}
-                        layout
-                        className="mb-8"
-                      >
-                        <img
-                          className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
-                          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                          alt={artwork.title}
-                        />
-                        <h2 className="mt-8 text-center">
-                          {artwork.artist_display}
-                        </h2>
-                        <h2 className="mt-2 text-center">{artwork.title}</h2>
-                      </motion.div>
+                      <img
+                        className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                        src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                        alt={artwork.title}
+                      />
+                      <h2 className="mt-8 text-center">
+                        {artwork.artist_display}
+                      </h2>
+                      <h2 className="mt-2 text-center">{artwork.title}</h2>
                     </motion.div>
                   ) : null}
                 </li>

@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import { motion, useCycle } from 'framer-motion';
 import Logo from './icon/Logo';
@@ -30,7 +30,6 @@ const sidebar = {
 export default function NavBar() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [navVisible, setNavVisible] = useState(false);
-  const ref = useRef(null);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setNavVisible(true);
@@ -79,8 +78,8 @@ export default function NavBar() {
           </div>
         </nav>
       )}
-      <div ref={ref} className="max-h-screen overflow-auto">
-        <Outlet context={{ ref }} />
+      <div className="max-h-screen overflow-auto">
+        <Outlet />
       </div>
     </>
   );
