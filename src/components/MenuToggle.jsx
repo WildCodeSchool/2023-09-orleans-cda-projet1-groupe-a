@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
 const Path = (props) => (
   <motion.path
@@ -19,6 +20,28 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
     }
   };
 
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    // Fonction pour fermer la sidebar lorsque l'utilisateur clique en dehors
+    const handleOutsideClick = (e) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(e.target) &&
+        isOpen
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    // Ajoute un écouteur d'événements lorsque le composant est monté
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    // Retire l'écouteur d'événements lorsque le composant est démonté
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isOpen, setIsOpen]);
   const sidebar = {
     open: (height = 1000) => ({
       clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -47,6 +70,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? 'open' : 'closed'}
       custom="100%"
       className="w-1/3"
+      ref={sidebarRef}
     >
       <motion.div
         className="from-slate-500-opacity-30 via-slate-600-opacity-80 absolute left-0 top-0 -z-50 h-screen w-80 bg-gradient-to-r"
