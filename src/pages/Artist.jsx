@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 import { fetchArtworks } from '../api';
+import { AnimatePresence, motion } from 'framer-motion';
+import { X } from 'lucide-react';
+import DOMPurify from 'dompurify';
 
 function Artist() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
   const [search, setSearch] = useState('');
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -26,13 +31,21 @@ function Artist() {
   }, [search]);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setIndex((index + 1) % artworks.length);
-    }, 3000);
-    return () => clearTimeout(timeoutId);
-  }, [index, artworks]);
+    if (!isOpen) {
+      const timeoutId = setTimeout(() => {
+        setIndex((index + 1) % artworks.length);
+      }, 3000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [index, artworks, isOpen]);
 
   const artistName = artworks[0]?.artist_display || '';
+  const artworkTitle = artworks[index]?.title || '';
+  const artworkDisplay = artworks[index]?.date_display || '';
+  const artworkImage =
+    `https://www.artic.edu/iiif/2/${artworks[index]?.image_id}/full/400,/0/default.jpg` ||
+    '';
+  const artworkDescription = DOMPurify.sanitize(artworks[0]?.description || '');
 
   const mod = (number) => {
     const result = number % artworks.length;
@@ -77,22 +90,62 @@ function Artist() {
             {artistName}
           </h1>
         </div>
-
         <div className="h-full w-full">
-          <div className="flex h-full w-full items-center">
-            {artworks.map((artwork, i) => {
-              return (
-                <div key={artwork.id}>
-                  <img
-                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    alt={`${artwork.title}`}
-                    className={`${getClassName(
-                      i,
-                    )} absolute bottom-0 left-0 right-0 top-1/3 mx-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
-                  />
-                </div>
-              );
-            })}
+          {artworks.map((artwork, i) => {
+            return (
+              <div key={artwork.id}>
+                <img
+                  src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                  alt={artwork.title}
+                  className={`${getClassName(
+                    i,
+                  )} absolute bottom-0 left-0 right-0 top-1/3 mx-auto h-[500px] w-[350px] object-cover opacity-0 grayscale duration-500`}
+                  onClick={() => setIsOpen(!isOpen)}
+                />
+              </div>
+            );
+          })}
+          <div>
+            <motion.div>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0, transition: { duration: 0.6 } }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    className="absolute left-1/2 top-1/2 z-[999] mx-auto flex h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 transform rounded bg-black/80 text-lg text-[--light] drop-shadow-lg"
+                  >
+                    <div className="w-2/4">
+                      <img
+                        src={artworkImage}
+                        alt={artworkTitle}
+                        className="m-auto h-[600px] object-cover p-9"
+                      ></img>
+                    </div>
+                    <div className="w-2/4 p-9">
+                      <button
+                        className="float-right mt-0 flex"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <X />
+                      </button>
+                      <p className="mb-5 mt-5">{artistName}</p>
+                      <p className="mb-3">Year : {artworkDisplay}</p>
+                      <p className="mb-3">Title : {artworkTitle}</p>
+                      <div className="h-[23.5rem] overflow-auto">
+                        <p className="mb-3">Description :</p>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: artworkDescription,
+                          }}
+                        ></p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Search } from 'lucide-react';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import Loader from '../components/Loader';
 import SideBar from './Sidebar';
+import ScrollTopButton from './ScrollTopButton';
 
 export default function NavBar() {
   const [isInputOpen, setInputOpen] = useState(false);
@@ -19,6 +19,8 @@ export default function NavBar() {
   const handleMouseLeave = () => {
     setInputOpen(false);
   };
+
+  const ref = useRef(null);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -48,8 +50,9 @@ export default function NavBar() {
           >
             <input
               type="text"
-              className={`h-10 w-10 rounded-full p-4 shadow outline-none transition-all duration-500 ease-in-out
-    ${isInputOpen ? 'w-28 sm:w-52' : 'opacity-0'}`}
+              className={`h-10 w-10 rounded-full p-4 shadow outline-none transition-all duration-500 ease-in-out ${
+                isInputOpen ? 'w-28 sm:w-52' : 'opacity-0'
+              }`}
             />
             <button
               type="submit"
@@ -62,9 +65,10 @@ export default function NavBar() {
             </button>
           </form>
           <SideBar isOpen={isOpen} />
+          {ref.current ? <ScrollTopButton relativeTo={ref.current} /> : null}
         </nav>
       )}
-      <div className="max-h-screen overflow-auto">
+      <div ref={ref} className="max-h-screen overflow-auto">
         <Outlet />
       </div>
     </>
