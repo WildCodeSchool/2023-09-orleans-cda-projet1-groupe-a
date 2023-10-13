@@ -9,6 +9,9 @@
     --dark: #0d0c0c;
     font-family: 'Ysabeau Infant', sans-serif;
   }
+  body {
+    background-color: var(--light);
+  }
 }
 
 @layer utilities {
