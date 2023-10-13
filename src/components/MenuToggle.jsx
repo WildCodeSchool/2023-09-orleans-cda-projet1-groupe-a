@@ -11,7 +11,7 @@ const Path = (props) => (
 );
 
 const MenuToggle = ({ isOpen, setIsOpen }) => {
-  const toggleSidebar = async () => {
+  const toggleSidebar = () => {
     if (isOpen) {
       setIsOpen(false);
     } else {
