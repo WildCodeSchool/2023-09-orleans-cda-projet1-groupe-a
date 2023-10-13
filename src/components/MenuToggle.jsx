@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const Path = (props) => (
   <motion.path
@@ -18,6 +19,26 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       setIsOpen(true);
     }
   };
+
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(e.target) &&
+        isOpen
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isOpen, setIsOpen]);
 
   const sidebar = {
     open: (height = 1000) => ({
@@ -47,6 +68,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? 'open' : 'closed'}
       custom="100%"
       className="w-1/3"
+      ref={sidebarRef}
     >
       <motion.div
         className="from-slate-500-opacity-30 via-slate-600-opacity-80 absolute left-0 top-0 -z-50 h-screen w-80 bg-gradient-to-r"
