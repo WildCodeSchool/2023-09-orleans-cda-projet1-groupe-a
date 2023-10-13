@@ -79,10 +79,22 @@ export default function Gallery() {
                 <li key={artwork.id}>
                   {artwork.image_id ? (
                     <motion.div
-                      animate={{ opacity: 1 }}
-                      initial={{ opacity: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
+                      variants={{
+                        offscreen: {
+                          y: 300,
+                        },
+                        onscreen: {
+                          y: 50,
+                          transition: {
+                            type: 'spring',
+                            bounce: 0.1,
+                            duration: 0.6,
+                          },
+                        },
+                      }}
+                      initial="offscreen"
+                      whileInView="onscreen"
+                      viewport={{ once: true, amount: 0.1 }}
                       layout
                       className="mb-8"
                     >
