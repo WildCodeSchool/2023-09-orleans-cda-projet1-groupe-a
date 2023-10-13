@@ -6,14 +6,12 @@ function ScrollTopButton({ relativeTo }) {
 
   useEffect(() => {
     relativeTo.addEventListener('scroll', () => {
-      console.log(relativeTo.scrollTop);
       if (relativeTo.scrollTop > 100) {
         setShowTopBtn(true);
       } else {
         setShowTopBtn(false);
       }
     });
-    console.log(relativeTo);
   }, []);
 
   const goToTop = () => {
