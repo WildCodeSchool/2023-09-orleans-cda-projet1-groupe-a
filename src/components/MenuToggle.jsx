@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 const Path = (props) => (
@@ -85,11 +84,6 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       </button>
     </motion.div>
   );
-};
-
-MenuToggle.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  setIsOpen: PropTypes.func.isRequired,
 };
 
 export default MenuToggle;

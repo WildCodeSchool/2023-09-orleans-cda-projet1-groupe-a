@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
@@ -46,9 +45,5 @@ const SideBar = ({ isOpen }) => (
     ))}
   </motion.ul>
 );
-
-SideBar.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-};
 
 export default SideBar;
