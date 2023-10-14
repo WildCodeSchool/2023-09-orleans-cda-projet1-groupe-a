@@ -6,6 +6,7 @@ import FilterBar from '../components/FilterBar';
 import { ListFilter } from 'lucide-react';
 import { Tally1 } from 'lucide-react';
 
+import { motion, AnimatePresence } from 'framer-motion';
 const page = 1;
 const limit = 20;
 
@@ -21,13 +22,13 @@ export default function Gallery() {
     setSearch(filterValue);
   };
 
-  const handleImgChange = (img) => {
-    setImgStyle(img);
-  };
-
   const [filterBarVisible, setFilterBarVisible] = useState(true);
   const toggleFilterBarVisibility = () => {
     setFilterBarVisible((prevVisible) => !prevVisible);
+  };
+
+  const handleImgChange = (img) => {
+    setImgStyle(img);
   };
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function Gallery() {
     <>
       <div className="flex">
         <div className="container mx-auto p-4">
-          <h1 className="mb-9 text-center text-4xl font-normal drop-shadow-md ">
+          <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
             GALLERY
           </h1>
           <div className="mx-2 mb-16 flex h-10 items-center justify-between rounded-lg border p-4 text-end shadow-2xl">
@@ -61,7 +62,7 @@ export default function Gallery() {
               <ListFilter className="ml-8"></ListFilter>
               <Tally1 className="ml-8" />
             </div>
-            <div>
+            <div className="mb-4 text-end">
               <button
                 className={`ms-3 ${
                   gridStyle === 'grid-cols-2' ? 'opacity-100' : 'opacity-25'
@@ -74,7 +75,7 @@ export default function Gallery() {
                 <Grid2 />
               </button>
               <button
-                className={`ms-3 ${
+                className={`ms-3 mt-5 ${
                   gridStyle === 'grid-cols-3' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -107,25 +108,46 @@ export default function Gallery() {
               />
             )}
             <ul>
-              <div className={`grid ${gridStyle} gap-10`}>
-                {art.map((artwork) => (
-                  <li key={artwork.id}>
-                    {artwork.image_id ? (
-                      <div className="mb-8">
-                        <img
-                          className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
-                          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                          alt={artwork.title}
-                        />
-                        <h2 className="mt-8 text-center">
-                          {artwork.artist_display}
-                        </h2>
-                        <h2 className="mt-2 text-center">{artwork.title}</h2>
-                      </div>
-                    ) : null}
-                  </li>
-                ))}
-              </div>
+              <motion.div layout className={`grid ${gridStyle} gap-10`}>
+                <AnimatePresence>
+                  {art.map((artwork) => (
+                    <li key={artwork.id}>
+                      {artwork.image_id ? (
+                        <motion.div
+                          variants={{
+                            offscreen: {
+                              y: 300,
+                            },
+                            onscreen: {
+                              y: 50,
+                              transition: {
+                                type: 'spring',
+                                bounce: 0.1,
+                                duration: 0.6,
+                              },
+                            },
+                          }}
+                          initial="offscreen"
+                          whileInView="onscreen"
+                          viewport={{ once: true, amount: 0.1 }}
+                          layout
+                          className="mb-8"
+                        >
+                          <img
+                            className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                            src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                            alt={artwork.title}
+                          />
+                          <h2 className="mt-8 text-center">
+                            {artwork.artist_display}
+                          </h2>
+                          <h2 className="mt-2 text-center">{artwork.title}</h2>
+                        </motion.div>
+                      ) : null}
+                    </li>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
             </ul>
           </div>
         </div>
