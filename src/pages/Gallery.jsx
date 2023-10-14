@@ -22,7 +22,7 @@ export default function Gallery() {
     setSearch(filterValue);
   };
 
-  const [filterBarVisible, setFilterBarVisible] = useState(true);
+  const [filterBarVisible, setFilterBarVisible] = useState(false);
   const toggleFilterBarVisibility = () => {
     setFilterBarVisible((prevVisible) => !prevVisible);
   };

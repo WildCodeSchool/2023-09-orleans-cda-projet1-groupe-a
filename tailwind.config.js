@@ -16,6 +16,7 @@ export default {
       },
       fontFamily: {
         julius: ['Julius Sans One', 'sans'],
+        aurore: ['La Belle Aurore', 'cursive'],
       },
       keyframes: {
         lines: {
