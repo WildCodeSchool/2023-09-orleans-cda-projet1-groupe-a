@@ -7,7 +7,6 @@ import {
   STYLE_OPTIONS,
   ARTWORK_OPTIONS,
 } from '../data';
-import { data } from 'autoprefixer';
 
 const FilterBar = ({ onFilterChange }) => {
   const [openMenus, setOpenMenus] = useState([]);
