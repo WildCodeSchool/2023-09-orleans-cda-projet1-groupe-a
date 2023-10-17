@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import {
+  ARTIST_OPTIONS,
+  PERIOD_OPTIONS,
+  STYLE_OPTIONS,
+  ARTWORK_OPTIONS,
+} from '../data';
+import { data } from 'autoprefixer';
 
 const FilterBar = ({ onFilterChange }) => {
   const [openMenus, setOpenMenus] = useState([]);
@@ -35,76 +42,6 @@ const FilterBar = ({ onFilterChange }) => {
 
   const isMenuOpen = (menu) => openMenus.includes(menu);
 
-  const artistOptions = [
-    'LEONARDO DA VINCI',
-    'VINCENT VAN GOGH',
-    'PABLO PICASSO',
-    'MICHELANGELO',
-    'REMBRANDT',
-    'CLAUDE MONET',
-    'SALVADOR DALÍ',
-    'FRIDA KAHLO',
-    'EDVARD MUNCH',
-    'RAPHAEL',
-    "GEORGIA O'KEEFFE",
-    'JACKSON POLLOCK',
-    'ANDY WARHOL',
-    'HENRI MATISSE',
-    'PAUL CÉZANNE',
-    'EDGAR DEGAS',
-    'GUSTAV KLIMT',
-    'JOAN MIRÓ',
-    'EUGÈNE DELACROIX',
-    'MARC CHAGALL',
-    'LE CORBUSIER',
-    'JACKSON POLLOCK',
-    'PABLO PICASSO',
-    'CARAVAGGIO',
-    'PIET MONDRIAN',
-  ];
-
-  const periodOptions = [
-    '21ST CENTURY',
-    '20TH CENTURY',
-    '19TH CENTURY',
-    '18TH CENTURY',
-    '17TH CENTURY',
-    '16TH CENTURY',
-    '15TH CENTURY',
-    '14TH CENTURY',
-    '13TH CENTURY',
-    '12TH CENTURY',
-    '11TH CENTURY',
-    '10TH CENTURY',
-    '9TH CENTURY',
-    '8TH CENTURY',
-    '7TH CENTURY',
-    '6TH CENTURY',
-    '5TH CENTURY',
-    '4TH CENTURY',
-    '3RD CENTURY',
-    '2ND CENTURY',
-    '1ST CENTURY',
-  ];
-
-  const styleOptions = [
-    'CHINESE',
-    'JAPANESE',
-    'AMERICAS',
-    'EUROPEAN',
-    'MODERNISM',
-  ];
-
-  const artworkOptions = [
-    'BOOK',
-    'PRINT',
-    'VESSEL',
-    'TEXTILE',
-    'DRAWING',
-    'PAINTING',
-    'PHOTOGRAPHY',
-  ];
-
   return (
     <div className="mr-12 flex w-1/4 flex-col">
       <h2 className="mb-4 text-2xl">FILTERS</h2>
@@ -123,8 +60,8 @@ const FilterBar = ({ onFilterChange }) => {
         </label>
 
         {isMenuOpen('artists') && (
-          <div className="menu">
-            {artistOptions.map((option, index) => (
+          <div>
+            {ARTIST_OPTIONS.map((option, index) => (
               <motion.div
                 key={option}
                 initial={{ opacity: 0 }}
@@ -163,8 +100,8 @@ const FilterBar = ({ onFilterChange }) => {
           )}
         </label>
         {isMenuOpen('period') && (
-          <div className="menu">
-            {periodOptions.map((option, index) => (
+          <div>
+            {PERIOD_OPTIONS.map((option, index) => (
               <motion.div
                 key={option}
                 initial={{ opacity: 0 }}
@@ -202,8 +139,8 @@ const FilterBar = ({ onFilterChange }) => {
           )}
         </label>
         {isMenuOpen('style') && (
-          <div className="menu">
-            {styleOptions.map((option, index) => (
+          <div>
+            {STYLE_OPTIONS.map((option, index) => (
               <motion.div
                 key={option}
                 initial={{ opacity: 0 }}
@@ -241,8 +178,8 @@ const FilterBar = ({ onFilterChange }) => {
           )}
         </label>
         {isMenuOpen('artworkType') && (
-          <div className="menu">
-            {artworkOptions.map((option, index) => (
+          <div>
+            {ARTWORK_OPTIONS.map((option, index) => (
               <motion.div
                 key={option}
                 initial={{ opacity: 0 }}

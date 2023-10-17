@@ -1,7 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { Search } from 'lucide-react';
-import { motion, useCycle } from 'framer-motion';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import Loader from '../components/Loader';

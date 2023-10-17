@@ -3,8 +3,7 @@ import Grid2 from '../components/icon/Grid2';
 import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
 import FilterBar from '../components/FilterBar';
-import { ListFilter } from 'lucide-react';
-import { Tally1 } from 'lucide-react';
+import { ListFilter, Tally1 } from 'lucide-react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 const page = 1;
