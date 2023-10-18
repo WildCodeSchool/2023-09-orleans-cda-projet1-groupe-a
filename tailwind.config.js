@@ -6,8 +6,8 @@ export default {
       animation: {
         lines: 'lines 4s infinite 0s',
         back: 'back 100s linear infinite',
-        scrollTop: 'scrollTop 150s linear infinite',
-        scrollBottom: 'scrollBottom 150s linear infinite',
+        'scroll-top': 'scroll-top 150s linear infinite',
+        'scroll-bottom': 'scroll-bottom 150s linear infinite',
       },
       colors: {
         light: 'var(--light)',
@@ -37,7 +37,7 @@ export default {
             'background-position': '0% 50%',
           },
         },
-        scrollTop: {
+        'scroll-top': {
           '0%': {
             transform: 'translateY(0%)',
           },
@@ -45,7 +45,7 @@ export default {
             transform: 'translateY(-80%)',
           },
         },
-        scrollBottom: {
+        'scroll-bottom': {
           '0%': {
             transform: 'translateY(-80%)',
           },

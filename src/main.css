@@ -46,7 +46,7 @@
     );
   }
 
-  .scrollPaused:hover {
+  .pause-animation {
     animation-play-state: paused;
   }
 }

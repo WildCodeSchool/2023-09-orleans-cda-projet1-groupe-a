@@ -38,7 +38,7 @@ function Artist() {
         }}
       ></p>
       <div className="container m-auto flex h-[200vh] overflow-y-hidden">
-        <div className="scrollPaused box-border flex h-fit basis-1/4 animate-scrollTop flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
+        <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-top flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index < 20) {
               return (
@@ -57,7 +57,7 @@ function Artist() {
             return null;
           })}
         </div>
-        <div className="scrollPaused box-border flex h-fit basis-1/4 animate-scrollBottom flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
+        <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-bottom flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index >= 20 && index < 40) {
               return (
@@ -76,7 +76,7 @@ function Artist() {
             return null;
           })}
         </div>
-        <div className="scrollPaused box-border flex h-fit basis-1/4 animate-scrollTop flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
+        <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-top flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index >= 40 && index < 60) {
               return (
@@ -95,7 +95,7 @@ function Artist() {
             return null;
           })}
         </div>
-        <div className="scrollPaused box-border flex h-fit basis-1/4 animate-scrollBottom flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
+        <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-bottom flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index >= 60 && index < 80) {
               return (
