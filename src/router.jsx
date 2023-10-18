@@ -4,6 +4,8 @@ import Artist from './pages/Artist';
 import Gallery from './pages/Gallery';
 import NavBar from './components/NavBar';
 import NotFound from './pages/NotFound';
+import ArtistCollection from './pages/ArtistCollection';
+
 const router = createBrowserRouter([
   {
     element: <NavBar />,
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
         element: <Gallery />,
       },
     ],
+  },
+  {
+    path: '/artist-collection',
+    element: <ArtistCollection />,
   },
   {
     path: '/404',

@@ -6,6 +6,8 @@ export default {
       animation: {
         lines: 'lines 4s infinite 0s',
         back: 'back 100s linear infinite',
+        scrollTop: 'scrollTop 150s linear infinite',
+        scrollBottom: 'scrollBottom 150s linear infinite',
       },
       colors: {
         light: 'var(--light)',
@@ -33,6 +35,22 @@ export default {
           },
           '100%': {
             'background-position': '0% 50%',
+          },
+        },
+        scrollTop: {
+          '0%': {
+            transform: 'translateY(0%)',
+          },
+          '100%': {
+            transform: 'translateY(-80%)',
+          },
+        },
+        scrollBottom: {
+          '0%': {
+            transform: 'translateY(-80%)',
+          },
+          '100%': {
+            transform: 'translateY(0%)',
           },
         },
       },

@@ -40,7 +40,7 @@ export default function Gallery() {
     <>
       <div className="container mx-auto p-4">
         <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
-          Gallery
+          GALLERY
         </h1>
         <div className="mb-4 text-end">
           <button
