@@ -1,3 +1,5 @@
+import Home3 from './Home3';
+
 function Home() {
   return (
     <>
@@ -8,6 +10,7 @@ function Home() {
           </h1>
         </div>
       </div>
+      <Home3 />
     </>
   );
 }
