@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify';
 function Artist() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('Georgia');
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -73,9 +73,9 @@ function Artist() {
     } else if (i === indexLeft2) {
       className = 'card opacity-60 scale-[0.8] translate-x-[-150%]';
     } else if (i === indexRight3) {
-      className = 'card opacity-10 scale-[0.8] translate-x-[100%]';
+      className = 'card opacity-20 scale-[0.8] translate-x-[100%]';
     } else if (i === indexLeft3) {
-      className = 'card opacity-10 scale-[0.8] translate-x-[-100%]';
+      className = 'card opacity-20 scale-[0.8] translate-x-[-100%]';
     } else {
       className = 'card';
     }
