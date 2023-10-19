@@ -45,6 +45,10 @@
       rgba(0, 0, 0, 0.95) 100%
     );
   }
+
+  .pause-animation {
+    animation-play-state: paused;
+  }
 }
 
 ::-webkit-scrollbar {
