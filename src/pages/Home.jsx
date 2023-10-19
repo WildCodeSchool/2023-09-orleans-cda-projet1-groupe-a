@@ -1,3 +1,5 @@
+import HomeContent3 from '../components/HomeContent3';
+
 function Home() {
   return (
     <>
@@ -8,6 +10,7 @@ function Home() {
           </h1>
         </div>
       </div>
+      <HomeContent3 />
     </>
   );
 }
