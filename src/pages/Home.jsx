@@ -1,4 +1,4 @@
-import Home3 from './Home3';
+import HomeContaint3 from '../components/HomeContaint3';
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
           </h1>
         </div>
       </div>
-      <Home3 />
+      <HomeContaint3 />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import home1 from '../assets/home1.png';
 import home2 from '../assets/home2.png';
 import { motion } from 'framer-motion';
-export default function Home3() {
+export default function HomeContaint3() {
   const variants = {
     offscreen: {
       y: 300,
