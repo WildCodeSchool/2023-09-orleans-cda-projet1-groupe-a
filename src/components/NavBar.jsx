@@ -68,7 +68,7 @@ export default function NavBar() {
           {ref.current ? <ScrollTopButton relativeTo={ref.current} /> : null}
         </nav>
       )}
-      <div ref={ref} className="max-h-screen overflow-auto">
+      <div ref={ref} className="max-h-screen overflow-x-hidden">
         <Outlet />
       </div>
     </>
