@@ -6,7 +6,6 @@ import FilterBar from '../components/FilterBar';
 import { ListFilter, Tally1 } from 'lucide-react';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import Footer from '../components/Footer';
 const page = 1;
 const limit = 20;
 
