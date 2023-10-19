@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import DOMPurify from 'dompurify';
 
-function Artist() {
+function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
   const [search, setSearch] = useState('Georgia');
@@ -153,4 +153,4 @@ function Artist() {
   );
 }
 
-export default Artist;
+export default ArtistCollection;
