@@ -6,6 +6,7 @@ import MenuToggle from './MenuToggle';
 import Loader from '../components/Loader';
 import SideBar from './Sidebar';
 import ScrollTopButton from './ScrollTopButton';
+import Footer from './Footer';
 
 export default function NavBar() {
   const [isInputOpen, setInputOpen] = useState(false);
@@ -70,6 +71,7 @@ export default function NavBar() {
       )}
       <div ref={ref} className="max-h-screen overflow-auto">
         <Outlet />
+        <Footer />
       </div>
     </>
   );
