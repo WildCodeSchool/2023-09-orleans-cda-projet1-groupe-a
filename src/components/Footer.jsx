@@ -1,6 +1,6 @@
 import signature from '../assets/signature.png';
 import ja from '../assets/JA.png';
-import justin from '../assets/Justin.png';
+import justin from '../assets/justin.png';
 import amaury from '../assets/amaury.png';
 export default function Footer() {
   return (
