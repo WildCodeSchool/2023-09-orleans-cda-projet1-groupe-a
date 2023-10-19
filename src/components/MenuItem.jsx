@@ -7,7 +7,7 @@ const MenuItem = ({ text, variants }) => {
         variants={variants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="mb-10 mt-4 flex cursor-pointer items-center"
+        className="mb-10 mt-4 flex items-center"
       >
         <span className="text-lg text-light">{text}</span>
       </motion.li>

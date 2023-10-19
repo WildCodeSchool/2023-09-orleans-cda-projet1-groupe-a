@@ -22,6 +22,12 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
 
   const sidebarRef = useRef(null);
 
+  const closeSidebar = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (
@@ -29,7 +35,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
         !sidebarRef.current.contains(e.target) &&
         isOpen
       ) {
-        setIsOpen(false);
+        closeSidebar();
       }
     };
 
@@ -38,7 +44,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [isOpen, setIsOpen]);
+  }, [isOpen]);
 
   const sidebar = {
     open: (height = 1000) => ({
@@ -51,7 +57,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       },
     }),
     closed: {
-      clipPath: 'circle(24px at 39.5px 112px)',
+      clipPath: 'circle(24px at 39.5px 80px)',
       opacity: 0,
       transition: {
         opacity: { delay: 1 / 3 },
@@ -78,6 +84,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       />
       <button
         onClick={toggleSidebar}
+        onMouseDown={(e) => e.stopPropagation()}
         className="transition duration-200 hover:scale-110"
       >
         <svg width="24" height="24" viewBox="0 0 22 19">

@@ -32,7 +32,7 @@ const variants = {
 
 const SideBar = ({ isOpen }) => (
   <motion.ul
-    className={`absolute top-44`}
+    className={`absolute top-36`}
     initial={'closed'}
     animate={isOpen ? 'open' : 'closed'}
     variants={variants}
