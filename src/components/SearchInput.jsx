@@ -10,11 +10,17 @@ export default function SearchInput() {
   const handleInputChange = (event) => {
     const { value } = event.target;
     setSearchValue(value);
+
     fetch(
-      `https://api.artic.edu/api/v1/artworks/search?q=${value}&fields=id,artist_display&limit=5`,
+      `https://api.artic.edu/api/v1/artworks/search?q=${value}&fields=id,artist_display&limit=3`,
     )
       .then((response) => response.json())
-      .then((data) => setSuggestions(data.data));
+      .then((data) => {
+        const filteredSuggestions = data.data.filter((suggestion) =>
+          suggestion.artist_display.toLowerCase().includes(value.toLowerCase()),
+        );
+        setSuggestions(filteredSuggestions);
+      });
   };
 
   const handleMouseEnter = () => {
@@ -23,7 +29,6 @@ export default function SearchInput() {
 
   const handleMouseLeave = () => {
     setInputOpen(false);
-    setSearchValue('');
     setSuggestions([]);
   };
 
@@ -52,7 +57,7 @@ export default function SearchInput() {
           />
         </button>
         {suggestions.length > 0 && isInputOpen && (
-          <div className="absolute mt-10 flex w-52 flex-col">
+          <div className="absolute mt-10 flex w-auto flex-col pt-2">
             {suggestions
               .filter(
                 (suggestion, index, self) =>
@@ -64,11 +69,11 @@ export default function SearchInput() {
               .map((suggestion) => {
                 const artistName = suggestion.artist_display
                   .split('\n')[0]
-                  .replace(/\s*\(.*?\)\s*/g, '');
+                  .replace(/[^a-zA-Z\s]/g, '');
                 return (
                   <Link
-                    to={'#'}
-                    className="rounded text-left text-xl hover:bg-light"
+                    to={`/artist/${artistName}`}
+                    className="mb-1 overflow-hidden whitespace-nowrap rounded bg-light pl-2 pr-2 text-left text-xl opacity-75 hover:opacity-100"
                     key={suggestion.id}
                   >
                     {artistName}
