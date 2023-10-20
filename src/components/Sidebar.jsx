@@ -9,7 +9,7 @@ const items = [
   { text: 'ARTIST', path: '/artist' },
 ];
 
-const variants = {
+const circleEffect = {
   open: {
     y: 1,
     opacity: 1,
@@ -42,7 +42,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(24px at 39.5px 112px)',
+    clipPath: 'circle(24px at 39.5px 95px)',
     opacity: 0,
     transition: {
       opacity: { delay: 1 / 3 },
@@ -64,9 +64,7 @@ const SideBar = ({ isOpen, setIsOpen, buttonRef }) => {
         !path.includes(buttonRef.current)
       ) {
         setIsOpen(false);
-        console.log('coucou');
       }
-      console.log(path);
     };
 
     document.addEventListener('mousedown', handleOutsideClick);
@@ -85,14 +83,14 @@ const SideBar = ({ isOpen, setIsOpen, buttonRef }) => {
       ref={sidebarRef}
     >
       <motion.ul
-        className={`absolute top-44`}
+        className={`absolute top-44 pl-6`}
         initial={'closed'}
         animate={isOpen ? 'open' : 'closed'}
-        variants={variants}
+        variants={circleEffect}
       >
         {items.map((item, index) => (
-          <Link to={item.path} key={index}>
-            <MenuItem text={item.text} variants={variants} />
+          <Link to={item.path} key={index} onClick={() => setIsOpen(false)}>
+            <MenuItem text={item.text} variants={circleEffect} />
           </Link>
         ))}
       </motion.ul>

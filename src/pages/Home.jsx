@@ -1,3 +1,6 @@
+import HomeContent1 from '../components/HomeContent1';
+import HomeContent3 from '../components/HomeContent3';
+
 function Home() {
   return (
     <>
@@ -8,6 +11,8 @@ function Home() {
           </h1>
         </div>
       </div>
+      <HomeContent1 />
+      <HomeContent3 />
     </>
   );
 }
