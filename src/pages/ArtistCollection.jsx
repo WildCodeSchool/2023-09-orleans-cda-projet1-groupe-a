@@ -2,11 +2,29 @@ import { useState, useEffect } from 'react';
 import { fetchArtworks } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
   const [search, setSearch] = useState('Hokusai');
+
+  const handlePrevious = () => {
+    if (index === 0) {
+      setIndex(artworks.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (index === artworks.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -85,7 +103,7 @@ function ArtistCollection() {
     <>
       <div>
         <div>
-          <h1 className="font-medim mt-48 text-center text-4xl drop-shadow-md">
+          <h1 className="font-medim mt-48 text-center text-4xl uppercase drop-shadow-md">
             {artistName}
           </h1>
         </div>
@@ -116,6 +134,13 @@ function ArtistCollection() {
                     transition={{ duration: 0.8, ease: 'easeInOut' }}
                     className="absolute left-1/2 top-1/2 z-[999] mx-auto flex h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 transform rounded bg-black/80 text-lg text-[--light] drop-shadow-lg"
                   >
+                    <button
+                      className="m-auto h-10 w-10"
+                      onClick={handlePrevious}
+                    >
+                      {' '}
+                      <ChevronLeft className="h-10 w-10 cursor-pointer" />
+                    </button>
                     <div className="w-2/4">
                       <div className="flex h-[600px] items-center justify-center">
                         <img
@@ -126,12 +151,6 @@ function ArtistCollection() {
                       </div>
                     </div>
                     <div className="w-2/4 p-9">
-                      <button
-                        className="float-right mt-0 flex"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <X className="cursor-pointer" />
-                      </button>
                       <p className="mb-6 mt-8">
                         {artistName ? artistName : 'not specified'}
                       </p>
@@ -161,6 +180,15 @@ function ArtistCollection() {
                         </div>
                       </div>
                     </div>
+                    <button
+                      className="z-10 float-right -me-4 mt-7 flex h-10 w-10 "
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <X className="h-8 w-8 cursor-pointer" />
+                    </button>
+                    <button className="m-auto h-10 w-10" onClick={handleNext}>
+                      <ChevronRight className="h-10 w-10 cursor-pointer" />
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>

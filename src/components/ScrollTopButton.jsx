@@ -31,7 +31,7 @@ function ScrollTopButton({ relativeTo }) {
           <ChevronUp
             color="#000000"
             absoluteStrokeWidth
-            className="h-10 w-10"
+            className="h-12 w-12"
           />
         </button>
       )}
