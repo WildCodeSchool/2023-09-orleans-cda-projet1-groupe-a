@@ -8,6 +8,8 @@ export default {
         back: 'back 100s linear infinite',
         'scroll-top': 'scroll-top 150s linear infinite',
         'scroll-bottom': 'scroll-bottom 150s linear infinite',
+        'scroll-left': 'scroll-left 150s linear infinite',
+        'scroll-right': 'scroll-right 150s linear infinite',
       },
       colors: {
         light: 'var(--light)',
@@ -51,6 +53,22 @@ export default {
           },
           '100%': {
             transform: 'translateY(0%)',
+          },
+        },
+        'scroll-left': {
+          '0%': {
+            transform: 'translateX(0%)',
+          },
+          '100%': {
+            transform: 'translateX(-80%)',
+          },
+        },
+        'scroll-right': {
+          '0%': {
+            transform: 'translateX(-80%)',
+          },
+          '100%': {
+            transform: 'translateX(0%)',
           },
         },
       },

@@ -37,7 +37,7 @@ function Artist() {
           __html: artworkDescription,
         }}
       ></p>
-      <div className="container m-auto flex h-[200vh] overflow-y-hidden">
+      <div className="container m-auto mb-10 flex h-[200vh] overflow-y-hidden">
         <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-top flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index < 20) {

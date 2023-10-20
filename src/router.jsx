@@ -3,9 +3,9 @@ import Home from './pages/Home';
 import Artist from './pages/Artist';
 import Gallery from './pages/Gallery';
 import NavBar from './components/NavBar';
-
 import NotFound from './pages/NotFound';
 import ArtistCollection from './pages/ArtistCollection';
+import AllArtist from './pages/AllArtists';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/artist-collection',
     element: <ArtistCollection />,
+  },
+  {
+    path: '/all-artist',
+    element: <AllArtist />,
   },
   {
     path: '/404',

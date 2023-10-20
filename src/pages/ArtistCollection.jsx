@@ -85,7 +85,7 @@ function ArtistCollection() {
     <>
       <div>
         <div>
-          <h1 className="font-medim mt-48 text-center text-4xl drop-shadow-md">
+          <h1 className="font-medim mt-48 text-center text-4xl uppercase drop-shadow-md">
             {artistName}
           </h1>
         </div>
@@ -140,8 +140,9 @@ function ArtistCollection() {
                         <p className="mb-4">
                           {artworkTitle ? artworkTitle : 'not specified'}
                         </p>
+                        <p>Year :</p>
                         <p className="mb-4">
-                          Year : {artworkDate ? artworkDate : 'not specified'}
+                          {artworkDate ? artworkDate : 'not specified'}
                         </p>
                         <div className="">
                           <p>Place of origin :</p>

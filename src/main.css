@@ -49,6 +49,23 @@
   .pause-animation {
     animation-play-state: paused;
   }
+
+  /* card flipped */
+  .rotate-y {
+    transform: rotateY(180deg);
+  }
+
+  .flipped-card {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .backface-visibility {
+    backface-visibility: hidden;
+  }
+  .perspective {
+    perspective: 1000px;
+  }
 }
 
 ::-webkit-scrollbar {
