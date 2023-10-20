@@ -96,7 +96,9 @@ export default function SearchInput() {
                   key={suggestion.id}
                   className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50"
                 >
-                  {artistName}
+                  {artistName.length > 24
+                    ? artistName.slice(0, 25) + '...'
+                    : artistName}
                 </li>
               );
             })}
