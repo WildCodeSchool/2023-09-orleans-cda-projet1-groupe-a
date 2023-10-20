@@ -30,19 +30,21 @@ const variants = {
   },
 };
 
-const SideBar = ({ isOpen }) => (
-  <motion.ul
-    className={`absolute top-44`}
-    initial={'closed'}
-    animate={isOpen ? 'open' : 'closed'}
-    variants={variants}
-  >
-    {items.map((item, index) => (
-      <Link to={item.path} key={index}>
-        <MenuItem text={item.text} variants={variants} />
-      </Link>
-    ))}
-  </motion.ul>
-);
+const SideBar = ({ isOpen, toggleSidebar }) => {
+  return (
+    <motion.ul
+      className={`absolute top-44`}
+      initial={'closed'}
+      animate={isOpen ? 'open' : 'closed'}
+      variants={variants}
+    >
+      {items.map((item, index) => (
+        <Link to={item.path} key={index} onClick={toggleSidebar}>
+          <MenuItem text={item.text} variants={variants} />
+        </Link>
+      ))}
+    </motion.ul>
+  );
+};
 
 export default SideBar;
