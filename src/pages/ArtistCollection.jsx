@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { fetchArtworks } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -9,7 +9,24 @@ function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
   const [search, setSearch] = useState('Hokusai');
+  const [isOpen, setIsOpen] = useState(false);
+  const popUp = useRef(null);
 
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (popUp.current && !popUp.current.contains(e.target) && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isOpen, setIsOpen]);
+
+  // Next and previous buttons
   const handlePrevious = () => {
     if (index === 0) {
       setIndex(artworks.length - 1);
@@ -25,8 +42,6 @@ function ArtistCollection() {
       setIndex(index + 1);
     }
   };
-
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -127,7 +142,7 @@ function ArtistCollection() {
               <AnimatePresence>
                 {isOpen && (
                   <motion.div
-                    id="pop-up"
+                    ref={popUp}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.6 } }}
