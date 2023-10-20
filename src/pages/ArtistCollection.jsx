@@ -6,7 +6,7 @@ import { X } from 'lucide-react';
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search] = useState('Hokusai');
+  const search = 'Hokusai';
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

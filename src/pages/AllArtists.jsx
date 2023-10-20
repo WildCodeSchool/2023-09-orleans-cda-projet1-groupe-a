@@ -4,6 +4,7 @@ import { fetchArtworks } from '../api';
 function AllArtists() {
   const [artworks, setArtworks] = useState([]);
   const [search] = useState('');
+
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
@@ -21,6 +22,7 @@ function AllArtists() {
       controller.abort();
     };
   }, [search]);
+
   const renderArtworksGroup = (start, end, animationDirection) => {
     return artworks.slice(start, end).map((artwork) => (
       <div
@@ -43,6 +45,7 @@ function AllArtists() {
       </div>
     ));
   };
+
   const generateArtworkGroups = () => {
     const groups = [];
     for (let start = 0; start < 100; start += 20) {
