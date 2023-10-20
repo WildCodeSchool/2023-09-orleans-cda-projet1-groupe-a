@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { fetchArtworks } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
-import { ChevronLeft } from 'lucide-react';
-import { ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
@@ -12,6 +10,7 @@ function ArtistCollection() {
   const [isOpen, setIsOpen] = useState(false);
   const popUp = useRef(null);
 
+  // Closed pop-up outside the component
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (popUp.current && !popUp.current.contains(e.target) && isOpen) {
@@ -52,7 +51,7 @@ function ArtistCollection() {
         setArtworks(data);
       })
       .catch((error) => {
-        console.error('An error occurred while retrieving the data.', error);
+        throw new Error('An error occurred while retrieving the data.', error);
       });
 
     return function cleanup() {
