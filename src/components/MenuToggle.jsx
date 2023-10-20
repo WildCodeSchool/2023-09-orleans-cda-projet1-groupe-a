@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
 
 const Path = (props) => (
   <motion.path
@@ -11,35 +10,7 @@ const Path = (props) => (
   />
 );
 
-const MenuToggle = ({ isOpen, setIsOpen }) => {
-  const toggleSidebar = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
-  };
-
-  const sidebarRef = useRef(null);
-
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(e.target) &&
-        isOpen
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleOutsideClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [isOpen, setIsOpen]);
-
+const MenuToggle = ({ isOpen, toggleSidebar }) => {
   const sidebar = {
     open: (height = 1000) => ({
       clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -51,7 +22,7 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       },
     }),
     closed: {
-      clipPath: 'circle(24px at 39.5px 112px)',
+      clipPath: 'circle(24px at 39.5px 82px)',
       opacity: 0,
       transition: {
         opacity: { delay: 1 / 3 },
@@ -68,7 +39,6 @@ const MenuToggle = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? 'open' : 'closed'}
       custom="100%"
       className="w-1/3"
-      ref={sidebarRef}
     >
       <motion.div
         className="from-slate-500-opacity-30 via-slate-600-opacity-80 absolute left-0 top-0 -z-50 h-screen w-80 bg-gradient-to-r"
