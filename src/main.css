@@ -7,10 +7,14 @@
   :root {
     --light: #f4f4f0;
     --dark: #0d0c0c;
+    --secondary: #efe9d1;
     font-family: 'Ysabeau Infant', sans-serif;
   }
   body {
     background-color: var(--light);
+  }
+  footer {
+    background-color: var(--secondary);
   }
 }
 
