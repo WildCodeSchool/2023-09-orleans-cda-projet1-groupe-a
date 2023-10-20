@@ -2,10 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Artist from './pages/Artist';
 import Gallery from './pages/Gallery';
-import NavBar from './components/NavBar';
 import NotFound from './pages/NotFound';
 import ArtistCollection from './pages/ArtistCollection';
-import AllArtist from './pages/AllArtists';
+import AllArtists from './pages/AllArtists';
 import Layout from './components/Layout';
 
 const router = createBrowserRouter([
@@ -31,8 +30,8 @@ const router = createBrowserRouter([
     element: <ArtistCollection />,
   },
   {
-    path: '/all-artist',
-    element: <AllArtist />,
+    path: '/all-artists',
+    element: <AllArtists />,
   },
   {
     path: '/404',

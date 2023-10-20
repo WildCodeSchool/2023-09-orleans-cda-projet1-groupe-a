@@ -60,12 +60,12 @@ export default {
             transform: 'translateX(0%)',
           },
           '100%': {
-            transform: 'translateX(-80%)',
+            transform: 'translateX(-70%)',
           },
         },
         'scroll-right': {
           '0%': {
-            transform: 'translateX(-80%)',
+            transform: 'translateX(-70%)',
           },
           '100%': {
             transform: 'translateX(0%)',

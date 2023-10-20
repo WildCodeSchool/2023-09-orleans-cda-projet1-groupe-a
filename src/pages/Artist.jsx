@@ -4,7 +4,7 @@ import DOMPurify from 'dompurify';
 
 function Artist() {
   const [artworks, setArtworks] = useState([]);
-  const [search, setSearch] = useState('Hosukai');
+  const [search] = useState('Hosukai');
 
   useEffect(() => {
     const controller = new AbortController();
@@ -15,7 +15,7 @@ function Artist() {
         setArtworks(data);
       })
       .catch((error) => {
-        console.error('An error occurred while retrieving the data.', error);
+        throw new Error('An error occurred while retrieving the data.', error);
       });
 
     return function cleanup() {

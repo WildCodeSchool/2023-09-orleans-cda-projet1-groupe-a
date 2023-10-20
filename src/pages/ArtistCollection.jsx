@@ -6,8 +6,7 @@ import { X } from 'lucide-react';
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search, setSearch] = useState('Hokusai');
-
+  const [search] = useState('Hokusai');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ function ArtistCollection() {
         setArtworks(data);
       })
       .catch((error) => {
-        console.error('An error occurred while retrieving the data.', error);
+        throw new Error('An error occurred while retrieving the data.', error);
       });
 
     return function cleanup() {
