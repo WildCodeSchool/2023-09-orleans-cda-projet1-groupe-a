@@ -30,6 +30,7 @@ const HomeContent1 = () => {
         variants={tiltleAnimation}
         initial={{ y: 300 }}
         whileInView="onscreen"
+        viewport={{ once: true }}
         className="my-20 flex flex-col items-center justify-center gap-4"
       >
         <h2 className="text-6xl">Welcome to Jaga </h2>
@@ -41,6 +42,7 @@ const HomeContent1 = () => {
           variants={pictureAnimation}
           initial={{ x: -350, y: 350 }}
           whileInView="onscreen"
+          viewport={{ once: true }}
           className="w-[48%]"
           src={homeImageLeft}
           alt="coucou"
@@ -49,6 +51,7 @@ const HomeContent1 = () => {
           variants={pictureAnimation}
           initial={{ x: 350, y: 350 }}
           whileInView="onscreen"
+          viewport={{ once: true }}
           className="w-[48%]"
           src={homeImageRight}
           alt=""

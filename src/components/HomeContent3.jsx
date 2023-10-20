@@ -22,7 +22,7 @@ export default function HomeContent3() {
         variants={variants}
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="mb-48 flex justify-center"
       >
         <div className="max-w-3xl text-lg">
@@ -48,7 +48,7 @@ export default function HomeContent3() {
           variants={variants}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: false, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="flex justify-end"
         >
           <div className="max-h-96 max-w-md text-lg">
@@ -97,7 +97,7 @@ export default function HomeContent3() {
           }}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: false, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <img src={home2} alt="art" className="h-[557px] w-[375px]" />
         </motion.div>
@@ -107,7 +107,7 @@ export default function HomeContent3() {
         variants={variants}
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         className="flex justify-end"
       >
         <img src={home1} alt="art" className="h-[557px] w-[375px]" />
