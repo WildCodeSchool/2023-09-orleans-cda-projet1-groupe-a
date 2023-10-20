@@ -4,7 +4,7 @@ import DOMPurify from 'dompurify';
 
 function Artist() {
   const [artworks, setArtworks] = useState([]);
-  const [search] = useState('Hosukai');
+  const search = 'Hosukai';
 
   useEffect(() => {
     const controller = new AbortController();
