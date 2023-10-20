@@ -64,7 +64,7 @@ export default function NavBar({ scrollRef }) {
               />
             </button>
           </form>
-          <SideBar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
+          <SideBar isOpen={isOpen} toggleSidebar={toggleSidebar} />
           {scrollRef.current ? (
             <ScrollTopButton relativeTo={scrollRef.current} />
           ) : null}
