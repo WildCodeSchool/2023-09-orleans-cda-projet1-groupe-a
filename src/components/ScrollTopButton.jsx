@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 function ScrollTopButton({ relativeTo }) {

@@ -6,7 +6,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const [search, setSearch] = useState('Hokusai');
+  const [search] = useState('Hokusai');
   const [isOpen, setIsOpen] = useState(false);
   const popUp = useRef(null);
 
