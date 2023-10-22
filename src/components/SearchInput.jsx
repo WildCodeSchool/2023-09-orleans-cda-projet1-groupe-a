@@ -1,31 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Search from './icon/Search';
+import { useDebounce } from 'use-debounce';
 
 export default function SearchInput() {
   const [isInputOpen, setInputOpen] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [debouncedSearchValue] = useDebounce(searchValue, 1000);
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setSearchValue(value);
-
-    if (value.trim() === '') {
+  useEffect(() => {
+    if (debouncedSearchValue.trim() === '') {
       setSuggestions([]);
     } else {
       fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${value}&fields=id,artist_display&limit=5`,
+        `https://api.artic.edu/api/v1/artworks/search?q=${debouncedSearchValue}&fields=id,artist_display&limit=5`,
       )
         .then((response) => response.json())
         .then((data) => {
           const filteredSuggestions = data.data.filter((suggestion) =>
             suggestion.artist_display
               .toLowerCase()
-              .includes(value.toLowerCase()),
+              .includes(debouncedSearchValue.toLowerCase()),
           );
           setSuggestions(filteredSuggestions);
         });
     }
+  }, [debouncedSearchValue]);
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setSearchValue(value);
   };
 
   const handleMouseEnter = () => {
@@ -39,7 +43,7 @@ export default function SearchInput() {
 
   return (
     <div className="relative">
-      <div className="relative items-end">
+      <div className="group relative items-end">
         <input
           type="text"
           className={`h-10 w-10 rounded-t-2xl p-2 pl-4 transition-all duration-500 ease-in-out focus:outline-none ${
@@ -53,11 +57,7 @@ export default function SearchInput() {
           onMouseEnter={handleMouseEnter}
           className="absolute right-2.5 top-3.5 cursor-pointer"
         >
-          <div
-            className={`h-5 w-5 self-center ${
-              isInputOpen ? 'text-black' : 'text-white'
-            }`}
-          >
+          <div className="h-5 w-5 self-center text-light group-hover:text-dark">
             <Search />
           </div>
         </div>
