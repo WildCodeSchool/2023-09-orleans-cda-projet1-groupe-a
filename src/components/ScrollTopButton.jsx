@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 function ScrollTopButton({ relativeTo }) {
@@ -31,7 +30,7 @@ function ScrollTopButton({ relativeTo }) {
           <ChevronUp
             color="#000000"
             absoluteStrokeWidth
-            className="h-10 w-10"
+            className="h-12 w-12"
           />
         </button>
       )}
