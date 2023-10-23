@@ -152,7 +152,6 @@ function ArtistCollection() {
                       className="m-auto h-10 w-10"
                       onClick={handlePrevious}
                     >
-                      {' '}
                       <ChevronLeft className="h-10 w-10 cursor-pointer" />
                     </button>
                     <div className="w-2/4">
