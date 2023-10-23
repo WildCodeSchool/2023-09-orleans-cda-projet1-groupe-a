@@ -3,7 +3,6 @@ import Search from './icon/Search';
 import { useDebounce } from 'use-debounce';
 
 export default function SearchInput() {
-  const [isInputOpen, setInputOpen] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [debouncedSearchValue] = useDebounce(searchValue, 1000);
@@ -32,31 +31,22 @@ export default function SearchInput() {
     setSearchValue(value);
   };
 
-  const handleMouseEnter = () => {
-    setInputOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setInputOpen(false);
+  const handleListLeave = () => {
     setSuggestions([]);
   };
 
   return (
-    <div className="relative">
+    <div className="group relative">
       <div className="group relative items-end">
         <input
           type="text"
-          className={`h-10 w-10 rounded-t-2xl p-2 pl-4 transition-all duration-500 ease-in-out focus:outline-none ${
-            isInputOpen ? 'w-28 sm:w-52' : 'opacity-0'
-          } ${suggestions.length <= 0 ? 'rounded-b-2xl' : ''}`}
-          onMouseLeave={suggestions.length <= 0 ? handleMouseLeave : null}
+          className={`h-10 w-10 rounded-t-2xl p-2 pl-4 opacity-0 transition-all duration-500 ease-in-out focus:outline-none group-hover:w-28 group-hover:opacity-100 group-hover:sm:w-52 ${
+            suggestions.length <= 0 ? 'rounded-b-2xl' : ''
+          }`}
           value={searchValue}
           onChange={handleInputChange}
         />
-        <div
-          onMouseEnter={handleMouseEnter}
-          className="absolute right-2.5 top-3.5 cursor-pointer"
-        >
+        <div className="absolute right-2.5 top-3.5 cursor-pointer">
           <div className="h-5 w-5 self-center text-light group-hover:text-dark">
             <Search />
           </div>
@@ -72,11 +62,11 @@ export default function SearchInput() {
         }}
       >
         <ul
-          onMouseLeave={handleMouseLeave}
+          onMouseLeave={handleListLeave}
           className={`w-full overflow-hidden rounded-b-2xl bg-white ${
-            isInputOpen ? 'w-28 sm:w-52' : 'opacity-0'
-          } transition-opacity duration-1000 ${
-            suggestions.length <= 0 ? 'opacity-0' : 'opacity-100'
+            suggestions.length > 0
+              ? 'w-28 opacity-100 sm:w-52'
+              : 'opacity-0 transition-opacity duration-1000'
           }`}
         >
           {suggestions
