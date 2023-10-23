@@ -11,7 +11,7 @@ const limit = 20;
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
-  const [search, setSearch] = useState('Picasso');
+  const [search, setSearch] = useState('');
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
   const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
   const handleGridChange = (newStyle) => {

@@ -172,8 +172,9 @@ function ArtistCollection() {
                         <p className="mb-4">
                           {artworkTitle ? artworkTitle : 'not specified'}
                         </p>
+                        <p>Year :</p>
                         <p className="mb-4">
-                          Year : {artworkDate ? artworkDate : 'not specified'}
+                          {artworkDate ? artworkDate : 'not specified'}
                         </p>
                         <div className="">
                           <p>Place of origin :</p>
