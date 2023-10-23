@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { Search } from 'lucide-react';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import SideBar from './Sidebar';

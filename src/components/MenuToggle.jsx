@@ -16,7 +16,6 @@ const MenuToggle = ({ isOpen, toggleSidebar, buttonRef }) => {
       <motion.div
         initial={'closed'}
         animate={isOpen ? 'open' : 'closed'}
-        custom={'100%'}
         className="absolute z-50"
         ref={buttonRef}
       >
