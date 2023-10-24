@@ -11,7 +11,7 @@ export default function Layout() {
       <Loader />
 
       <NavBar scrollRef={ref} />
-      <div ref={ref} className="max-h-screen overflow-auto">
+      <div ref={ref} className="max-h-screen overflow-x-hidden">
         <Outlet />
         <Footer />
       </div>

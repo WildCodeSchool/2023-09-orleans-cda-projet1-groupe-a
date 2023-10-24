@@ -24,7 +24,7 @@ export default function NavBar({ scrollRef }) {
   return (
     <>
       {navVisible && (
-        <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-10 flex w-full items-center justify-between bg-gradient-to-b from-dark px-7 py-4 pb-12 opacity-95">
+        <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-[998] flex w-full items-center justify-between bg-gradient-to-b from-dark px-7 py-4 pb-12 opacity-95">
           <MenuToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
           <div className="group relative flex cursor-pointer justify-center">
             {/*  logo */}

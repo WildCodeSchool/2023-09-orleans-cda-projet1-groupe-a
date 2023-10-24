@@ -7,7 +7,7 @@ function Loader() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsVisible(false);
-    }, 1000 * 5);
+    }, 1000 * 4);
     return () => clearTimeout(timeoutId);
   }, []);
 
