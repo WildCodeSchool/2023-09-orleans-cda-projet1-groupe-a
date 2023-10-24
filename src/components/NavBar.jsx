@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import SideBar from './Sidebar';
@@ -9,6 +9,8 @@ import SearchInput from './SearchInput';
 export default function NavBar({ scrollRef }) {
   const [isOpen, setIsOpen] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
+
+  const buttonRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsOpen((prev) => !prev);
@@ -24,8 +26,15 @@ export default function NavBar({ scrollRef }) {
   return (
     <>
       {navVisible && (
-        <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-[998] flex w-full items-center justify-between bg-gradient-to-b from-dark px-7 py-4 pb-12 opacity-95">
-          <MenuToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        <nav className="via-slate-800-opacity-80 to-slate-500-opacity-30 absolute z-10 flex w-full items-center justify-between bg-gradient-to-b from-dark px-7 py-4 pb-12 opacity-95">
+          {/*  menu burger */}
+          <div className="w-1/3">
+            <MenuToggle
+              isOpen={isOpen}
+              toggleSidebar={toggleSidebar}
+              buttonRef={buttonRef}
+            />
+          </div>
           <div className="group relative flex cursor-pointer justify-center">
             {/*  logo */}
             <Link to={'/'}>
@@ -35,7 +44,11 @@ export default function NavBar({ scrollRef }) {
           <div className="flex w-1/3 justify-end">
             <SearchInput />
           </div>
-          <SideBar isOpen={isOpen} />
+          <SideBar
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            buttonRef={buttonRef}
+          />
           {scrollRef.current ? (
             <ScrollTopButton relativeTo={scrollRef.current} />
           ) : null}

@@ -46,7 +46,7 @@ export default function SearchInput() {
           value={searchValue}
           onChange={handleInputChange}
         />
-        <div className="absolute right-2.5 top-3.5 cursor-pointer">
+        <div className="absolute right-2.5 top-2.5 cursor-pointer">
           <div className="h-5 w-5 self-center text-light group-hover:text-dark">
             <Search />
           </div>
