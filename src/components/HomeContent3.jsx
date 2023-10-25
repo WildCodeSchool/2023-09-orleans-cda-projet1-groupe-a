@@ -24,9 +24,9 @@ export default function HomeContent3() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.1 }}
-        className=" mb-28 flex justify-center md:mb-48"
+        className="mb-28 flex justify-center md:mb-48"
       >
-        <div className=" text-1xl h-[10%] sm:text-2xl md:max-w-3xl md:text-4xl">
+        <div className="text-1xl h-[10%] sm:text-2xl md:max-w-3xl md:text-4xl">
           <p className="md:mb-4">
             {`Jaga Studio shares its singular collections with
                             our city and the world. We collect, care for, and interpret works of
@@ -44,7 +44,7 @@ export default function HomeContent3() {
         </div>
       </motion.div>
 
-      <div className="mx-auto flex flex-col-reverse sm:mb-8 sm:flex-row-reverse sm:gap-8 sm:duration-75 ">
+      <div className="mx-auto flex flex-col-reverse sm:mb-8 sm:flex-row-reverse sm:gap-8 sm:duration-75">
         <motion.div
           variants={variants}
           initial="offscreen"
