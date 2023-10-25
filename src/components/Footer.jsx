@@ -1,7 +1,7 @@
-import greg from '../assets/greg.png';
-import ja from '../assets/JA.png';
-import justin from '../assets/justin.png';
-import amaury from '../assets/amaury.png';
+import greg from '../assets/images/greg.png';
+import ja from '../assets/images/JA.png';
+import justin from '../assets/images/justin.png';
+import amaury from '../assets/images/amaury.png';
 export default function Footer() {
   return (
     <footer className="mt-20 h-full w-full text-center ">
