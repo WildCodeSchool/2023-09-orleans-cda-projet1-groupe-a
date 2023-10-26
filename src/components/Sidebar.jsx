@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 const items = [
   { text: 'HOME', path: '/' },
   { text: 'GALLERY', path: '/gallery' },
-  { text: 'ARTIST', path: '/artist' },
+  { text: 'ARTISTS', path: '/all-artists' },
 ];
 
 const circleEffect = {

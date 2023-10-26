@@ -11,7 +11,7 @@ function ScrollTopButton({ relativeTo }) {
         setShowTopBtn(false);
       }
     });
-  }, []);
+  }, [relativeTo]);
 
   const goToTop = () => {
     relativeTo.scrollTo({
