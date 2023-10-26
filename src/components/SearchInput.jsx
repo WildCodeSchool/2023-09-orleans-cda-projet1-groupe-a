@@ -81,14 +81,14 @@ export default function SearchInput() {
             .map((suggestion) => {
               const artistName = suggestion.artist_title;
               return (
-                <li
+                <Link
                   key={suggestion.id}
-                  className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50"
+                  to={`/artists/${suggestion.artist_title}`}
                 >
-                  <Link to={`/artists/${suggestion.artist_title}`}>
+                  <li className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50">
                     {artistName}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               );
             })}
         </ul>
