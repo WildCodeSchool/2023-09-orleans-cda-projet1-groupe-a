@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import ArtistCollection from './pages/ArtistCollection';
 import AllArtists from './pages/AllArtists';
 import Layout from './components/Layout';
+import HomeContent2 from './components/HomeContent2';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: '/404',
     element: <NotFound />,
+  },
+  {
+    path: '/home2',
+    element: <HomeContent2 />,
   },
 ]);
 

@@ -1,7 +1,12 @@
 import HomeContent1 from '../components/HomeContent1';
+import HomeContent2 from '../components/HomeContent2';
 import HomeContent3 from '../components/HomeContent3';
 
+/* import { useScroll } from 'framer-motion'; */
+
 function Home() {
+  /* const { scrollYProgress } = useScroll({ target: refImage }); */
+
   return (
     <>
       <div className="transform-3d backface-visibility h-screen animate-back bg-[url('/BG.avif')]">
@@ -12,6 +17,7 @@ function Home() {
         </div>
       </div>
       <HomeContent1 />
+      <HomeContent2 />
       <HomeContent3 />
     </>
   );
