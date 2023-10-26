@@ -1,10 +1,10 @@
 import { fetchArtworks } from '../api';
 import { useState, useEffect } from 'react';
-import { motion, stagger } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function ArtworkDetail() {
   const [artworks, setArtworks] = useState([]);
-  const [index, setIndex] = useState(0);
+  const index = 0;
   const search = 'kerry james';
 
   const artistName = artworks[0]?.artist_display || '';
@@ -35,52 +35,44 @@ function ArtworkDetail() {
     };
   }, [search]);
 
-  const animation = {
-    onscreen: {
-      x: 5,
-      transition: {
-        duration: 6,
-        bounce: 0.1,
-      },
+  const variants = {
+    visible: {
+      transition: { staggerChildren: 0.35 },
     },
   };
 
-  const variants = {
-    animation: { ...animation },
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-    // li: {
-    //   transform: 'scale(1)',
-    //   opacity: 1,
-    //   filter: 'blur(0px)',
-    //   transition: {
-    //     delay: stagger(0.05, { at: '-0.1' }),
-    //   },
-    // },
-  };
-
   const item = {
-    animation: { ...animation },
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { ease: 'easeInOut', duration: 1 },
+    },
+    hidden: { opacity: 0, x: 100 },
   };
 
   return (
     <>
       <div className="mt-52 flex">
         <div className="w-2/4">
-          <div className="flex h-full items-center justify-center">
+          <motion.div
+            whileInView="onscreen"
+            viewport={{ once: true }}
+            initial={{ x: -600 }}
+            animate={{ x: 0, transition: { ease: 'easeInOut', duration: 2 } }}
+            className="flex h-full items-center justify-center"
+          >
             <img
               src={artworkImage}
               alt={artworkTitle}
-              className="max-h-full max-w-full object-cover p-9 shadow-inner transition duration-500 hover:scale-110"
+              className="relative left-[80px] max-h-full max-w-full object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
             ></img>
-          </div>
+          </motion.div>
         </div>
         <motion.ul
           variants={variants}
           initial="hidden"
           animate="visible"
-          className="w-2/4 pb-9 pe-24 ps-9 pt-4 text-lg"
+          className="w-2/4 pb-9 pe-24 ps-9 pt-4 text-lg uppercase"
         >
           <motion.li variants={item}>
             <p className="mb-6">
@@ -91,21 +83,33 @@ function ArtworkDetail() {
             <p>Artist :</p>
             <p className="mb-4"> {artistName ? artistName : 'not specified'}</p>
           </motion.li>
-          <p>Description :</p>
-          <p className="mb-4">{artworkText ? artworkText : 'not specified'}</p>
-          <p className="mb-4">
-            Year : {artworkDate ? artworkDate : 'not specified'}
-          </p>
-          <p className="mb-4">
-            Place of origin : {artworkPlace ? artworkPlace : 'not specified'}
-          </p>
-          <p className="mb-4">
-            Method : {artworkDisplay ? artworkDisplay : 'not specified'}
-          </p>
-          <p className="mb-4">
-            Dimension :{' '}
-            {artworkDimensions ? artworkDimensions : 'not specified'}
-          </p>
+          <motion.li variants={item}>
+            <p>Description :</p>
+            <p className="mb-4">
+              {artworkText ? artworkText : 'not specified'}
+            </p>
+          </motion.li>
+          <motion.li variants={item}>
+            <p className="mb-4">
+              Year : {artworkDate ? artworkDate : 'not specified'}
+            </p>
+          </motion.li>
+          <motion.li variants={item}>
+            <p className="mb-4">
+              Place of origin : {artworkPlace ? artworkPlace : 'not specified'}
+            </p>
+          </motion.li>
+          <motion.li variants={item}>
+            <p className="mb-4">
+              Method : {artworkDisplay ? artworkDisplay : 'not specified'}
+            </p>
+          </motion.li>
+          <motion.li variants={item}>
+            <p className="mb-4">
+              Dimension :{' '}
+              {artworkDimensions ? artworkDimensions : 'not specified'}
+            </p>
+          </motion.li>
         </motion.ul>
       </div>
     </>
