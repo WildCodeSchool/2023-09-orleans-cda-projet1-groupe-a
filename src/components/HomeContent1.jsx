@@ -37,13 +37,13 @@ const HomeContent1 = () => {
         <h2 className="text-6xl">Redefining Chicago Art</h2>
       </motion.div>
 
-      <div className="flex gap-11">
+      <div className="lg-justify-center lg-duration-75 flex flex-col items-center gap-11 md:flex-row md:justify-center md:duration-75 lg:flex-row">
         <motion.img
           variants={pictureAnimation}
           initial={{ x: -350, y: 350 }}
           whileInView="onscreen"
           viewport={{ once: true }}
-          className="w-[48%]"
+          className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
           src={homeImageLeft}
           alt="coucou"
         />
@@ -52,7 +52,7 @@ const HomeContent1 = () => {
           initial={{ x: 350, y: 350 }}
           whileInView="onscreen"
           viewport={{ once: true }}
-          className="w-[48%]"
+          className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
           src={homeImageRight}
           alt=""
         />
