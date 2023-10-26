@@ -8,11 +8,10 @@ export default function Layout() {
 
   return (
     <>
-      {/*    <Loader /> */}
-
+      <Loader />
       <NavBar scrollRef={ref} />
-      <div ref={ref} className="max-h-screen overflow-x-hidden">
-        <Outlet context={{ ref }} />
+      <div ref={ref} className="overflow-hidden">
+        <Outlet />
         <Footer />
       </div>
     </>
