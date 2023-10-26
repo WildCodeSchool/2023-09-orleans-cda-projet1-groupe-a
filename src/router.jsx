@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import ArtistCollection from './pages/ArtistCollection';
 import AllArtists from './pages/AllArtists';
 import Layout from './components/Layout';
+import ArtworkDetail from './pages/ArtworkDetail';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/gallery',
         element: <Gallery />,
+      },
+      {
+        path: '/artwork-detail',
+        element: <ArtworkDetail />,
       },
     ],
   },

@@ -24,13 +24,13 @@ function ScrollTopButton({ relativeTo }) {
     <>
       {showTopBtn && (
         <button
-          className="fixed bottom-[40px] right-[50px] h-[50px] w-[60px] cursor-pointer"
+          className="fixed bottom-[40px] right-[15px] h-[50px] w-[60px] cursor-pointer"
           onClick={goToTop}
         >
           <ChevronUp
             color="#000000"
             absoluteStrokeWidth
-            className="h-12 w-12"
+            className="h-10 w-10"
           />
         </button>
       )}

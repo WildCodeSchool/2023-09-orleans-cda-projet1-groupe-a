@@ -6,7 +6,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
   const [index, setIndex] = useState(0);
-  const search = 'Hokusai';
+  const search = 'Suzuki';
   const [isOpen, setIsOpen] = useState(false);
   const popUp = useRef(null);
 
@@ -159,12 +159,12 @@ function ArtistCollection() {
                         <img
                           src={artworkImage}
                           alt={artworkTitle}
-                          className="max-h-full max-w-full object-cover py-9 ps-9 shadow-inner"
+                          className="max-h-full max-w-full object-cover py-9 ps-9 shadow-lg"
                         ></img>
                       </div>
                     </div>
                     <div className="w-2/4 p-9">
-                      <p className="mb-6 mt-8">
+                      <p className="mb-10 mt-12">
                         {artistName ? artistName : 'not specified'}
                       </p>
                       <div className="overflow-auto">
@@ -172,26 +172,30 @@ function ArtistCollection() {
                         <p className="mb-4">
                           {artworkTitle ? artworkTitle : 'not specified'}
                         </p>
-                        <p>Year :</p>
-                        <p className="mb-4">
-                          {artworkDate ? artworkDate : 'not specified'}
-                        </p>
-                        <div className="">
-                          <p>Place of origin :</p>
-                          <p className="mb-4">
-                            {artworkPlace ? artworkPlace : 'not specified'}
-                          </p>
-                          <p>Dimension :</p>
-                          <p className="mb-4">
-                            {artworkDimensions
-                              ? artworkDimensions
-                              : 'not specified'}
-                          </p>
-                          <p>Method :</p>
-                          <p className="mb-4">
-                            {artworkDisplay ? artworkDisplay : 'not specified'}
-                          </p>
+                        <div className="flex">
+                          <div className="me-12">
+                            <p>Year :</p>
+                            <p className="mb-4">
+                              {artworkDate ? artworkDate : 'not specified'}
+                            </p>
+                          </div>
+                          <div>
+                            <p>Place of origin :</p>
+                            <p className="mb-4">
+                              {artworkPlace ? artworkPlace : 'not specified'}
+                            </p>
+                          </div>
                         </div>
+                        <p>Method :</p>
+                        <p className="mb-4">
+                          {artworkDisplay ? artworkDisplay : 'not specified'}
+                        </p>
+                        <p>Dimensions :</p>
+                        <p className="mb-4">
+                          {artworkDimensions
+                            ? artworkDimensions
+                            : 'not specified'}
+                        </p>
                       </div>
                     </div>
                     <button
