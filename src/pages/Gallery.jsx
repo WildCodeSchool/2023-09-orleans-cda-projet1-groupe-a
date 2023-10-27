@@ -4,16 +4,17 @@ import Grid3 from '../components/icon/Grid3';
 import Grid4 from '../components/icon/Grid4';
 import FilterBar from '../components/FilterBar';
 import { ListFilter, Tally1 } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 const page = 1;
 const limit = 20;
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
-  const [search, setSearch] = useState('');
   const [gridStyle, setGridStyle] = useState('grid-cols-4');
   const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
+  const [search, setSearch] = useState('');
+
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
   };
@@ -34,7 +35,7 @@ export default function Gallery() {
     const controller = new AbortController();
     const go = async () => {
       const res = await fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,title,artist_display,date_display,main_reference_number,image_id&page=${page}&limit=${limit}`,
+        `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,title,artist_display,date_display,main_reference_number,artist_title,image_id&page=${page}&limit=${limit}`,
         {
           signal: controller.signal,
         },
@@ -132,11 +133,14 @@ export default function Gallery() {
                           layout
                           className="mb-8"
                         >
-                          <img
-                            className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
-                            src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                            alt={artwork.title}
-                          />
+                          <Link to={`/artists/${artwork.artist_title}`}>
+                            <img
+                              className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                              src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                              alt={artwork.title}
+                            />
+                          </Link>
+
                           <h2 className="mt-8 text-center">
                             {artwork.artist_display}
                           </h2>

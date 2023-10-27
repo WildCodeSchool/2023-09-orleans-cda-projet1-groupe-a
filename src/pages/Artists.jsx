@@ -1,10 +1,13 @@
 import { fetchArtworks } from '../api';
 import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
+import ArtistCollection from '../components/ArtistCollection';
+import { useParams } from 'react-router-dom';
 
-function Artist() {
+function Artists() {
   const [artworks, setArtworks] = useState([]);
-  const search = 'Hosukai';
+  const params = useParams();
+  const search = params.artist_title;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -23,21 +26,19 @@ function Artist() {
     };
   }, [search]);
 
-  const artistName = artworks[0]?.artist_display || '';
   const artworkDescription = DOMPurify.sanitize(artworks[0]?.description || '');
 
   return (
     <>
-      <h1 className="mb-9 mt-48 text-center text-4xl font-normal uppercase drop-shadow-md">
-        {artistName}
-      </h1>
+      <ArtistCollection />
+
       <p
-        className="container m-auto mb-10 mt-5 p-3 text-lg"
+        className="container m-auto mb-24 mt-5 p-3 text-lg"
         dangerouslySetInnerHTML={{
           __html: artworkDescription,
         }}
       ></p>
-      <div className="container m-auto mb-10 flex h-[200vh] overflow-y-hidden">
+      <div className="container m-auto mb-24 flex h-[200vh] overflow-y-hidden">
         <div className="hover:pause-animation box-border flex h-fit basis-1/4 animate-scroll-top flex-col gap-[1vw] overflow-hidden bg-[--light] p-[1vw]">
           {artworks.map((artwork, index) => {
             if (index < 20) {
@@ -48,7 +49,10 @@ function Artist() {
                 >
                   <img
                     src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    alt={artwork.title}
+                    alt={artwork.artist_title}
+                    onError={(e) => {
+                      e.currentTarget.src = '/question.jpeg';
+                    }}
                     className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
                   />
                 </div>
@@ -67,6 +71,9 @@ function Artist() {
                 >
                   <img
                     src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                    onError={(e) => {
+                      e.currentTarget.src = '/question.jpeg';
+                    }}
                     alt={artwork.title}
                     className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg "
                   />
@@ -86,6 +93,9 @@ function Artist() {
                 >
                   <img
                     src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                    onError={(e) => {
+                      e.currentTarget.src = '/question.jpeg';
+                    }}
                     alt={artwork.title}
                     className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
                   />
@@ -106,6 +116,9 @@ function Artist() {
                   <img
                     src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                     alt={artwork.title}
+                    onError={(e) => {
+                      e.currentTarget.src = '/question.jpeg';
+                    }}
                     className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
                   />
                 </div>
@@ -119,4 +132,4 @@ function Artist() {
   );
 }
 
-export default Artist;
+export default Artists;
