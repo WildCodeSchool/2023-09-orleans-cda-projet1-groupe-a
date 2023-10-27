@@ -65,6 +65,9 @@ function Artworks() {
             <img
               src={artworkImage}
               alt={artworkTitle}
+              onError={(e) => {
+                e.currentTarget.src = '/question.jpeg';
+              }}
               className="relative left-[80px] max-h-[600px] max-w-[800px] object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
             ></img>
           </motion.div>
