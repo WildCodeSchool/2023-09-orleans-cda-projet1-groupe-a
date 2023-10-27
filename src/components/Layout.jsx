@@ -3,15 +3,19 @@ import Loader from './Loader';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
+import { useScroll } from 'framer-motion';
+
 export default function Layout() {
   const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({ container: ref });
 
   return (
     <>
       <Loader />
       <NavBar scrollRef={ref} />
-      <div ref={ref} className="overflow-hidden">
-        <Outlet />
+      <div ref={ref} className="max-h-screen overflow-x-hidden">
+        <Outlet context={{ scrollYProgress }} />
         <Footer />
       </div>
     </>
