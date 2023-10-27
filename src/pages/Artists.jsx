@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import ArtistCollection from '../components/ArtistCollection';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Artists() {
   const [artworks, setArtworks] = useState([]);
@@ -47,14 +48,16 @@ function Artists() {
                   key={artwork.id}
                   className="h-[600px] gap-[1vw] shadow-lg "
                 >
-                  <img
-                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    alt={artwork.artist_title}
-                    onError={(e) => {
-                      e.currentTarget.src = '/question.jpeg';
-                    }}
-                    className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
-                  />
+                  <Link to={`/artworks/${artwork.id}`}>
+                    <img
+                      src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                      alt={artwork.artist_title}
+                      onError={(e) => {
+                        e.currentTarget.src = '/question.jpeg';
+                      }}
+                      className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
+                    />
+                  </Link>
                 </div>
               );
             }
@@ -69,14 +72,16 @@ function Artists() {
                   key={artwork.id}
                   className="h-[600px] gap-[1vw] shadow-lg "
                 >
-                  <img
-                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    onError={(e) => {
-                      e.currentTarget.src = '/question.jpeg';
-                    }}
-                    alt={artwork.title}
-                    className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg "
-                  />
+                  <Link to={`/artworks/${artwork.id}`}>
+                    <img
+                      src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                      onError={(e) => {
+                        e.currentTarget.src = '/question.jpeg';
+                      }}
+                      alt={artwork.title}
+                      className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg "
+                    />
+                  </Link>
                 </div>
               );
             }
@@ -91,14 +96,16 @@ function Artists() {
                   key={artwork.id}
                   className="h-[600px] gap-[1vw] shadow-lg "
                 >
-                  <img
-                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    onError={(e) => {
-                      e.currentTarget.src = '/question.jpeg';
-                    }}
-                    alt={artwork.title}
-                    className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
-                  />
+                  <Link to={`/artworks/${artwork.id}`}>
+                    <img
+                      src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                      onError={(e) => {
+                        e.currentTarget.src = '/question.jpeg';
+                      }}
+                      alt={artwork.title}
+                      className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
+                    />
+                  </Link>
                 </div>
               );
             }
@@ -113,14 +120,16 @@ function Artists() {
                   key={artwork.id}
                   className="h-[600px] gap-[1vw] shadow-lg "
                 >
-                  <img
-                    src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                    alt={artwork.title}
-                    onError={(e) => {
-                      e.currentTarget.src = '/question.jpeg';
-                    }}
-                    className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
-                  />
+                  <Link to={`/artworks/${artwork.id}`}>
+                    <img
+                      src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                      alt={artwork.title}
+                      onError={(e) => {
+                        e.currentTarget.src = '/question.jpeg';
+                      }}
+                      className="relative h-full w-full cursor-pointer rounded object-cover shadow-lg"
+                    />
+                  </Link>
                 </div>
               );
             }

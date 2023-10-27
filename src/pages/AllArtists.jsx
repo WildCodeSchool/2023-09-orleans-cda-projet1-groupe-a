@@ -50,32 +50,33 @@ function AllArtists() {
     ));
   };
 
-  const generateArtworkGroups = () => {
+  const ArtworkGroups = () => {
     const groups = [];
+
     for (let start = 0; start < 100; start += 20) {
       const animationDirection =
         (start / 20) % 2 === 0 ? 'animate-scroll-left' : 'animate-scroll-right';
       groups.push(
-        <div
-          key={start}
-          className="container m-auto flex h-[350px] overflow-x-hidden"
-        >
-          <div
-            className={`hover:pause-animation box-border flex h-fit flex-row gap-[1vw] bg-[--light] ${animationDirection}`}
-          >
-            {renderArtworksGroup(start, start + 20, animationDirection)}
+        <div key={start}>
+          <div className="container m-auto flex h-[350px] overflow-x-hidden">
+            <div
+              className={`hover:pause-animation box-border flex h-fit flex-row gap-[1vw] bg-[--light] ${animationDirection}`}
+            >
+              {renderArtworksGroup(start, start + 20, animationDirection)}
+            </div>
           </div>
         </div>,
       );
     }
     return groups;
   };
+
   return (
     <>
       <h1 className="mb-9 mt-48 text-center text-4xl font-normal uppercase drop-shadow-md">
         ARTISTS
       </h1>
-      {generateArtworkGroups()}
+      {ArtworkGroups()}
     </>
   );
 }
