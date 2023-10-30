@@ -164,7 +164,7 @@ function ArtistCollection() {
                         e.currentTarget.src = '/question.jpeg';
                       }}
                       className="max-h-[600px] max-w-full object-cover py-9 ps-9 shadow-lg"
-                    ></img>
+                    />
                   </Link>
                 </div>
               </div>

@@ -50,7 +50,7 @@ function AllArtists() {
     ));
   };
 
-  const ArtworkGroups = () => {
+  const artworkGroups = () => {
     const groups = [];
 
     for (let start = 0; start < 100; start += 20) {
@@ -76,7 +76,7 @@ function AllArtists() {
       <h1 className="mb-9 mt-48 text-center text-4xl font-normal uppercase drop-shadow-md">
         ARTISTS
       </h1>
-      {ArtworkGroups()}
+      {artworkGroups()}
     </>
   );
 }
