@@ -13,9 +13,9 @@
   body {
     background-color: var(--light);
   }
-  footer {
-    background-color: var(--secondary);
-  }
+  /* footer {
+    background-color: var(--dark);
+  } */
 }
 
 @layer utilities {
