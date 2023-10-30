@@ -33,7 +33,7 @@ const HomeContent2 = () => {
               translateY: translateY1,
               scale,
             }}
-          ></motion.img>
+          />
         </div>
         <div className="absolute left-[47%] top-64 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
@@ -44,7 +44,7 @@ const HomeContent2 = () => {
               scale,
               translateY: translateY2,
             }}
-          ></motion.img>
+          />
         </div>
         <div className="absolute left-[54%] top-64 z-20 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
@@ -55,7 +55,7 @@ const HomeContent2 = () => {
               scale,
               translateY: translateY2,
             }}
-          ></motion.img>
+          />
         </div>
         <div className="absolute left-[46%] top-72 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
@@ -66,7 +66,7 @@ const HomeContent2 = () => {
               scale,
               translateY: translateY3,
             }}
-          ></motion.img>
+          />
         </div>
         <div className="absolute left-[54%] top-72 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
@@ -77,7 +77,7 @@ const HomeContent2 = () => {
               scale,
               translateY: translateY3,
             }}
-          ></motion.img>
+          />
         </div>
         <div className="absolute left-[50%] top-80 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
@@ -87,7 +87,7 @@ const HomeContent2 = () => {
               translateY: translateY5,
               scale,
             }}
-          ></motion.img>
+          />
         </div>
       </div>
     </>
