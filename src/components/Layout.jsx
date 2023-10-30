@@ -16,7 +16,7 @@ export default function Layout() {
       <NavBar scrollRef={ref} />
       <div ref={ref} className="max-h-screen overflow-x-hidden">
         <Outlet context={{ scrollYProgress }} />
-        <Footer />
+        <Footer className="fixed bottom-0" />
       </div>
     </>
   );

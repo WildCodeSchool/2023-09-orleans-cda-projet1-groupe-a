@@ -11,8 +11,12 @@ const limit = 20;
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
-  const [gridStyle, setGridStyle] = useState('grid-cols-4');
-  const [imgStyle, setImgStyle] = useState('w-80 h-[25rem]');
+  const [gridStyle, setGridStyle] = useState(
+    'grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4',
+  );
+  const [imgStyle, setImgStyle] = useState(
+    'w-[70vw] h-80 lg:w-80 lg:h-[25rem]',
+  );
   const [search, setSearch] = useState('');
 
   const handleGridChange = (newStyle) => {
@@ -69,7 +73,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-2');
-                  handleImgChange('w-4/5 h-[40rem]');
+                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[25rem]');
                 }}
               >
                 <Grid2 />
@@ -80,7 +84,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-3');
-                  handleImgChange('w-80 h-[28rem]');
+                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[25rem]');
                 }}
               >
                 <Grid3 />
@@ -91,7 +95,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-4');
-                  handleImgChange('w-80 h-[25rem]');
+                  handleImgChange('lg:w-80 lg:h-[25rem]');
                 }}
               >
                 <Grid4 />

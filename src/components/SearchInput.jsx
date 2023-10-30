@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Search from './icon/Search';
 import { useDebounce } from 'use-debounce';
+import { Link } from 'react-router-dom';
 
 export default function SearchInput() {
   const [suggestions, setSuggestions] = useState([]);
@@ -12,12 +13,12 @@ export default function SearchInput() {
       setSuggestions([]);
     } else {
       fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${debouncedSearchValue}&fields=id,artist_display&limit=5`,
+        `https://api.artic.edu/api/v1/artworks/search?q=${debouncedSearchValue}&fields=id,artist_title&limit=5`,
       )
         .then((response) => response.json())
         .then((data) => {
           const filteredSuggestions = data.data.filter((suggestion) =>
-            suggestion.artist_display
+            suggestion.artist_title
               .toLowerCase()
               .includes(debouncedSearchValue.toLowerCase()),
           );
@@ -74,22 +75,20 @@ export default function SearchInput() {
               (suggestion, index, self) =>
                 index ===
                 self.findIndex(
-                  (s) => s.artist_display === suggestion.artist_display,
+                  (s) => s.artist_title === suggestion.artist_title,
                 ),
             )
             .map((suggestion) => {
-              const artistName = suggestion.artist_display
-                .split('\n')[0]
-                .replace(/[^a-zA-Z\s]/g, '');
+              const artistName = suggestion.artist_title;
               return (
-                <li
+                <Link
                   key={suggestion.id}
-                  className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50"
+                  to={`/artists/${suggestion.artist_title}`}
                 >
-                  {artistName.length > 24
-                    ? artistName.slice(0, 25) + '...'
-                    : artistName}
-                </li>
+                  <li className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50">
+                    {artistName}
+                  </li>
+                </Link>
               );
             })}
         </ul>
