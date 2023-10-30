@@ -6,18 +6,18 @@ import FilterBar from '../components/FilterBar';
 import { ListFilter, Tally1 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-const page = 1;
-const limit = 20;
+import { fetchArtworks } from '../api';
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
+  const [search, setSearch] = useState('');
+
   const [gridStyle, setGridStyle] = useState(
     'grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4',
   );
   const [imgStyle, setImgStyle] = useState(
     'w-[70vw] h-80 lg:w-80 lg:h-[25rem]',
   );
-  const [search, setSearch] = useState('');
 
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
@@ -37,18 +37,16 @@ export default function Gallery() {
 
   useEffect(() => {
     const controller = new AbortController();
-    const go = async () => {
-      const res = await fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,title,artist_display,date_display,main_reference_number,artist_title,image_id&page=${page}&limit=${limit}`,
-        {
-          signal: controller.signal,
-        },
-      );
-      const data = await res.json();
-      setArt(data.data);
-    };
-    go();
-    return () => {
+    const signal = controller.signal;
+
+    fetchArtworks(search, 20, signal)
+      .then((data) => {
+        setArt(data);
+      })
+      .catch((error) => {
+        throw new Error('An error occurred while retrieving the data.', error);
+      });
+    return function cleanup() {
       controller.abort();
     };
   }, [search]);
