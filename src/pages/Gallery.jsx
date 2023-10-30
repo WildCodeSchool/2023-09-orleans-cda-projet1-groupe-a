@@ -55,7 +55,7 @@ export default function Gallery() {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex min-h-screen">
         <div className="container mx-auto p-4">
           <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
             GALLERY
