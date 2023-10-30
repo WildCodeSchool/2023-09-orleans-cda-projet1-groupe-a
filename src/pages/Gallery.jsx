@@ -68,7 +68,7 @@ export default function Gallery() {
             </div>
             <div className="mb-4 text-end">
               <button
-                className={`ms-3 ${
+                className={`invisible ms-3 sm:visible md:visible lg:visible ${
                   gridStyle === 'grid-cols-2' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -79,7 +79,7 @@ export default function Gallery() {
                 <Grid2 />
               </button>
               <button
-                className={`ms-3 mt-5 ${
+                className={`invisible ms-3 mt-5 sm:visible md:visible lg:visible ${
                   gridStyle === 'grid-cols-3' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -90,7 +90,7 @@ export default function Gallery() {
                 <Grid3 />
               </button>
               <button
-                className={`ms-3 ${
+                className={`invisible ms-3 lg:visible ${
                   gridStyle === 'grid-cols-4' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -102,7 +102,7 @@ export default function Gallery() {
               </button>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             {filterBarVisible && (
               <FilterBar
                 className={`opacity-${
