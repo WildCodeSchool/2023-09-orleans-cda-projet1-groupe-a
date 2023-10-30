@@ -13,7 +13,6 @@ export default {
     "bg-[url('/BG8.jpg')]",
     "bg-[url('/BG9.jpg')]",
     "bg-[url('/BG10.jpg')]",
-    "bg-[url('/BG11.jpg')]",
   ],
   theme: {
     extend: {
