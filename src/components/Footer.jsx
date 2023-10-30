@@ -5,18 +5,18 @@ import amaury from '../assets/images/amaury.png';
 import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
-    <footer className="mt-20 h-full w-full px-32 text-center">
-      <div className="flex flex-row items-center gap-8 pt-10">
-        <div className="mx-auto flex">
-          <img src={ja} alt="JA" className="w-48" />
-          <img src={justin} alt="Justin" className=" w-48" />
-          <img src={greg} alt="Greg" className=" w-48" />
-          <img src={amaury} alt="Amaury" className="w-48" />
+    <>
+      <footer className="mx-4 mb-4 mt-28 rounded-lg bg-light shadow-lg">
+        <div className="mx-auto flex w-full max-w-screen-xl flex-wrap items-center justify-between p-2">
+          <img src={ja} alt="JA" className="mx-11 w-28" />
+          <img src={justin} alt="Justin" className="mx-11 w-28" />
+          <img src={greg} alt="Greg" className="mx-11 w-28" />
+          <img src={amaury} alt="Amaury" className="mx-11 w-28" />
+          <div className="mx-11 mb-4">
+            <Link to="/legal-notice">Legal Notice</Link>
+          </div>
         </div>
-        <Link to="/legal-notice" className="mb-4 text-black">
-          Legal Notice
-        </Link>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
