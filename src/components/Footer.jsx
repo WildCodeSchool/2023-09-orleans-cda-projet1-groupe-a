@@ -2,6 +2,7 @@ import greg from '../assets/images/greg.png';
 import ja from '../assets/images/JA.png';
 import justin from '../assets/images/justin.png';
 import amaury from '../assets/images/amaury.png';
+import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <footer className="mt-20 h-full w-full px-32 text-center">
@@ -12,7 +13,9 @@ export default function Footer() {
           <img src={greg} alt="Greg" className=" w-48" />
           <img src={amaury} alt="Amaury" className="w-48" />
         </div>
-        <p className="mb-4 text-black">Legal Notice</p>
+        <Link to="/legal-notice" className="mb-4 text-black">
+          Legal Notice
+        </Link>
       </div>
     </footer>
   );
