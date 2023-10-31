@@ -8,7 +8,6 @@ import ScrollTopButton from './ScrollTopButton';
 
 export default function Layout() {
   const ref = useRef(null);
-  console.log(ref);
 
   const { scrollYProgress } = useScroll({ container: ref });
 
@@ -18,7 +17,7 @@ export default function Layout() {
       <NavBar scrollRef={ref} scrollYProgress={scrollYProgress} />
       <div ref={ref} className="max-h-screen overflow-x-hidden">
         <Outlet context={{ scrollYProgress }} />
-        <ScrollTopButton relativeTo={ref.current} />
+        <ScrollTopButton relativeTo={ref} />
         <Footer className="fixed bottom-0" />
       </div>
     </>

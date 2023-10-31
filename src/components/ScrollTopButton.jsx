@@ -3,21 +3,18 @@ import { ChevronUp } from 'lucide-react';
 function ScrollTopButton({ relativeTo }) {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
-  console.log(relativeTo);
   useEffect(() => {
-    if (relativeTo) {
-      relativeTo.addEventListener('scroll', () => {
-        if (relativeTo.scrollTop > 100) {
-          setShowTopBtn(true);
-        } else {
-          setShowTopBtn(false);
-        }
-      });
-    }
+    relativeTo.current.addEventListener('scroll', () => {
+      if (relativeTo.current.scrollTop > 100) {
+        setShowTopBtn(true);
+      } else {
+        setShowTopBtn(false);
+      }
+    });
   }, [relativeTo]);
 
   const goToTop = () => {
-    relativeTo.scrollTo({
+    relativeTo.current.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
