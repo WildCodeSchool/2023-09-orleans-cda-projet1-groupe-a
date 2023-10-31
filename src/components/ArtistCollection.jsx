@@ -149,13 +149,16 @@ function ArtistCollection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.6 } }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute left-1/2 top-1/3 z-[998] mx-auto flex h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded bg-black/80 text-lg text-[--light] drop-shadow-lg"
+              className="absolute left-1/2 top-1/3 z-[998] mt-28 flex h-[800px] w-[600px] -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded bg-black/80 p-9 text-lg text-[--light] drop-shadow-lg lg:left-1/2 lg:mx-auto lg:mt-0 lg:h-[600px] lg:w-[900px] lg:flex-row"
             >
-              <button className="m-auto h-10 w-10" onClick={handlePrevious}>
+              <button
+                className="absolute left-5 top-1/2 h-10 w-10 lg:left-3 lg:m-auto"
+                onClick={handlePrevious}
+              >
                 <ChevronLeft className="h-10 w-10 cursor-pointer" />
               </button>
-              <div className="w-2/4">
-                <div className="flex h-[600px] items-center justify-center">
+              <div className="w-3/4 pb-4 lg:w-2/4">
+                <div className="flex h-[300px] items-center justify-center lg:h-[600px]">
                   <Link to={`/artworks/${artworkId}`}>
                     <img
                       src={artworkImage}
@@ -163,16 +166,16 @@ function ArtistCollection() {
                       onError={(e) => {
                         e.currentTarget.src = '/question.jpeg';
                       }}
-                      className="max-h-[600px] max-w-full object-cover py-9 ps-9 shadow-lg"
+                      className="max-h-[300px] max-w-full object-cover py-0 ps-0 shadow-lg lg:max-h-[600px] lg:py-9 lg:ps-9"
                     />
                   </Link>
                 </div>
               </div>
-              <div className="w-2/4 p-9">
-                <p className="mb-6 mt-8">
+              <div className="ms-5 w-3/4 overflow-y-auto md:p-0 lg:ms-0 lg:max-h-[600px] lg:w-2/4 lg:p-9">
+                <p className="mb-6 mt-8 lg:mt-0">
                   {artistName ? artistName : 'not specified'}
                 </p>
-                <div className="overflow-auto">
+                <div>
                   <p>Title :</p>
                   <p className="mb-4">
                     {artworkTitle ? artworkTitle : 'not specified'}
@@ -198,12 +201,15 @@ function ArtistCollection() {
                 </div>
               </div>
               <button
-                className="z-10 float-right -me-4 mt-7 flex h-10 w-10 "
+                className="absolute right-7 top-0 z-10 -me-4 mt-6 flex h-10 w-10 "
                 onClick={() => setIsOpen(false)}
               >
                 <X className="h-8 w-8 cursor-pointer" />
               </button>
-              <button className="m-auto h-10 w-10" onClick={handleNext}>
+              <button
+                className="absolute right-5 top-1/2 h-10 w-10 lg:right-3 lg:m-auto"
+                onClick={handleNext}
+              >
                 <ChevronRight className="h-10 w-10 cursor-pointer" />
               </button>
             </motion.div>
