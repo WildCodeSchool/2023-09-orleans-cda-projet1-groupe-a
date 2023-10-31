@@ -8,6 +8,7 @@ import ScrollTopButton from './ScrollTopButton';
 
 export default function Layout() {
   const ref = useRef(null);
+  console.log(ref);
 
   const { scrollYProgress } = useScroll({ container: ref });
 

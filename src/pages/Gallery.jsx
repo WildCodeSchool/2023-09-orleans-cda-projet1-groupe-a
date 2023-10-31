@@ -6,18 +6,18 @@ import FilterBar from '../components/FilterBar';
 import { ListFilter, Tally1 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-const page = 1;
-const limit = 20;
+import { fetchArtworks } from '../api';
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
+  const [search, setSearch] = useState('');
+
   const [gridStyle, setGridStyle] = useState(
     'grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4',
   );
   const [imgStyle, setImgStyle] = useState(
     'w-[70vw] h-80 lg:w-80 lg:h-[25rem]',
   );
-  const [search, setSearch] = useState('');
 
   const handleGridChange = (newStyle) => {
     setGridStyle(newStyle);
@@ -37,38 +37,43 @@ export default function Gallery() {
 
   useEffect(() => {
     const controller = new AbortController();
-    const go = async () => {
-      const res = await fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${search}&fields=id,title,artist_display,date_display,main_reference_number,artist_title,image_id&page=${page}&limit=${limit}`,
-        {
-          signal: controller.signal,
-        },
-      );
-      const data = await res.json();
-      setArt(data.data);
-    };
-    go();
-    return () => {
+    const signal = controller.signal;
+
+    fetchArtworks(search, 20, signal)
+      .then((data) => {
+        setArt(data);
+      })
+      .catch((error) => {
+        throw new Error('An error occurred while retrieving the data.', error);
+      });
+    return function cleanup() {
       controller.abort();
     };
   }, [search]);
 
   return (
     <>
-      <div className="flex">
+      <div className="flex min-h-screen">
         <div className="container mx-auto p-4">
           <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
             GALLERY
           </h1>
           <div className="mx-2 mb-16 flex h-10 items-center justify-between rounded-lg border p-4 text-end shadow-2xl">
-            <div className="flex" onClick={toggleFilterBarVisibility}>
-              {filterBarVisible ? <h2>HIDE FILTERS</h2> : <h2>SHOW FILTERS</h2>}
-              <ListFilter className="ml-8"></ListFilter>
-              <Tally1 className="ml-8" />
+            <div
+              className="flex items-center"
+              onClick={toggleFilterBarVisibility}
+            >
+              {filterBarVisible ? (
+                <h2 className="mr-32 whitespace-nowrap">HIDE FILTERS</h2>
+              ) : (
+                <h2 className="mr-32 whitespace-nowrap">SHOW FILTERS</h2>
+              )}
+              <ListFilter className="sm:ml-8 md:ml-8 lg:ml-8"></ListFilter>
+              <Tally1 className="invisible ml-8 ms-3 sm:visible md:visible lg:visible" />
             </div>
             <div className="mb-4 text-end">
               <button
-                className={`ms-3 ${
+                className={`invisible ms-3 sm:visible md:visible lg:visible ${
                   gridStyle === 'grid-cols-2' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -79,7 +84,7 @@ export default function Gallery() {
                 <Grid2 />
               </button>
               <button
-                className={`ms-3 mt-5 ${
+                className={`invisible ms-3 mt-5 sm:visible md:visible lg:visible ${
                   gridStyle === 'grid-cols-3' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -90,7 +95,7 @@ export default function Gallery() {
                 <Grid3 />
               </button>
               <button
-                className={`ms-3 ${
+                className={`invisible ms-3 lg:visible ${
                   gridStyle === 'grid-cols-4' ? 'opacity-100' : 'opacity-25'
                 }`}
                 onClick={() => {
@@ -102,7 +107,7 @@ export default function Gallery() {
               </button>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             {filterBarVisible && (
               <FilterBar
                 className={`opacity-${
