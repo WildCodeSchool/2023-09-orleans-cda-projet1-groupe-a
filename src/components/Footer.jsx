@@ -2,6 +2,7 @@ import greg from '../assets/images/greg.png';
 import ja from '../assets/images/JA.png';
 import justin from '../assets/images/justin.png';
 import amaury from '../assets/images/amaury.png';
+import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <>
@@ -29,7 +30,7 @@ export default function Footer() {
           />
         </div>
         <div className="sm:w-1/10 md:w-1/10 lg:w-1/10 mx-auto w-28 whitespace-nowrap sm:mt-0 md:mt-0 lg:mt-0">
-          Legal notice
+          <Link to="/legal-notice">Legal Notice</Link>
         </div>
       </footer>
     </>
