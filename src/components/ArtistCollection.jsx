@@ -3,6 +3,7 @@ import { fetchArtworks } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
@@ -71,6 +72,7 @@ function ArtistCollection() {
   }, [index, artworks, isOpen]);
 
   const artistName = artworks[0]?.artist_display || '';
+  const artworkId = artworks[index]?.id || '';
   const artworkDimensions = artworks[index]?.dimensions || '';
   const artworkPlace = artworks[index]?.place_of_origin || '';
   const artworkDisplay = artworks[index]?.medium_display || '';
@@ -147,21 +149,23 @@ function ArtistCollection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.6 } }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute left-1/2 top-1/2 z-[999] mx-auto flex h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded bg-black/80 text-lg text-[--light] drop-shadow-lg"
+              className="absolute left-1/2 top-1/3 z-[998] mx-auto flex h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded bg-black/80 text-lg text-[--light] drop-shadow-lg"
             >
               <button className="m-auto h-10 w-10" onClick={handlePrevious}>
                 <ChevronLeft className="h-10 w-10 cursor-pointer" />
               </button>
               <div className="w-2/4">
                 <div className="flex h-[600px] items-center justify-center">
-                  <img
-                    src={artworkImage}
-                    alt={artworkTitle}
-                    onError={(e) => {
-                      e.currentTarget.src = '/question.jpeg';
-                    }}
-                    className="max-h-full max-w-full object-cover py-9 ps-9 shadow-inner"
-                  ></img>
+                  <Link to={`/artworks/${artworkId}`}>
+                    <img
+                      src={artworkImage}
+                      alt={artworkTitle}
+                      onError={(e) => {
+                        e.currentTarget.src = '/question.jpeg';
+                      }}
+                      className="max-h-[600px] max-w-full object-cover py-9 ps-9 shadow-lg"
+                    />
+                  </Link>
                 </div>
               </div>
               <div className="w-2/4 p-9">

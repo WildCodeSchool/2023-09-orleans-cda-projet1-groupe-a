@@ -50,6 +50,24 @@
   .pause-animation {
     animation-play-state: paused;
   }
+
+  .bg-before {
+    background-image: linear-gradient(
+      to right,
+      rgb(252, 252, 35) 0,
+      yellow 100%
+    );
+    background-position: 0 1.2em;
+    background-size: 0 100%;
+    transition: background 0.5s;
+  }
+  .bg-after {
+    background-size: 100% 100%;
+  }
+
+  .bg-position {
+    background-position: 0 -0.3em;
+  }
 }
 
 ::-webkit-scrollbar {
