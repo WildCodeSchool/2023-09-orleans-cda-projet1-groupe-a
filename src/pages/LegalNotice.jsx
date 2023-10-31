@@ -6,7 +6,7 @@ export default function LegalNotice() {
       </h1>
       <div className="container mx-auto flex flex-col-reverse gap-10 p-4 md:flex-row md:gap-80 lg:flex-row lg:gap-80">
         <div>
-          <h2 className="mb-2 text-2xl font-normal">terms of use</h2>
+          <h2 className="mb-2 text-2xl font-normal">Terms of use</h2>
           <h3 className="mb-2 text-xl font-normal">Reserved use</h3>
           <p className="mb-4 max-w-md">
             The use of this service is reserved. Any reproduction or
@@ -33,7 +33,7 @@ export default function LegalNotice() {
           <p>The site is a creation protected by copyright.</p>
         </div>
         <div>
-          <h2 className="mb-2 text-2xl font-normal">head office</h2>
+          <h2 className="mb-2 text-2xl font-normal">Head office</h2>
           <div className="flex flex-col">
             <p>Jean-Antoine, Justine, Gregory, Amaury</p>
             <p>1 Av. du Champ de Mars</p>
@@ -42,7 +42,7 @@ export default function LegalNotice() {
             <p>N° SIRET : 517 290 520 000 33</p>
           </div>
 
-          <h2 className="mb-2 text-2xl font-normal">website publisher</h2>
+          <h2 className="mb-2 text-2xl font-normal">Website publisher</h2>
           <p>Grégory Silvestri</p>
           <p>Justine Clément-Savary</p>
           <p>Jean-Antoine Alazard</p>
