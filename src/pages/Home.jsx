@@ -1,4 +1,5 @@
 import HomeContent1 from '../components/HomeContent1';
+import HomeContent2 from '../components/HomeContent2';
 import HomeContent3 from '../components/HomeContent3';
 
 function Home() {
@@ -12,6 +13,7 @@ function Home() {
         </div>
       </div>
       <HomeContent1 />
+      <HomeContent2 />
       <HomeContent3 />
     </>
   );
