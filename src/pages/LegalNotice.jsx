@@ -6,7 +6,7 @@ export default function LegalNotice() {
       <h1 className="mb-14 mt-48 text-center text-4xl font-normal drop-shadow-md">
         Legal Notice
       </h1>
-      <div className="container mx-auto flex flex-row gap-80 p-4">
+      <div className="container mx-auto flex flex-col-reverse gap-10 p-4 md:flex-row md:gap-48 lg:flex-row lg:gap-48">
         <div>
           <h2 className="mb-2 text-2xl font-normal">terms of use</h2>
           <h3 className="mb-2 text-xl font-normal">Reserved use</h3>

@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import AllArtists from './pages/AllArtists';
 import Layout from './components/Layout';
 import LegalNotice from './pages/LegalNotice';
+import Artworks from './pages/Artworks';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/legal-notice',
         element: <LegalNotice />,
+      },
+      {
+        path: '/artworks/:artwork_id',
+        element: <Artworks />,
       },
     ],
   },
