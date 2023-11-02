@@ -21,10 +21,10 @@ const HomeContent1 = () => {
         }}
         className="my-20 flex flex-col items-center justify-center gap-4"
       >
-        <h2 className="text-3xl font-semibold drop-shadow-[-1px_1px_1px_rgba(38,41,33,0.97)] duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="text-3xl drop-shadow-xl duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
           Welcome to Jaga{' '}
         </h2>
-        <h2 className="text-3xl font-semibold drop-shadow-[-1px_1px_1px_rgba(38,41,33,0.97)] duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="text-3xl drop-shadow-xl duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
           Redefining Chicago Art
         </h2>
       </motion.div>

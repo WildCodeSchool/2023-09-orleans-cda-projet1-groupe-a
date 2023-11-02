@@ -4,8 +4,8 @@ function ScrollTopButton({ relativeTo }) {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {
-    relativeTo.addEventListener('scroll', () => {
-      if (relativeTo.scrollTop > 100) {
+    relativeTo.current.addEventListener('scroll', () => {
+      if (relativeTo.current.scrollTop > 100) {
         setShowTopBtn(true);
       } else {
         setShowTopBtn(false);
@@ -14,7 +14,7 @@ function ScrollTopButton({ relativeTo }) {
   }, [relativeTo]);
 
   const goToTop = () => {
-    relativeTo.scrollTo({
+    relativeTo.current.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
