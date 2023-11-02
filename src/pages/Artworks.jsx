@@ -53,14 +53,14 @@ function Artworks() {
 
   return (
     <>
-      <div className="mt-52 flex">
-        <div className="w-2/4">
+      <div className="mt-52 flex flex-col lg:flex-row">
+        <div className="lg:w-2/4">
           <motion.div
             whileInView="onscreen"
             viewport={{ once: false }}
             initial={{ x: -600 }}
             animate={{ x: 0, transition: { ease: 'easeInOut', duration: 2 } }}
-            className="flex h-full items-center justify-center"
+            className="flex h-full"
           >
             <img
               src={artworkImage}
@@ -68,7 +68,7 @@ function Artworks() {
               onError={(e) => {
                 e.currentTarget.src = '/question.jpeg';
               }}
-              className="relative left-[80px] max-h-[600px] max-w-[800px] object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
+              className="relative m-auto max-h-[600px] max-w-[600px] object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
             />
           </motion.div>
         </div>
@@ -76,7 +76,7 @@ function Artworks() {
           variants={variants}
           initial="hidden"
           animate="visible"
-          className="my-auto w-2/4 pb-9 pe-24 ps-9 pt-4 text-lg uppercase"
+          className="m-auto p-9 text-lg uppercase lg:w-2/4 lg:pb-9 lg:ps-0 lg:pt-4"
         >
           <motion.li variants={item}>
             <p className="mb-6">
