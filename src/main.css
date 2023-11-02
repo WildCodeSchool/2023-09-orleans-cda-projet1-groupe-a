@@ -12,6 +12,7 @@
   }
   body {
     background-color: var(--light);
+    scrollbar-width: thin;
   }
 }
 
@@ -71,11 +72,11 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--light);
+  background: black;
   border-radius: 5px;
 }
 
