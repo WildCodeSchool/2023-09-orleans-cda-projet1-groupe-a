@@ -29,7 +29,7 @@ export default function Footer() {
             className="sm:w-1/10 md:w-1/10 lg:w-1/10 mx-11 w-28 pr-8 sm:pr-0 md:pr-0 lg:pr-0"
           />
         </div>
-        <div className="sm:w-1/10 md:w-1/10 lg:w-1/10 mx-auto w-28 whitespace-nowrap sm:mt-0 md:mt-0 lg:mt-0">
+        <div className="sm:w-1/10 md:w-1/10 lg:w-1/10 mx-auto w-28 whitespace-nowrap pb-4 sm:mt-0 md:mt-0 lg:mt-0">
           <Link to="/legal-notice">Legal Notice</Link>
         </div>
       </footer>
