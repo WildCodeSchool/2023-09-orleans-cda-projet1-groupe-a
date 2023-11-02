@@ -5,12 +5,32 @@ import Grid4 from '../components/icon/Grid4';
 import FilterBar from '../components/FilterBar';
 import { ListFilter, Tally1 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { fetchArtworks } from '../api';
+
+const cardVariant = {
+  offscreen: {
+    opacity: 0,
+    y: 100,
+  },
+  onscreen: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'tween',
+      ease: 'easeInOut',
+      delay: i * 0.2,
+      duration: 0.35,
+    },
+  }),
+};
 
 export default function Gallery() {
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
+  const [limit, setLimit] = useState(20);
+  const [page, setPage] = useState(1);
+  console.log(limit);
 
   const [gridStyle, setGridStyle] = useState(
     'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
@@ -39,17 +59,29 @@ export default function Gallery() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchArtworks(search, 100, signal)
+    fetchArtworks(search, limit, signal)
       .then((data) => {
         setArt(data);
       })
       .catch((error) => {
         throw new Error('An error occurred while retrieving the data.', error);
       });
+
     return function cleanup() {
       controller.abort();
     };
-  }, [search]);
+  }, [search, limit]);
+
+  const handleChange = () => {
+    const maxPictures = 100;
+    const maxPages = 5;
+    setLimit((prevLimit) => prevLimit + 20);
+    setPage(page + 1);
+    if (limit >= maxPictures && page >= maxPages) {
+      setLimit(100);
+      setPage(5);
+    }
+  };
 
   return (
     <>
@@ -118,50 +150,42 @@ export default function Gallery() {
             )}
             <ul>
               <motion.div layout className={`grid ${gridStyle} gap-10`}>
-                <AnimatePresence>
-                  {art.map((artwork) => (
-                    <li key={artwork.id}>
-                      {artwork.image_id ? (
-                        <motion.div
-                          variants={{
-                            offscreen: {
-                              y: 300,
-                            },
-                            onscreen: {
-                              y: 50,
-                              transition: {
-                                type: 'spring',
-                                bounce: 0.1,
-                                duration: 0.6,
-                              },
-                            },
-                          }}
-                          initial="offscreen"
-                          whileInView="onscreen"
-                          viewport={{ once: true, amount: 0.1 }}
-                          layout
-                          className="mb-8"
-                        >
-                          <Link to={`/artists/${artwork.artist_title}`}>
-                            <img
-                              className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl transition duration-500 hover:scale-110`}
-                              src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
-                              alt={artwork.title}
-                            />
-                          </Link>
+                {art.map((artwork, index) => (
+                  <li key={index}>
+                    {artwork.image_id ? (
+                      <motion.div
+                        variants={cardVariant}
+                        initial="offscreen"
+                        animate="onscreen"
+                        custom={index}
+                        layout
+                        className="mb-8"
+                      >
+                        <Link to={`/artists/${artwork.artist_title}`}>
+                          <img
+                            className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                            src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
+                            alt={artwork.title}
+                          />
+                        </Link>
 
-                          <h2 className="mt-8 text-center">
-                            {artwork.artist_display}
-                          </h2>
-                          <h2 className="mt-2 text-center">{artwork.title}</h2>
-                        </motion.div>
-                      ) : null}
-                    </li>
-                  ))}
-                </AnimatePresence>
+                        <h2 className="mt-8 text-center">
+                          {artwork.artist_display}
+                        </h2>
+                        <h2 className="mt-2 text-center">{artwork.title}</h2>
+                      </motion.div>
+                    ) : null}
+                  </li>
+                ))}
               </motion.div>
             </ul>
           </div>
+          <button
+            className="flex items-center justify-center"
+            onClick={handleChange}
+          >
+            {page}
+          </button>
         </div>
       </div>
     </>
