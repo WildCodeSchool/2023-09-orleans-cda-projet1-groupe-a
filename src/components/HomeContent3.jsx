@@ -1,32 +1,21 @@
 import home1 from '../assets/images/home1.png';
 import home2 from '../assets/images/home2.png';
 import home3 from '../assets/images/home3.png';
-import { motion } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
+import { useOutletContext } from 'react-router-dom';
 
 export default function HomeContent3() {
-  const variants = {
-    offscreen: {
-      y: 300,
-    },
-    onscreen: {
-      y: 50,
-      transition: {
-        type: 'spring',
-        bounce: 0.1,
-        duration: 1.3,
-      },
-    },
-  };
+  const { scrollYProgress } = useOutletContext();
+
+  const translateX1 = useTransform(scrollYProgress, [0.75, 0.84], [300, 0]);
+  const translateX2 = useTransform(scrollYProgress, [0.75, 0.84], [-300, 0]);
+
+  const translateY1 = useTransform(scrollYProgress, [0.87, 0.92], [200, 0]);
+  const translateY2 = useTransform(scrollYProgress, [0.9, 1], [250, 0]);
 
   return (
     <div className="container mx-auto flex flex-col p-4">
-      <motion.div
-        variants={variants}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-        className="mb-28 flex justify-center md:mb-48"
-      >
+      <motion.div className="mb-28 flex justify-center md:mb-48">
         <div className="text-1xl h-[10%] sm:text-2xl md:max-w-3xl md:text-4xl">
           <p className="md:mb-4">
             {`Jaga Studio shares its singular collections with
@@ -47,10 +36,9 @@ export default function HomeContent3() {
 
       <div className="mx-auto flex flex-col-reverse sm:mb-8 sm:flex-row-reverse sm:gap-8 sm:duration-75">
         <motion.div
-          variants={variants}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
+          style={{
+            translateX: translateX1,
+          }}
           className="flex justify-end"
         >
           <div className="text-1md max-h-96 max-w-md sm:text-2xl md:text-4xl">
@@ -69,51 +57,36 @@ export default function HomeContent3() {
           </div>
         </motion.div>
         <motion.div
-          variants={{
-            offscreen: {
-              y: 350,
-              className: 'opacity-0',
-            },
-            onscreen: {
-              y: 50,
-              transition: {
-                type: 'spring',
-                bounce: 0.1,
-                duration: 4,
-              },
-              className: 'opacity-100 text-center',
-            },
+          style={{
+            translateX: translateX2,
           }}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.1 }}
         >
           <img
             src={home2}
             alt="art"
-            className="mb-4 h-full w-full object-cover md:h-[557px] md:w-[375px]"
+            className="mb-24 h-80 w-[70vw] object-cover md:h-[557px] md:w-[375px]"
           />
         </motion.div>
       </div>
 
-      <motion.div
-        variants={variants}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-        className="mt-5 flex flex-col items-center gap-6 sm:flex-row md:mt-28 lg:justify-center"
-      >
-        <img
+      <div className="mt-5 flex flex-col items-center gap-6 sm:flex-row md:mt-28 lg:justify-center">
+        <motion.img
+          style={{
+            translateY: translateY1,
+          }}
           src={home3}
           alt="art"
           className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
         />
-        <img
+        <motion.img
+          style={{
+            translateY: translateY2,
+          }}
           src={home1}
           alt="art"
           className="h-80 w-[70vw] object-cover sm:w-2/4 sm:duration-75 md:h-[557px] md:w-[375px] md:duration-75 lg:ml-[4.5rem] lg:h-[557px] lg:w-[375px] lg:duration-75"
         />
-      </motion.div>
+      </div>
     </div>
   );
 }
