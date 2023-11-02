@@ -8,8 +8,8 @@ const HomeContent1 = () => {
 
   const scale = useTransform(scrollYProgress, [0, 0.13], [0.2, 1]);
 
-  const translateX1 = useTransform(scrollYProgress, [0, 0.155], [-780, 0]);
-  const translateX2 = useTransform(scrollYProgress, [0, 0.155], [780, 0]);
+  const translateX1 = useTransform(scrollYProgress, [0.08, 0.15], [-400, 0]);
+  const translateX2 = useTransform(scrollYProgress, [0.08, 0.15], [400, 0]);
   const translateY = useTransform(scrollYProgress, [0, 0.13], [400, 0]);
 
   return (
@@ -34,7 +34,7 @@ const HomeContent1 = () => {
           style={{
             translateX: translateX1,
           }}
-          className="w-[50vw] object-cover duration-700 md:h-[43.5vw] md:w-[30vw]"
+          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[30vw]"
           src={homeImageLeft}
           alt="coucou"
         />
@@ -42,7 +42,7 @@ const HomeContent1 = () => {
           style={{
             translateX: translateX2,
           }}
-          className="w-[50vw] object-cover duration-700 md:h-[43.5vw] md:w-[30vw]"
+          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[30vw]"
           src={homeImageRight}
           alt=""
         />
