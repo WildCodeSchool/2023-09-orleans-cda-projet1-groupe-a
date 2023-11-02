@@ -119,7 +119,7 @@ function ArtistCollection() {
 
   return (
     <>
-      <h1 className="font-medim mt-48 text-center text-4xl uppercase drop-shadow-md">
+      <h1 className="font-medim mt-56 text-center text-4xl uppercase drop-shadow-md">
         {artistName}
       </h1>
 
@@ -152,7 +152,7 @@ function ArtistCollection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.6 } }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="absolute left-1/2 top-1/3 z-[998] mt-28 flex h-[800px] w-[600px] -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded bg-black/80 p-9 text-lg text-[--light] drop-shadow-lg lg:left-1/2 lg:mx-auto lg:mt-0 lg:h-[600px] lg:w-[900px] lg:flex-row"
+              className="absolute left-1/2 top-1/3 z-[998] mt-28 flex h-[100vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded bg-black/80 p-9 text-lg text-[--light] drop-shadow-lg lg:left-1/2 lg:mx-auto lg:mt-0 lg:h-[600px] lg:w-[900px] lg:flex-row"
             >
               <button
                 className="absolute left-5 top-1/2 h-10 w-10 lg:left-3 lg:m-auto"

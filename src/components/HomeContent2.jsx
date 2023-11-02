@@ -27,7 +27,7 @@ const HomeContent2 = () => {
         <div className="absolute left-1/2 top-56 z-10 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
             src={home3}
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             style={{
               translateY: translateY1,
               scale,
@@ -37,7 +37,7 @@ const HomeContent2 = () => {
         <div className="absolute left-[47%] top-64 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
             src={home1}
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             style={{
               translateX: translateX1,
               scale,
@@ -48,7 +48,7 @@ const HomeContent2 = () => {
         <div className="absolute left-[54%] top-64 z-20 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
             src={home4}
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             style={{
               translateX: translateX2,
               scale,
@@ -58,7 +58,7 @@ const HomeContent2 = () => {
         </div>
         <div className="absolute left-[46%] top-72 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             src={home2}
             style={{
               translateX: translateX3,
@@ -69,7 +69,7 @@ const HomeContent2 = () => {
         </div>
         <div className="absolute left-[54%] top-72 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             src={home5}
             style={{
               translateX: translateX2,
@@ -80,7 +80,7 @@ const HomeContent2 = () => {
         </div>
         <div className="absolute left-[50%] top-80 z-30 h-64 w-52 -translate-x-1/2 -translate-y-1/2 transform">
           <motion.img
-            className="h-full w-full shadow-md"
+            className="h-full w-full object-cover shadow-md"
             src={home6}
             style={{
               translateY: translateY5,

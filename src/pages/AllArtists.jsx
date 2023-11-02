@@ -73,7 +73,7 @@ function AllArtists() {
 
   return (
     <>
-      <h1 className="mb-9 mt-48 text-center text-4xl font-normal uppercase drop-shadow-md">
+      <h1 className="mb-9 mt-56 text-center text-4xl font-normal uppercase drop-shadow-md">
         ARTISTS
       </h1>
       {artworkGroups()}

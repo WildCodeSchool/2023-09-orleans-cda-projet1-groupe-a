@@ -68,7 +68,7 @@ function Artworks() {
               onError={(e) => {
                 e.currentTarget.src = '/question.jpeg';
               }}
-              className="relative m-auto max-h-[600px] max-w-[600px] object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
+              className="relative m-auto max-h-[100vh] max-w-[80vw] object-cover p-9 shadow-inner transition duration-500 hover:scale-125"
             />
           </motion.div>
         </div>
@@ -79,7 +79,7 @@ function Artworks() {
           className="m-auto p-9 text-lg uppercase lg:w-2/4 lg:pb-9 lg:ps-0 lg:pt-4"
         >
           <motion.li variants={item}>
-            <p className="mb-6">
+            <p className="mb-6 text-xl drop-shadow">
               {artworkTitle ? artworkTitle : 'not specified'}
             </p>
           </motion.li>
