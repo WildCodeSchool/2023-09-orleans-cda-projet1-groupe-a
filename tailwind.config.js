@@ -1,6 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    "bg-[url('/BG.avif')]",
+    "bg-[url('/BG1.jpg')]",
+    "bg-[url('/BG2.jpg')]",
+    "bg-[url('/BG3.jpg')]",
+    "bg-[url('/BG4.jpg')]",
+    "bg-[url('/BG5.jpg')]",
+    "bg-[url('/BG6.jpg')]",
+    "bg-[url('/BG7.jpg')]",
+    "bg-[url('/BG8.jpg')]",
+    "bg-[url('/BG9.jpg')]",
+    "bg-[url('/BG10.jpg')]",
+  ],
   theme: {
     extend: {
       animation: {
