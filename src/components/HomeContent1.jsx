@@ -1,58 +1,48 @@
 import homeImageLeft from '../assets/images/image-home-l.png';
 import homeImageRight from '../assets/images/image-home-r.png';
-import { motion } from 'framer-motion';
-
-const tiltleAnimation = {
-  onscreen: {
-    y: 5,
-    transition: {
-      duration: 1,
-    },
-  },
-};
-
-const pictureAnimation = {
-  onscreen: {
-    y: 3,
-    x: 0,
-    transition: {
-      type: 'spring',
-      bounce: 0.1,
-      duration: 1.9,
-    },
-  },
-};
+import { motion, useTransform } from 'framer-motion';
+import { useOutletContext } from 'react-router-dom';
 
 const HomeContent1 = () => {
+  const { scrollYProgress } = useOutletContext();
+
+  const scale = useTransform(scrollYProgress, [0, 0.13], [0.2, 1]);
+
+  const translateX1 = useTransform(scrollYProgress, [0, 0.155], [-780, 0]);
+  const translateX2 = useTransform(scrollYProgress, [0, 0.155], [780, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 0.13], [400, 0]);
+
   return (
     <>
       <motion.div
-        variants={tiltleAnimation}
-        initial={{ y: 300 }}
-        whileInView="onscreen"
-        viewport={{ once: true }}
+        style={{
+          translateY,
+          scale,
+        }}
         className="my-20 flex flex-col items-center justify-center gap-4"
       >
-        <h2 className="text-6xl">Welcome to Jaga </h2>
-        <h2 className="text-6xl">Redefining Chicago Art</h2>
+        <h2 className="text-3xl font-semibold drop-shadow-[-1px_1px_1px_rgba(38,41,33,0.97)] duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
+          Welcome to Jaga{' '}
+        </h2>
+        <h2 className="text-3xl font-semibold drop-shadow-[-1px_1px_1px_rgba(38,41,33,0.97)] duration-700 sm:text-4xl md:text-5xl lg:text-6xl">
+          Redefining Chicago Art
+        </h2>
       </motion.div>
 
-      <div className="lg-justify-center lg-duration-75 flex flex-col items-center gap-11 md:flex-row md:justify-center md:duration-75 lg:flex-row">
+      <div className="lg-justify-center flex flex-col items-center gap-11 md:flex-row md:justify-center lg:flex-row">
         <motion.img
-          variants={pictureAnimation}
-          initial={{ x: -350, y: 350 }}
-          whileInView="onscreen"
-          viewport={{ once: true }}
-          className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
+          style={{
+            translateX: translateX1,
+          }}
+          className="w-[50vw] object-cover duration-700 md:h-[43.5vw] md:w-[30vw]"
           src={homeImageLeft}
           alt="coucou"
         />
         <motion.img
-          variants={pictureAnimation}
-          initial={{ x: 350, y: 350 }}
-          whileInView="onscreen"
-          viewport={{ once: true }}
-          className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
+          style={{
+            translateX: translateX2,
+          }}
+          className="w-[50vw] object-cover duration-700 md:h-[43.5vw] md:w-[30vw]"
           src={homeImageRight}
           alt=""
         />

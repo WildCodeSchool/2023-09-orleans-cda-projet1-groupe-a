@@ -1,8 +1,8 @@
 import home1 from '../assets/images/home1.png';
 import home2 from '../assets/images/home2.png';
 import home3 from '../assets/images/home3.png';
-
 import { motion } from 'framer-motion';
+
 export default function HomeContent3() {
   const variants = {
     offscreen: {
