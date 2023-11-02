@@ -5,7 +5,6 @@ import home3 from '../assets/images/home3.png';
 import home4 from '../assets/images/home4.png';
 import home5 from '../assets/images/home5.png';
 import home6 from '../assets/images/home6.png';
-
 import { motion, useTransform } from 'framer-motion';
 
 const HomeContent2 = () => {

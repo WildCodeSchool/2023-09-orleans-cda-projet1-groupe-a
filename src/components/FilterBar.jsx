@@ -43,7 +43,7 @@ const FilterBar = ({ onFilterChange }) => {
 
   return (
     <>
-      <div className="mr-12 ms-3 w-1/4 flex-col">
+      <div className="mr-12 ms-3 flex-col sm:w-1/4 md:w-1/4 lg:w-1/4">
         <h2 className="mb-4 text-xl">FILTERS</h2>
         <div className="mb-4">
           <label
