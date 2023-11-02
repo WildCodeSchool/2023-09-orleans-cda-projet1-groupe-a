@@ -29,7 +29,7 @@ export default function NavBar({ scrollYProgress }) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setNavVisible(true);
-    }, 1000 * 5);
+    }, 1000 * 4);
     return () => clearTimeout(timeoutId);
   }, []);
 
