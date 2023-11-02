@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { fetchArtworks } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function ArtistCollection() {
   const [artworks, setArtworks] = useState([]);
@@ -179,24 +178,24 @@ function ArtistCollection() {
                   {artistName ? artistName : 'not specified'}
                 </p>
                 <div>
-                  <p>Title :</p>
+                  <p>Title:</p>
                   <p className="mb-4">
                     {artworkTitle ? artworkTitle : 'not specified'}
                   </p>
-                  <p>Year :</p>
+                  <p>Year:</p>
                   <p className="mb-4">
                     {artworkDate ? artworkDate : 'not specified'}
                   </p>
                   <div className="">
-                    <p>Place of origin :</p>
+                    <p>Place of origin:</p>
                     <p className="mb-4">
                       {artworkPlace ? artworkPlace : 'not specified'}
                     </p>
-                    <p>Dimension :</p>
+                    <p>Dimension:</p>
                     <p className="mb-4">
                       {artworkDimensions ? artworkDimensions : 'not specified'}
                     </p>
-                    <p>Method :</p>
+                    <p>Method:</p>
                     <p className="mb-4">
                       {artworkDisplay ? artworkDisplay : 'not specified'}
                     </p>

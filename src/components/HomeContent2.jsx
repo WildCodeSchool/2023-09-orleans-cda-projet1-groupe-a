@@ -1,10 +1,10 @@
 import { useOutletContext } from 'react-router-dom';
-import home1 from '../assets/images/home1.png';
-import home2 from '../assets/images/home2.png';
-import home3 from '../assets/images/home3.png';
-import home4 from '../assets/images/home4.png';
-import home5 from '../assets/images/home5.png';
-import home6 from '../assets/images/home6.png';
+import home1 from '../assets/images/home-1.png';
+import home2 from '../assets/images/home-2.png';
+import home3 from '../assets/images/home-3.png';
+import home4 from '../assets/images/home-4.png';
+import home5 from '../assets/images/home-5.png';
+import home6 from '../assets/images/home-6.png';
 import { motion, useTransform } from 'framer-motion';
 
 const HomeContent2 = () => {

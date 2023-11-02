@@ -1,5 +1,5 @@
 import greg from '../assets/images/greg.png';
-import ja from '../assets/images/JA.png';
+import ja from '../assets/images/ja.png';
 import justin from '../assets/images/justin.png';
 import amaury from '../assets/images/amaury.png';
 import { Link } from 'react-router-dom';
