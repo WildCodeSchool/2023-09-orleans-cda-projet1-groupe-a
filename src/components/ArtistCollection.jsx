@@ -136,7 +136,10 @@ function ArtistCollection() {
               className={`${getClassName(
                 i,
               )} absolute left-0 right-0 top-1/2 mx-auto h-[500px] w-[350px] -translate-y-1/2 cursor-pointer object-cover opacity-0 shadow-lg grayscale duration-500`}
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setIndex(i);
+              }}
             />
           );
         })}
