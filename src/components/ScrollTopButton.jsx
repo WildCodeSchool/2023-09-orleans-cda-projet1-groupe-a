@@ -24,7 +24,7 @@ function ScrollTopButton({ relativeTo }) {
     <>
       {showTopBtn && (
         <button
-          className="fixed bottom-[40px] right-[50px] h-[50px] w-[60px] cursor-pointer"
+          className="fixed bottom-[35px] right-[30px] h-[50px] w-[60px] cursor-pointer"
           onClick={goToTop}
         >
           <ChevronUp
