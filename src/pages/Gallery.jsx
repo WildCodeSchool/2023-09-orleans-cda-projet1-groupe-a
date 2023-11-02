@@ -13,10 +13,10 @@ export default function Gallery() {
   const [search, setSearch] = useState('');
 
   const [gridStyle, setGridStyle] = useState(
-    'grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4',
+    'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
   );
   const [imgStyle, setImgStyle] = useState(
-    'w-[70vw] h-80 lg:w-80 lg:h-[25rem]',
+    'w-[70vw] h-80 lg:w-80 lg:h-[22rem]',
   );
 
   const handleGridChange = (newStyle) => {
@@ -39,7 +39,7 @@ export default function Gallery() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchArtworks(search, 20, signal)
+    fetchArtworks(search, 100, signal)
       .then((data) => {
         setArt(data);
       })
@@ -55,7 +55,7 @@ export default function Gallery() {
     <>
       <div className="flex min-h-screen">
         <div className="container mx-auto p-4">
-          <h1 className="mb-9 mt-48 text-center text-4xl font-normal drop-shadow-md">
+          <h1 className="mb-9 mt-56 text-center text-4xl font-normal drop-shadow-md">
             GALLERY
           </h1>
           <div className="mx-2 mb-16 flex h-10 items-center justify-between rounded-lg border p-4 text-end shadow-2xl">
@@ -78,7 +78,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-2');
-                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[25rem]');
+                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[22rem]');
                 }}
               >
                 <Grid2 />
@@ -89,7 +89,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-3');
-                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[25rem]');
+                  handleImgChange('w-[70vw] h-80 lg:w-80 lg:h-[22rem]');
                 }}
               >
                 <Grid3 />
@@ -100,7 +100,7 @@ export default function Gallery() {
                 }`}
                 onClick={() => {
                   handleGridChange('grid-cols-4');
-                  handleImgChange('lg:w-80 lg:h-[25rem]');
+                  handleImgChange('lg:w-80 lg:h-[22rem]');
                 }}
               >
                 <Grid4 />
@@ -144,7 +144,7 @@ export default function Gallery() {
                         >
                           <Link to={`/artists/${artwork.artist_title}`}>
                             <img
-                              className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                              className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl transition duration-500 hover:scale-110`}
                               src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                               alt={artwork.title}
                             />
