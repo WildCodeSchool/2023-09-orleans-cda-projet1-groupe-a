@@ -48,7 +48,7 @@ const FilterBar = ({ onFilterChange }) => {
         <div className="mb-4">
           <label
             onClick={() => handleToggleMenu('artists')}
-            className="mb-3 mt-8 flex text-lg"
+            className="mb-3 mt-8 flex cursor-pointer text-lg"
           >
             ARTISTS
             {isMenuOpen('artists') ? (
@@ -89,7 +89,7 @@ const FilterBar = ({ onFilterChange }) => {
         <div className="mb-4">
           <label
             onClick={() => handleToggleMenu('period')}
-            className="mb-3 mt-8 flex text-lg"
+            className="mb-3 mt-8 flex cursor-pointer text-lg"
           >
             PERIOD
             {isMenuOpen('period') ? (
@@ -128,7 +128,7 @@ const FilterBar = ({ onFilterChange }) => {
         <div className="mb-4">
           <label
             onClick={() => handleToggleMenu('style')}
-            className="mb-3 mt-8 flex text-lg"
+            className="mb-3 mt-8 flex cursor-pointer text-lg"
           >
             STYLE
             {isMenuOpen('style') ? (
@@ -167,7 +167,7 @@ const FilterBar = ({ onFilterChange }) => {
         <div className="mb-4">
           <label
             onClick={() => handleToggleMenu('artworkType')}
-            className="mb-3 mt-8 flex whitespace-nowrap text-lg"
+            className="mb-3 mt-8 flex cursor-pointer whitespace-nowrap text-lg"
           >
             ARTWORK TYPE
             {isMenuOpen('artworkType') ? (
