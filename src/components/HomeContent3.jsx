@@ -1,6 +1,6 @@
-import home1 from '../assets/images/home1.png';
-import home2 from '../assets/images/home2.png';
-import home3 from '../assets/images/home3.png';
+import home1 from '../assets/images/home-1.png';
+import home2 from '../assets/images/home-2.png';
+import home3 from '../assets/images/home-3.png';
 import { motion, useTransform } from 'framer-motion';
 import { useOutletContext } from 'react-router-dom';
 

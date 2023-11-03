@@ -2,17 +2,17 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   safelist: [
-    "bg-[url('/BG.avif')]",
-    "bg-[url('/BG1.jpg')]",
-    "bg-[url('/BG2.jpg')]",
-    "bg-[url('/BG3.jpg')]",
-    "bg-[url('/BG4.jpg')]",
-    "bg-[url('/BG5.jpg')]",
-    "bg-[url('/BG6.jpg')]",
-    "bg-[url('/BG7.jpg')]",
-    "bg-[url('/BG8.jpg')]",
-    "bg-[url('/BG9.jpg')]",
-    "bg-[url('/BG10.jpg')]",
+    "bg-[url('/bg.avif')]",
+    "bg-[url('/bg-1.jpg')]",
+    "bg-[url('/bg-2.jpg')]",
+    "bg-[url('/bg-3.jpg')]",
+    "bg-[url('/bg-4.jpg')]",
+    "bg-[url('/bg-5.jpg')]",
+    "bg-[url('/bg-6.jpg')]",
+    "bg-[url('/bg-7.jpg')]",
+    "bg-[url('/bg-8.jpg')]",
+    "bg-[url('/bg-9.jpg')]",
+    "bg-[url('/bg-10.jpg')]",
   ],
   theme: {
     extend: {

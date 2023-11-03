@@ -3,17 +3,17 @@ import HomeContent2 from '../components/HomeContent2';
 import HomeContent3 from '../components/HomeContent3';
 
 const images = [
-  'BG.avif',
-  'BG1.jpg',
-  'BG2.jpg',
-  'BG3.jpg',
-  'BG4.jpg',
-  'BG5.jpg',
-  'BG6.jpg',
-  'BG7.jpg',
-  'BG8.jpg',
-  'BG9.jpg',
-  'BG10.jpg',
+  'bg.avif',
+  'bg-1.jpg',
+  'bg-2.jpg',
+  'bg-3.jpg',
+  'bg-4.jpg',
+  'bg-5.jpg',
+  'bg-6.jpg',
+  'bg-7.jpg',
+  'bg-8.jpg',
+  'bg-9.jpg',
+  'bg-10.jpg',
 ];
 
 const randomImage = Math.floor(Math.random() * images.length);
