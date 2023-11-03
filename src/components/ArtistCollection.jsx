@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { fetchArtworks } from '../api';
+import { fetchArtworksByArtistId } from '../api';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useParams } from 'react-router-dom';
@@ -11,7 +11,7 @@ function ArtistCollection() {
   const [isOpen, setIsOpen] = useState(false);
   const popUp = useRef(null);
   const params = useParams();
-  const search = params.artist_title;
+  const artist_id = params.artist_id;
 
   // Closed pop-up outside the component
   useEffect(() => {
@@ -49,7 +49,7 @@ function ArtistCollection() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchArtworks(search, 20, signal)
+    fetchArtworksByArtistId(artist_id, 20, signal)
       .then((data) => {
         setArtworks(data);
       })
@@ -60,7 +60,7 @@ function ArtistCollection() {
     return function cleanup() {
       controller.abort();
     };
-  }, [search]);
+  }, [artist_id]);
 
   useEffect(() => {
     if (!isOpen) {

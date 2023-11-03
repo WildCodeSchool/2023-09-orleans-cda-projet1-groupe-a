@@ -1,4 +1,4 @@
-import { fetchArtworks } from '../api';
+import { fetchArtworksByArtistId } from '../api';
 import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import ArtistCollection from '../components/ArtistCollection';
@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 function Artists() {
   const [artworks, setArtworks] = useState([]);
   const params = useParams();
-  const search = params.artist_title;
+  const artist_id = params.artist_id;
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
     const art = 20;
 
-    fetchArtworks(search, 80, signal)
+    fetchArtworksByArtistId(artist_id, 20, signal)
       .then((data) => {
         const finalArtworks = [];
         for (let i = 0; i < art * 4; i++) {
@@ -30,7 +30,7 @@ function Artists() {
     return function cleanup() {
       controller.abort();
     };
-  }, [search]);
+  }, [artist_id]);
 
   const artworkDescription = DOMPurify.sanitize(artworks[0]?.description || '');
 

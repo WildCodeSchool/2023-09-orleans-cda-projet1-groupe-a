@@ -41,7 +41,7 @@ export default function Gallery() {
 
     fetchArtworks(search, 100, signal)
       .then((data) => {
-        setArt(data);
+        setArt(data.filter((d) => d.artist_id));
       })
       .catch((error) => {
         throw new Error('An error occurred while retrieving the data.', error);
@@ -142,7 +142,7 @@ export default function Gallery() {
                           layout
                           className="mb-8"
                         >
-                          <Link to={`/artists/${artwork.artist_title}`}>
+                          <Link to={`/artists/${artwork.artist_id}`}>
                             <img
                               className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl transition duration-500 hover:scale-110`}
                               src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
