@@ -78,7 +78,7 @@ export default function Gallery() {
           </h1>
           <div className="mx-2 mb-16 flex h-10 items-center justify-between rounded-lg border p-4 text-end shadow-2xl">
             <div
-              className="flex items-center"
+              className="flex cursor-pointer items-center"
               onClick={toggleFilterBarVisibility}
             >
               {filterBarVisible ? (
@@ -86,7 +86,7 @@ export default function Gallery() {
               ) : (
                 <h2 className="mr-32 whitespace-nowrap">SHOW FILTERS</h2>
               )}
-              <ListFilter className="sm:ml-8 md:ml-8 lg:ml-8"></ListFilter>
+              <ListFilter className="cursor-pointer sm:ml-8 md:ml-8 lg:ml-8"></ListFilter>
               <Tally1 className="invisible ml-8 ms-3 sm:visible md:visible lg:visible" />
             </div>
             <div className="mb-4 text-end">
