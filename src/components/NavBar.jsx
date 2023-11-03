@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Logo from './icon/Logo';
 import MenuToggle from './MenuToggle';
 import SideBar from './Sidebar';
@@ -8,7 +8,6 @@ import { motion, useMotionValueEvent } from 'framer-motion';
 
 export default function NavBar({ scrollYProgress }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [navVisible, setNavVisible] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
