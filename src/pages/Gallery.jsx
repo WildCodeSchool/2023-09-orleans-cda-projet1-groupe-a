@@ -149,7 +149,7 @@ export default function Gallery() {
                       >
                         <Link to={`/artists/${artwork.artist_title}`}>
                           <img
-                            className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl grayscale transition duration-500 hover:scale-110 hover:grayscale-0 `}
+                            className={`${imgStyle} mx-auto cursor-pointer object-cover shadow-xl transition duration-500 hover:scale-110 `}
                             src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
                             alt={artwork.title}
                           />
