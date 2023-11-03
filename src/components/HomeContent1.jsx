@@ -8,8 +8,8 @@ const HomeContent1 = () => {
 
   const scale = useTransform(scrollYProgress, [0, 0.13], [0.2, 1]);
 
-  const translateX1 = useTransform(scrollYProgress, [0.08, 0.15], [-400, 0]);
-  const translateX2 = useTransform(scrollYProgress, [0.08, 0.15], [400, 0]);
+  const translateX1 = useTransform(scrollYProgress, [0.08, 0.15], [-800, 0]);
+  const translateX2 = useTransform(scrollYProgress, [0.08, 0.15], [800, 0]);
   const translateY = useTransform(scrollYProgress, [0, 0.13], [400, 0]);
 
   return (
