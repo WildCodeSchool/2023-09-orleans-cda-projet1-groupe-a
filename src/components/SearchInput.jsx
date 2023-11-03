@@ -13,15 +13,17 @@ export default function SearchInput() {
       setSuggestions([]);
     } else {
       fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${debouncedSearchValue}&fields=id,artist_title&limit=5`,
+        `https://api.artic.edu/api/v1/artworks/search?q=${debouncedSearchValue}&fields=id,artist_title,artist_id&limit=5`,
       )
         .then((response) => response.json())
         .then((data) => {
-          const filteredSuggestions = data.data.filter((suggestion) =>
-            suggestion.artist_title
-              .toLowerCase()
-              .includes(debouncedSearchValue.toLowerCase()),
-          );
+          const filteredSuggestions = data.data
+            .filter((suggestion) =>
+              suggestion.artist_title
+                .toLowerCase()
+                .includes(debouncedSearchValue.toLowerCase()),
+            )
+            .filter((d) => d.artist_id);
           setSuggestions(filteredSuggestions);
         });
     }
@@ -83,7 +85,7 @@ export default function SearchInput() {
               return (
                 <Link
                   key={suggestion.id}
-                  to={`/artists/${suggestion.artist_title}`}
+                  to={`/artists/${suggestion.artist_id}`}
                 >
                   <li className="relative cursor-pointer whitespace-nowrap border-b-2 px-2 py-4 hover:opacity-50">
                     {artistName}

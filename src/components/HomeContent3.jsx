@@ -1,6 +1,6 @@
-import home1 from '../assets/images/home-1.png';
-import home2 from '../assets/images/home-2.png';
-import home3 from '../assets/images/home-3.png';
+import home9 from '../assets/images/home-9.jpg';
+import home11 from '../assets/images/home-11.jpg';
+import home10 from '../assets/images/home-10.jpg';
 import { motion, useTransform } from 'framer-motion';
 import { useOutletContext } from 'react-router-dom';
 
@@ -62,7 +62,7 @@ export default function HomeContent3() {
           }}
         >
           <img
-            src={home2}
+            src={home9}
             alt="art"
             className="mb-24 h-80 w-[70vw] object-cover md:h-[557px] md:w-[375px]"
           />
@@ -74,7 +74,7 @@ export default function HomeContent3() {
           style={{
             translateY: translateY1,
           }}
-          src={home3}
+          src={home10}
           alt="art"
           className="h-80 w-[70vw] object-cover sm:w-2/4 md:h-[557px] md:w-[375px]"
         />
@@ -82,7 +82,7 @@ export default function HomeContent3() {
           style={{
             translateY: translateY2,
           }}
-          src={home1}
+          src={home11}
           alt="art"
           className="h-80 w-[70vw] object-cover sm:w-2/4 sm:duration-75 md:h-[557px] md:w-[375px] md:duration-75 lg:ml-[4.5rem] lg:h-[557px] lg:w-[375px] lg:duration-75"
         />

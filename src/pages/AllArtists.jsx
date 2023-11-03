@@ -12,7 +12,7 @@ function AllArtists() {
 
     fetchArtworks(search, 100, signal)
       .then((data) => {
-        setArtworks(data);
+        setArtworks(data.filter((d) => d.artist_id));
       })
       .catch((error) => {
         throw new Error('An error occurred while retrieving the data.', error);
@@ -28,7 +28,7 @@ function AllArtists() {
         key={artwork.id}
         className={`h-[325px] w-[300px] gap-[1vw] rounded p-5 shadow-lg ${animationDirection}`}
       >
-        <Link to={`/artists/${artwork.artist_title}`}>
+        <Link to={`/artists/${artwork.artist_id}`}>
           <img
             src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`}
             alt={artwork.artist_title}
