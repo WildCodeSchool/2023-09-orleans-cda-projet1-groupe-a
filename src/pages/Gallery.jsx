@@ -28,9 +28,6 @@ const cardVariant = {
 export default function Gallery() {
   const [art, setArt] = useState([]);
   const [search, setSearch] = useState('');
-  const [limit, setLimit] = useState(20);
-  const [page, setPage] = useState(1);
-  console.log(limit);
 
   const [gridStyle, setGridStyle] = useState(
     'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
@@ -59,7 +56,7 @@ export default function Gallery() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchArtworks(search, limit, signal)
+    fetchArtworks(search, 100, signal)
       .then((data) => {
         setArt(data);
       })
@@ -70,18 +67,7 @@ export default function Gallery() {
     return function cleanup() {
       controller.abort();
     };
-  }, [search, limit]);
-
-  const handleChange = () => {
-    const maxPictures = 100;
-    const maxPages = 5;
-    setLimit((prevLimit) => prevLimit + 20);
-    setPage(page + 1);
-    if (limit >= maxPictures && page >= maxPages) {
-      setLimit(100);
-      setPage(5);
-    }
-  };
+  }, [search]);
 
   return (
     <>
@@ -180,12 +166,6 @@ export default function Gallery() {
               </motion.div>
             </ul>
           </div>
-          <button
-            className="flex items-center justify-center"
-            onClick={handleChange}
-          >
-            {page}
-          </button>
         </div>
       </div>
     </>
