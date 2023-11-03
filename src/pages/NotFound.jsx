@@ -26,7 +26,7 @@ function NotFound() {
           <h1 className="mt-[160px] font-aurore text-9xl">404</h1>
         </div>
         <img
-          src="/404.png"
+          src={`${import.meta.env.BASE_URL}404.png`}
           alt="Page not found"
           className="m-auto h-[700px] object-cover pt-[150px]"
         ></img>
