@@ -1,6 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
 import home6 from '../assets/images/home-6.jpg';
-// import home2 from '../assets/images/home2.png';
 import home3 from '../assets/images/home-3.jpg';
 import home4 from '../assets/images/home-4.jpg';
 import home5 from '../assets/images/home-5.jpg';

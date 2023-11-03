@@ -2,8 +2,7 @@ import { fetchArtworksByArtistId } from '../api';
 import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import ArtistCollection from '../components/ArtistCollection';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function Artists() {
   const [artworks, setArtworks] = useState([]);
@@ -13,12 +12,12 @@ function Artists() {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    const art = 20;
+    const artIndex = 20;
 
     fetchArtworksByArtistId(artist_id, 20, signal)
       .then((data) => {
         const finalArtworks = [];
-        for (let i = 0; i < art * 4; i++) {
+        for (let i = 0; i < artIndex * 4; i++) {
           finalArtworks.push(data[i % data.length]);
         }
         setArtworks(finalArtworks);

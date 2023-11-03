@@ -36,7 +36,7 @@ const HomeContent1 = () => {
           }}
           className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[45vw]"
           src={homeImageLeft}
-          alt="coucou"
+          alt="a painting"
         />
         <motion.img
           style={{
@@ -44,7 +44,7 @@ const HomeContent1 = () => {
           }}
           className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[45vw]"
           src={homeImageRight}
-          alt=""
+          alt="a painting"
         />
       </div>
     </>
