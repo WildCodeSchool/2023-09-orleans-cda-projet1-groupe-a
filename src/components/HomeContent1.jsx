@@ -29,22 +29,22 @@ const HomeContent1 = () => {
         </h2>
       </motion.div>
 
-      <div className="lg-justify-center flex flex-col items-center gap-5 md:flex-row md:justify-center lg:flex-row">
+      <div className="lg-justify-center flex flex-col items-center gap-11 md:flex-row md:justify-center lg:flex-row">
         <motion.img
           style={{
             translateX: translateX1,
           }}
-          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[45vw]"
+          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[30vw]"
           src={homeImageLeft}
-          alt="a painting"
+          alt="coucou"
         />
         <motion.img
           style={{
             translateX: translateX2,
           }}
-          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[45vw]"
+          className="w-[50vw] object-cover duration-700 md:h-[40.5vw] md:w-[30vw]"
           src={homeImageRight}
-          alt="a painting"
+          alt=""
         />
       </div>
     </>
