@@ -47,7 +47,7 @@ export default function NavBar({ scrollYProgress }) {
             <Logo />
           </Link>
         </div>
-        <div className="flex w-1/3 justify-end">
+        <div className="flex w-1/3 justify-end ">
           <SearchInput />
         </div>
         <SideBar isOpen={isOpen} setIsOpen={setIsOpen} buttonRef={buttonRef} />
